@@ -3,166 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Aerosearch Technologies</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Arial, sans-serif;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
-    body {
-        background: #f5f5f5;
-        color: #222;
-    }
+body {
+    background: #f5f5f5;
+    color: #222;
+    overflow-x: hidden;
+}
 
-    /* ================= NAVBAR ================= */
-    header {
+/* ================= NAVBAR ================= */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: #0a4fa3;
+}
+
+/* Desktop Nav */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #0a4fa3;
+}
+
+.contact-btn {
+    background: black;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.hero {
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url("hero.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 48px;
+    max-width: 600px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* ================= CONTACT MODAL ================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 360px;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #0a4fa3;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ================= ABOUT PANEL ================= */
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 420px;
+    height: 100%;
+    background: white;
+    padding: 25px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 1500;
+    overflow-y: auto;
+}
+
+.side-panel.open {
+    right: 0;
+}
+
+.close-btn {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.side-panel h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #0a4fa3;
+}
+
+.side-panel p,
+.side-panel li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    nav {
         position: fixed;
-        top: 0;
+        top: 70px;
+        left: 0;
         width: 100%;
-        height: 70px;
         background: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 40px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-        font-size: 20px;
-        color: #0a4fa3;
+        flex-direction: column;
+        display: none;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
 
     nav a {
-        margin: 0 15px;
-        text-decoration: none;
-        color: #222;
-        font-weight: 500;
+        padding: 14px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
     }
 
-    nav a:hover {
-        color: #0a4fa3;
+    nav.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
     }
 
     .contact-btn {
-        background: black;
-        color: white;
-        padding: 8px 16px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
+        display: none;
     }
 
-    /* ================= HERO ================= */
     .hero {
-        margin-top: 70px;
-        height: calc(100vh - 70px);
-        background: linear-gradient(
-            rgba(0,0,0,0.3),
-            rgba(0,0,0,0.3)
-        ),
-        url("hero.png") center/cover no-repeat;
-        display: flex;
-        align-items: center;
-        padding-left: 60px;
+        padding: 20px;
+        text-align: center;
     }
 
     .hero h1 {
-        color: white;
-        font-size: 48px;
-        max-width: 600px;
+        font-size: 30px;
     }
 
-    /* ================= FOOTER ================= */
-    footer {
-        background: #f0f0f0;
-        text-align: center;
-        padding: 20px;
-        font-size: 14px;
-    }
-
-    /* ================= CONTACT MODAL ================= */
-    .modal {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 2000;
-    }
-
-    .modal-content {
-        background: white;
-        padding: 25px 30px;
-        border-radius: 10px;
-        text-align: center;
-        min-width: 320px;
-    }
-
-    .modal-content button {
-        margin-top: 15px;
-        padding: 6px 14px;
-        background: #0a4fa3;
-        border: none;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-    }
-
-    /* ================= ABOUT PANEL ================= */
     .side-panel {
-        position: fixed;
-        top: 0;
-        right: -420px;
-        width: 420px;
-        height: 100%;
-        background: white;
-        padding: 30px;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-        transition: 0.3s;
-        z-index: 1500;
-        overflow-y: auto;
+        width: 100%;
+        right: -100%;
     }
-
-    .side-panel.open {
-        right: 0;
-    }
-
-    .close-btn {
-        float: right;
-        font-size: 20px;
-        cursor: pointer;
-    }
-
-    .side-panel h3 {
-        margin-top: 20px;
-        margin-bottom: 10px;
-        color: #0a4fa3;
-    }
-
-    .side-panel p {
-        font-size: 14px;
-        line-height: 1.6;
-        margin-bottom: 10px;
-    }
-
-    .side-panel ul {
-        padding-left: 18px;
-    }
-
-    .side-panel li {
-        margin-bottom: 6px;
-        font-size: 14px;
-    }
+}
 </style>
 </head>
 
@@ -172,13 +223,15 @@
 <header>
     <div class="logo">Aerosearch Technologies</div>
 
-    <nav>
+    <nav id="navMenu">
         <a href="#" onclick="openAbout()">About Us</a>
         <a href="#">Drone Education</a>
         <a href="#">Drone-Lab Setup</a>
         <a href="#">Drone Software</a>
+        <a href="#" onclick="openContact()">Contact</a>
     </nav>
 
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <div class="contact-btn" onclick="openContact()">Contact</div>
 </header>
 
@@ -207,23 +260,18 @@
 
     <h3>Aerosearch Technologies Private Limited</h3>
     <p>
-        Aerosearch Technologies Private Limited is a leading provider of drone
-        solutions, AI-powered data analytics, digital transformation services,
+        Leading provider of drone solutions, AI-powered analytics,
         Drone-as-a-Service (DaaS), and Drone Education.
     </p>
 
     <h3>Vision</h3>
     <p>
-        To be a global leader in automation and AI-driven drone technologies,
-        revolutionizing industries and defense with innovative, sustainable,
-        and efficient solutions.
+        To be a global leader in AI-driven drone technologies.
     </p>
 
     <h3>Mission</h3>
     <p>
-        To innovate drone and AI-driven solutions empowering industries and
-        defense with efficiency and sustainability, while fostering indigenous
-        capabilities under Atmanirbhar Bharat.
+        Empower industries and defense through indigenous innovation.
     </p>
 
     <h3>Why Choose Us?</h3>
@@ -235,28 +283,30 @@
     </ul>
 
     <p style="margin-top:15px;">
-        Write to us at:<br>
         <strong>aerosearchtech@gmail.com</strong>
     </p>
 </div>
 
-<!-- ================= JS ================= -->
 <script>
-    function openContact() {
-        document.getElementById("contactModal").style.display = "flex";
-    }
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("open");
+}
 
-    function closeContact() {
-        document.getElementById("contactModal").style.display = "none";
-    }
+function openContact() {
+    document.getElementById("contactModal").style.display = "flex";
+}
 
-    function openAbout() {
-        document.getElementById("aboutPanel").classList.add("open");
-    }
+function closeContact() {
+    document.getElementById("contactModal").style.display = "none";
+}
 
-    function closeAbout() {
-        document.getElementById("aboutPanel").classList.remove("open");
-    }
+function openAbout() {
+    document.getElementById("aboutPanel").classList.add("open");
+}
+
+function closeAbout() {
+    document.getElementById("aboutPanel").classList.remove("open");
+}
 </script>
 
 </body>
