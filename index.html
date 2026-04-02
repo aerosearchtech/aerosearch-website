@@ -90,6 +90,21 @@ nav a {
     cursor: pointer;
 }
 
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background: white;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+    
 /* TEXT */
 .content {
     max-width: 600px;
@@ -201,7 +216,7 @@ footer {
 <header>
     <div class="logo">
         <img src="logo.png">
-        <span>AEROSEARCH</span>
+        <span>Aerosearch Technologies</span>
     </div>
 
     <nav>
