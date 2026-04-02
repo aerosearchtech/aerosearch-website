@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Aerosearch Technologies</title>
+
 <!-- TAB ICON -->
 <link rel="icon" type="image/png" href="favicon.ico">
 <link rel="shortcut icon" href="favicon.ico">
+
 
 <style>
 * {
@@ -43,7 +45,7 @@ body {
     padding: 100px 60px;
 }
 
-/* BACKGROUND IMAGE */
+/* BACKGROUND */
 .section::before {
     content: "";
     position: absolute;
@@ -54,7 +56,6 @@ body {
     filter: brightness(0.6);
 }
 
-/* DIFFERENT BACKGROUNDS */
 .sec1::before { background-image: url("hero.png"); }
 .sec2::before { background-image: url("hero22.png"); }
 .sec3::before { background-image: url("hero3.png"); }
@@ -86,22 +87,7 @@ nav a {
     text-decoration: none;
     font-size: 13px;
     letter-spacing: 1px;
-    position: relative;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -4px;
-    left: 0;
-    background: white;
-    transition: 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
+    cursor: pointer;
 }
 
 /* TEXT */
@@ -124,23 +110,65 @@ nav a:hover::after {
 
 .content p {
     font-size: 16px;
-    margin-bottom: 20px;
 }
 
-.btn {
-    border: 2px solid white;
-    padding: 10px 25px;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn:hover {
+/* ================= ABOUT PANEL ================= */
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 420px;
+    height: 100%;
     background: white;
     color: black;
+    padding: 25px;
+    transition: 0.3s;
+    z-index: 2000;
+    overflow-y: auto;
 }
 
-/* MOBILE */
+.side-panel.open {
+    right: 0;
+}
+
+.close-btn {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.side-panel h3 {
+    margin-top: 20px;
+    color: #0a4fa3;
+}
+
+/* ================= CONTACT MODAL ================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.modal-content {
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
     .section {
@@ -151,8 +179,17 @@ nav a:hover::after {
         font-size: 30px;
     }
 
+    .content p {
+        font-size: 14px;
+    }
+
     nav {
         display: none;
+    }
+
+    .side-panel {
+        width: 100%;
+        right: -100%;
     }
 }
 </style>
@@ -160,6 +197,7 @@ nav a:hover::after {
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="logo">
         <img src="logo.png">
@@ -167,51 +205,71 @@ nav a:hover::after {
     </div>
 
     <nav>
-        <a href="#">ABOUT</a>
+        <a onclick="openAbout()">ABOUT</a>
         <a href="#">TECH</a>
-        <!-- <a href="#">SERVICES</a>-->
-        <!-- <a href="#">CONTACT</a>-->
-        <a href="#" onclick="openContact()">CONTACT</a>
+        <a onclick="openContact()">CONTACT</a>
     </nav>
 </header>
 
-
-
 <div class="container">
 
-    <!-- SECTION 1 -->
-    <section class="section sec1">
-        <div class="content">
-            <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
-            <nav> <a href="#"><p>Advanced drone intelligence powered by AI</p></a></nav>
-            <!-- <a href="#" class="btn">LEARN MORE</a>-->
-        </div>
-    </section>
+<!-- SECTION 1 -->
+<section class="section sec1">
+    <div class="content">
+        <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
+        <p>Advanced drone intelligence powered by AI</p>
+    </div>
+</section>
 
-    <!-- SECTION 2 -->
-    <section class="section sec2">
-        <div class="content">
-            <h1>SENSOR FUSION TECHNOLOGY</h1>
-            <nav> <a href="#"><p>Sensor Fusion for Autonomous UAVs in defense & industry</p></a></nav>
-            <!-- <a href="#" class="btn">EXPLORE</a>-->
-        </div>
-    </section>
+<!-- SECTION 2 -->
+<section class="section sec2">
+    <div class="content">
+        <h1>SENSOR FUSION TECHNOLOGY</h1>
+        <nav> <a href="#"><p>Sensor Fusion for Autonomous UAVs in defense & industry</p></a></nav>
+    </div>
+</section>
 
-    <!-- SECTION 3 -->
-    <section class="section sec3">
-        <div class="content">
-            <h1>INTELLIGENT OBJECT DETECTION</h1>
-           <nav> <a href="#"><p>Turning aerial data into real-time object detection</p></a></nav>
-           <!--  <a href="#" class="btn">DISCOVER</a>-->
-        </div>
-    </section>
+<!-- SECTION 3 -->
+<section class="section sec3">
+    <div class="content">
+        <h1>INTELLIGENT OBJECT DETECTION</h1>
+        <nav> <a href="#"><p>Turning aerial data into real-time object detection</p></a></nav>
+    </div>
+</section>
 
-        <!-- ================= FOOTER ================= -->
 <footer>
-    © Aerosearch Technologies Private Limited, India, 2024.<br>
-    <strong>Make in India</strong>
+© Aerosearch Technologies Pvt Ltd, India
 </footer>
 
+</div>
+
+<!-- ABOUT PANEL -->
+<div class="side-panel" id="aboutPanel">
+<span class="close-btn" onclick="closeAbout()">✕</span>
+
+<h3>Aerosearch Technologies</h3>
+<p>Leading provider of drone solutions, AI analytics and DaaS.</p>
+
+<h3>Vision</h3>
+<p>Global leader in AI-driven drone innovation.</p>
+
+<h3>Mission</h3>
+<p>Empowering industries with indigenous technology.</p>
+
+<h3>Why Choose Us?</h3>
+<ul>
+<li>Seamless Integration</li>
+<li>Rapid Deployment</li>
+<li>Zero Capex</li>
+</ul>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+<div class="modal-content">
+<p><strong>Email:</strong><br>aerosearchtech@gmail.com</p>
+<button onclick="closeContact()">OK</button>
+</div>
 </div>
 
 <script>
@@ -227,6 +285,22 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 contents.forEach(el => observer.observe(el));
+
+/* ABOUT PANEL */
+function openAbout() {
+    document.getElementById("aboutPanel").classList.add("open");
+}
+function closeAbout() {
+    document.getElementById("aboutPanel").classList.remove("open");
+}
+
+/* CONTACT MODAL */
+function openContact() {
+    document.getElementById("contactModal").style.display = "flex";
+}
+function closeContact() {
+    document.getElementById("contactModal").style.display = "none";
+}
 </script>
 
 </body>
