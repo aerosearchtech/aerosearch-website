@@ -35,12 +35,16 @@ body {
 
 /* ================= SECTION ================= */
 .section {
-    height: 100vh;
+    min-height: 100vh;
     scroll-snap-align: start;
     position: relative;
     display: flex;
     align-items: flex-end;
     padding: 100px 60px;
+}
+
+.section:last-of-type {
+    min-height: calc(100vh - 80px);
 }
 
 /* ================= BACKGROUND ================= */
@@ -52,12 +56,14 @@ body {
     background-position: center;
     z-index: -1;
     filter: brightness(0.6);
-    animation: zoomOut 8s ease forwards;
+    transform: scale(1.15);
+    animation: zoomOut 6s ease-out forwards;
 }
 
 @keyframes zoomOut {
-    from { transform: scale(1.15); }
-    to { transform: scale(1); }
+    to {
+        transform: scale(1);
+    }
 }
 
 .sec1::before { background-image: url("hero.png"); }
@@ -113,6 +119,14 @@ nav a::after {
 
 nav a:hover::after {
     width: 100%;
+}
+
+footer {
+    scroll-snap-align: none;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 12px;
+    background: black;
 }
 
 /* ================= HAMBURGER ================= */
@@ -209,8 +223,9 @@ nav a:hover::after {
     transition: 0.3s;
     z-index: 2000;
     overflow-y: auto;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.85); /* WHITISH */
+    backdrop-filter: blur(12px);
+    color: black;
 }
 
 .side-panel.open {
@@ -297,7 +312,7 @@ nav a:hover::after {
         <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
         <p>Advanced drone intelligence powered by AI</p>
     </div>
-    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
+    <!-- <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>-->
 </section>
 
 <section class="section sec2">
@@ -305,7 +320,7 @@ nav a:hover::after {
         <h1>SENSOR FUSION TECHNOLOGY</h1>
         <p>Sensor Fusion for Autonomous UAVs in defense & industry</p>
     </div>
-    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
+    <!-- <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>-->
 </section>
 
 <section class="section sec3">
