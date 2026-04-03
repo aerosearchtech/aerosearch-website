@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,10 +6,7 @@
 
 <title>Aerosearch Technologies</title>
 
-<!-- TAB ICON -->
 <link rel="icon" type="image/png" href="favicon.ico">
-<link rel="shortcut icon" href="favicon.ico">
-
 
 <style>
 * {
@@ -29,23 +26,24 @@ body {
     overflow-x: hidden;
 }
 
-/* SCROLL SNAP */
+/* ================= CONTAINER ================= */
 .container {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
     height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
 }
 
+/* ================= SECTION ================= */
 .section {
-    scroll-snap-align: start;
     height: 100vh;
+    scroll-snap-align: start;
     position: relative;
     display: flex;
     align-items: flex-end;
     padding: 100px 60px;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 .section::before {
     content: "";
     position: absolute;
@@ -54,17 +52,23 @@ body {
     background-position: center;
     z-index: -1;
     filter: brightness(0.6);
+    animation: zoomOut 8s ease forwards;
+}
+
+@keyframes zoomOut {
+    from { transform: scale(1.15); }
+    to { transform: scale(1); }
 }
 
 .sec1::before { background-image: url("hero.png"); }
 .sec2::before { background-image: url("hero22.png"); }
 .sec3::before { background-image: url("hero3.png"); }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header {
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     padding: 20px 50px;
     display: flex;
     justify-content: space-between;
@@ -78,7 +82,7 @@ header {
 }
 
 .logo img {
-    height: 40px;
+    height: 42px;
 }
 
 nav a {
@@ -88,15 +92,16 @@ nav a {
     font-size: 13px;
     letter-spacing: 1px;
     cursor: pointer;
+    position: relative;
 }
 
 nav a::after {
     content: "";
     position: absolute;
+    left: 0;
+    bottom: -4px;
     width: 0;
     height: 1px;
-    bottom: -4px;
-    left: 0;
     background: white;
     transition: 0.3s;
 }
@@ -104,13 +109,13 @@ nav a::after {
 nav a:hover::after {
     width: 100%;
 }
-    
-/* TEXT */
+
+/* ================= TEXT ================= */
 .content {
     max-width: 600px;
     opacity: 0;
     transform: translateY(40px);
-    transition: 1s ease;
+    transition: all 0.8s ease;
 }
 
 .content.show {
@@ -127,19 +132,41 @@ nav a:hover::after {
     font-size: 16px;
 }
 
-/* ================= ABOUT PANEL ================= */
+/* ================= SCROLL INDICATOR ================= */
+.scroll-indicator {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translate(-50%,0); }
+    50% { transform: translate(-50%,10px); }
+}
+
+.section:last-of-type .scroll-indicator {
+    display: none;
+}
+
+/* ================= SIDE PANEL ================= */
 .side-panel {
     position: fixed;
     top: 0;
     right: -420px;
     width: 420px;
     height: 100%;
-    background: white;
-    color: black;
     padding: 25px;
     transition: 0.3s;
     z-index: 2000;
     overflow-y: auto;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    color: white;
 }
 
 .side-panel.open {
@@ -152,12 +179,7 @@ nav a:hover::after {
     cursor: pointer;
 }
 
-.side-panel h3 {
-    margin-top: 20px;
-    color: #0a4fa3;
-}
-
-/* ================= CONTACT MODAL ================= */
+/* ================= MODAL ================= */
 .modal {
     position: fixed;
     inset: 0;
@@ -178,8 +200,9 @@ nav a:hover::after {
 
 /* ================= FOOTER ================= */
 footer {
+    scroll-snap-align: none;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     font-size: 12px;
 }
 
@@ -221,7 +244,6 @@ footer {
 
     <nav>
         <a onclick="openAbout()">ABOUT</a>
-       <!--  <a href="#">TECH</a> -->
         <a onclick="openContact()">CONTACT</a>
     </nav>
 </header>
@@ -234,21 +256,23 @@ footer {
         <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
         <p>Advanced drone intelligence powered by AI</p>
     </div>
+    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
 </section>
 
 <!-- SECTION 2 -->
 <section class="section sec2">
     <div class="content">
         <h1>SENSOR FUSION TECHNOLOGY</h1>
-        <nav> <a href="#"><p>Sensor Fusion for Autonomous UAVs in defense & industry</p></a></nav>
+        <p>Sensor Fusion for Autonomous UAVs in defense & industry</p>
     </div>
+    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
 </section>
 
 <!-- SECTION 3 -->
 <section class="section sec3">
     <div class="content">
         <h1>INTELLIGENT OBJECT DETECTION</h1>
-        <nav> <a href="#"><p>Turning aerial data into real-time object detection</p></a></nav>
+        <p>Turning aerial data into real-time object detection</p>
     </div>
 </section>
 
@@ -263,8 +287,7 @@ footer {
 <span class="close-btn" onclick="closeAbout()">✕</span>
 
 <h3>Aerosearch Technologies Private Limited</h3>
-<!-- <p>Leading provider of drone solutions, AI analytics and DaaS.</p>-->
- <p style="text-align: justify;">is a leading provider of drone solutions with AI-powered data analytics and digital transformation. We enable defence sector and industries to optimise operations and improve efficiency.</p>
+<p style="text-align: justify;">is a leading provider of drone solutions with AI-powered data analytics and digital transformation. We enable defence sector and industries to optimise operations and improve efficiency.</p>
 
 <h3>Vision</h3>
 <p>Cementing India as "Vishwaguru" through deep-tech innovation in a high-stakes defense environment.</p>
@@ -273,19 +296,19 @@ footer {
 <p>Military-first development: advanced technology for the frontline, then scaling to civilian markets.</p>
 
 <h3>Motto</h3>
-<p>Nation First: Empowering frontline safety and national security through indigenous innovation under <strong>"Make in India"</strong>strong> for building an <strong>"Atmanirbhar Bharat"</strong>strong>.</p>
+<p>Nation First: Empowering frontline safety and national security through indigenous innovation under <strong>"Make in India"</strong> for building an <strong>"Atmanirbhar Bharat"</strong>.</p>
 
- 
 <h3>Why Choose Us?</h3>
 <ul>
 <li>Seamless Integration</li>
 <li>Rapid Deployment</li>
 <li>Zero Capex</li>
 </ul>
- <hr> 
- <p>Ready to transform your operations with drones?</p> 
- <p style="margin-top:15px;"> Write us at: <strong>aerosearchtech@gmail.com</strong> 
- </p>
+
+<hr>
+
+<p>Ready to transform your operations with drones?</p>
+<p style="margin-top:15px;">Write us at: <strong>aerosearchtech@gmail.com</strong></p>
 </div>
 
 <!-- CONTACT MODAL -->
@@ -297,7 +320,6 @@ footer {
 </div>
 
 <script>
-/* SCROLL ANIMATION */
 const contents = document.querySelectorAll(".content");
 
 const observer = new IntersectionObserver(entries => {
@@ -310,18 +332,23 @@ const observer = new IntersectionObserver(entries => {
 
 contents.forEach(el => observer.observe(el));
 
-/* ABOUT PANEL */
+function scrollNext(el) {
+    const next = el.closest(".section").nextElementSibling;
+    if (next) next.scrollIntoView({ behavior: "smooth" });
+}
+
 function openAbout() {
     document.getElementById("aboutPanel").classList.add("open");
 }
+
 function closeAbout() {
     document.getElementById("aboutPanel").classList.remove("open");
 }
 
-/* CONTACT MODAL */
 function openContact() {
     document.getElementById("contactModal").style.display = "flex";
 }
+
 function closeContact() {
     document.getElementById("contactModal").style.display = "none";
 }
