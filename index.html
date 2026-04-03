@@ -497,7 +497,7 @@ function AboutPanel() {
                             fontWeight: 800,
                             marginBottom: 4,
                         }}>{label}</p>
-                        <p style={{ fontSize: 13.5, color: "#333", lineHeight: 1.65 }}>{content}</p>
+                        <p style={{ fontSize: 13.5, color: "#333", lineHeight: 1.65, textAlign: "justify" }}>{content}</p>
                     </div>
                 ))}
 
@@ -525,7 +525,7 @@ function AboutPanel() {
                                     display: "flex",
                                     alignItems: "flex-start",
                                     gap: 14,
-                                    padding: "13px 15px",
+                                    padding: "13px 10px",
                                     borderRadius: 8,
                                     border: `1px solid ${hovered === i ? "#0a4fa3" : "#e8e8e8"}`,
                                     background: hovered === i ? "#f0f6ff" : "#fafafa",
@@ -535,9 +535,9 @@ function AboutPanel() {
                             >
                                 {/* Icon bubble */}
                                 <div style={{
-                                    width: 40,
-                                    height: 40,
-                                    minWidth: 40,
+                                    width: 20,
+                                    height: 20,
+                                    minWidth: 20,
                                     borderRadius: 8,
                                     background: hovered === i ? "#0a4fa3" : "#e8f0fe",
                                     display: "flex",
