@@ -56,7 +56,7 @@ body {
 }
 
 @keyframes zoomOut {
-    from { transform: scale(1.15); }
+    from { transform: scale(2.15); }
     to { transform: scale(1); }
 }
 
@@ -159,14 +159,12 @@ nav a:hover::after {
     right: -420px;
     width: 420px;
     height: 100%;
+    background: white;
     padding: 25px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     transition: 0.3s;
-    z-index: 2000;
+    z-index: 1500;
     overflow-y: auto;
-
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(14px);
-    color: white;
 }
 
 .side-panel.open {
@@ -177,6 +175,19 @@ nav a:hover::after {
     float: right;
     font-size: 22px;
     cursor: pointer;
+}
+
+.side-panel h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #0a4fa3;
+}
+
+.side-panel p,
+.side-panel li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
 }
 
 /* ================= MODAL ================= */
@@ -256,7 +267,7 @@ footer {
         <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
         <p>Advanced drone intelligence powered by AI</p>
     </div>
-    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
+ 
 </section>
 
 <!-- SECTION 2 -->
@@ -265,7 +276,7 @@ footer {
         <h1>SENSOR FUSION TECHNOLOGY</h1>
         <p>Sensor Fusion for Autonomous UAVs in defense & industry</p>
     </div>
-    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
+  
 </section>
 
 <!-- SECTION 3 -->
