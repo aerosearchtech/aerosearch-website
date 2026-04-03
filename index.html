@@ -6,7 +6,7 @@
 
 <title>Aerosearch Technologies</title>
 
-<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.ico">
 
 <style>
 * {
@@ -35,16 +35,12 @@ body {
 
 /* ================= SECTION ================= */
 .section {
-    min-height: 100vh;
+    height: 100vh;
     scroll-snap-align: start;
     position: relative;
     display: flex;
     align-items: flex-end;
     padding: 100px 60px;
-}
-
-.section:last-of-type {
-    min-height: calc(100vh - 80px);
 }
 
 /* ================= BACKGROUND ================= */
@@ -56,14 +52,12 @@ body {
     background-position: center;
     z-index: -1;
     filter: brightness(0.6);
-    transform: scale(1.15);
-    animation: zoomOut 6s ease-out forwards;
+    animation: zoomOut 8s ease forwards;
 }
 
 @keyframes zoomOut {
-    to {
-        transform: scale(1);
-    }
+    from { transform: scale(1.15); }
+    to { transform: scale(1); }
 }
 
 .sec1::before { background-image: url("hero.png"); }
@@ -91,11 +85,6 @@ header {
     height: 42px;
 }
 
-/* NAV */
-nav {
-    display: flex;
-}
-
 nav a {
     color: white;
     margin-left: 25px;
@@ -121,44 +110,12 @@ nav a:hover::after {
     width: 100%;
 }
 
-footer {
-    scroll-snap-align: none;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 12px;
-    background: black;
-}
-
-/* ================= HAMBURGER ================= */
-.hamburger {
-    display: none;
-    font-size: 26px;
-    cursor: pointer;
-}
-
-/* MOBILE MENU */
-.mobile-menu {
-    position: fixed;
-    top: 70px;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    display: none;
-    flex-direction: column;
-    z-index: 999;
-}
-
-.mobile-menu a {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #333;
-}
-
 /* ================= TEXT ================= */
 .content {
     max-width: 600px;
     opacity: 0;
     transform: translateY(40px);
-    transition: 0.8s;
+    transition: all 0.8s ease;
 }
 
 .content.show {
@@ -168,6 +125,7 @@ footer {
 
 .content h1 {
     font-size: 52px;
+    margin-bottom: 15px;
 }
 
 .content p {
@@ -190,26 +148,8 @@ footer {
     50% { transform: translate(-50%,10px); }
 }
 
-/* ================= SIDE DOTS ================= */
-.dots {
-    position: fixed;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border: 1px solid white;
-    border-radius: 50%;
-    margin: 10px 0;
-    cursor: pointer;
-}
-
-.dot.active {
-    background: white;
+.section:last-of-type .scroll-indicator {
+    display: none;
 }
 
 /* ================= SIDE PANEL ================= */
@@ -223,13 +163,20 @@ footer {
     transition: 0.3s;
     z-index: 2000;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.85); /* WHITISH */
-    backdrop-filter: blur(12px);
-    color: black;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    color: white;
 }
 
 .side-panel.open {
     right: 0;
+}
+
+.close-btn {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 /* ================= MODAL ================= */
@@ -248,18 +195,19 @@ footer {
     color: black;
     padding: 25px;
     border-radius: 10px;
+    text-align: center;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    scroll-snap-align: none;
+    text-align: center;
+    padding: 30px;
+    font-size: 12px;
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-
-    nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: block;
-    }
 
     .section {
         padding: 100px 20px;
@@ -267,6 +215,14 @@ footer {
 
     .content h1 {
         font-size: 30px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    nav {
+        display: none;
     }
 
     .side-panel {
@@ -279,6 +235,7 @@ footer {
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="logo">
         <img src="logo.png">
@@ -289,40 +246,29 @@ footer {
         <a onclick="openAbout()">ABOUT</a>
         <a onclick="openContact()">CONTACT</a>
     </nav>
-
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-    <a onclick="openAbout()">ABOUT</a>
-    <a onclick="openContact()">CONTACT</a>
-</div>
+<div class="container">
 
-<!-- SIDE DOTS -->
-<div class="dots">
-    <div class="dot" onclick="goTo(0)"></div>
-    <div class="dot" onclick="goTo(1)"></div>
-    <div class="dot" onclick="goTo(2)"></div>
-</div>
-
-<div class="container" id="container">
-
+<!-- SECTION 1 -->
 <section class="section sec1">
     <div class="content">
         <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
         <p>Advanced drone intelligence powered by AI</p>
     </div>
-    <!-- <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>-->
+    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
 </section>
 
+<!-- SECTION 2 -->
 <section class="section sec2">
     <div class="content">
         <h1>SENSOR FUSION TECHNOLOGY</h1>
         <p>Sensor Fusion for Autonomous UAVs in defense & industry</p>
     </div>
-    <!-- <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>-->
+    <div class="scroll-indicator" onclick="scrollNext(this)">↓</div>
 </section>
 
+<!-- SECTION 3 -->
 <section class="section sec3">
     <div class="content">
         <h1>INTELLIGENT OBJECT DETECTION</h1>
@@ -330,13 +276,39 @@ footer {
     </div>
 </section>
 
+<footer>
+© Aerosearch Technologies Pvt Ltd, India
+</footer>
+
 </div>
 
 <!-- ABOUT PANEL -->
 <div class="side-panel" id="aboutPanel">
-<span onclick="closeAbout()">✕</span>
+<span class="close-btn" onclick="closeAbout()">✕</span>
+
 <h3>Aerosearch Technologies Private Limited</h3>
-<p style="text-align: justify;">is a leading provider of drone solutions with AI-powered data analytics and digital transformation.</p>
+<p style="text-align: justify;">is a leading provider of drone solutions with AI-powered data analytics and digital transformation. We enable defence sector and industries to optimise operations and improve efficiency.</p>
+
+<h3>Vision</h3>
+<p>Cementing India as "Vishwaguru" through deep-tech innovation in a high-stakes defense environment.</p>
+
+<h3>Mission</h3>
+<p>Military-first development: advanced technology for the frontline, then scaling to civilian markets.</p>
+
+<h3>Motto</h3>
+<p>Nation First: Empowering frontline safety and national security through indigenous innovation under <strong>"Make in India"</strong> for building an <strong>"Atmanirbhar Bharat"</strong>.</p>
+
+<h3>Why Choose Us?</h3>
+<ul>
+<li>Seamless Integration</li>
+<li>Rapid Deployment</li>
+<li>Zero Capex</li>
+</ul>
+
+<hr>
+
+<p>Ready to transform your operations with drones?</p>
+<p style="margin-top:15px;">Write us at: <strong>aerosearchtech@gmail.com</strong></p>
 </div>
 
 <!-- CONTACT MODAL -->
@@ -348,43 +320,35 @@ footer {
 </div>
 
 <script>
-const sections = document.querySelectorAll(".section");
-const dots = document.querySelectorAll(".dot");
+const contents = document.querySelectorAll(".content");
 
-function goTo(i) {
-    sections[i].scrollIntoView({ behavior: "smooth" });
-}
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.3 });
 
-document.getElementById("container").addEventListener("scroll", () => {
-    let index = Math.round(container.scrollTop / window.innerHeight);
-    dots.forEach(d => d.classList.remove("active"));
-    if (dots[index]) dots[index].classList.add("active");
-});
+contents.forEach(el => observer.observe(el));
 
-/* SCROLL NEXT */
 function scrollNext(el) {
     const next = el.closest(".section").nextElementSibling;
     if (next) next.scrollIntoView({ behavior: "smooth" });
 }
 
-/* MENU */
-function toggleMenu() {
-    const menu = document.getElementById("mobileMenu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-}
-
-/* ABOUT */
 function openAbout() {
     document.getElementById("aboutPanel").classList.add("open");
 }
+
 function closeAbout() {
     document.getElementById("aboutPanel").classList.remove("open");
 }
 
-/* CONTACT */
 function openContact() {
     document.getElementById("contactModal").style.display = "flex";
 }
+
 function closeContact() {
     document.getElementById("contactModal").style.display = "none";
 }
