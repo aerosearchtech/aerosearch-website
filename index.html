@@ -78,7 +78,7 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 10px;
 }
 
 .logo img {
@@ -108,6 +108,30 @@ nav a::after {
 
 nav a:hover::after {
     width: 100%;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.mobile-menu a {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #333;
 }
 
 /* ================= TEXT ================= */
@@ -151,6 +175,28 @@ nav a:hover::after {
 .section:last-of-type .scroll-indicator {
     display: none;
 } */
+
+/* ================= SIDE DOTS ================= */
+.dots {
+    position: fixed;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: white;
+}
 
 /* ================= SIDE PANEL ================= */
 .side-panel {
@@ -332,6 +378,21 @@ footer {
 </div>
 
 <script>
+
+const sections = document.querySelectorAll(".section");
+const dots = document.querySelectorAll(".dot");
+
+function goTo(i) {
+    sections[i].scrollIntoView({ behavior: "smooth" });
+}
+
+document.getElementById("container").addEventListener("scroll", () => {
+    let index = Math.round(container.scrollTop / window.innerHeight);
+    dots.forEach(d => d.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
+});
+
+    
 const contents = document.querySelectorAll(".content");
 
 const observer = new IntersectionObserver(entries => {
@@ -347,6 +408,12 @@ contents.forEach(el => observer.observe(el));
 function scrollNext(el) {
     const next = el.closest(".section").nextElementSibling;
     if (next) next.scrollIntoView({ behavior: "smooth" });
+}
+
+/* MENU */
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
 function openAbout() {
