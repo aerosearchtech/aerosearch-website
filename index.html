@@ -272,12 +272,23 @@ nav a:hover::after { width: 100%; }
 
 /* ================= FOOTER ================= */
 footer {
-    scroll-snap-align: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     text-align: center;
-    padding: 30px;
+    padding: 14px 30px;
     font-size: 12px;
     color: #aaa;
     background: #0a0a0a;
+    z-index: 900;
+    /* Hidden by default — slides in from below */
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+footer.visible {
+    transform: translateY(0);
 }
 
 /* ================= MOBILE ================= */
@@ -302,16 +313,16 @@ footer {
         <span class="logo-name">AEROSEARCH TECHNOLOGIES</span>
     </div>
     <nav>
-        <a onclick="openAbout()">ABOUT</a>
-        <a onclick="openContact()">CONTACT</a>
+        <a onclick="window.openAbout()">ABOUT</a>
+        <a onclick="window.openContact()">CONTACT</a>
     </nav>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <button class="hamburger" onclick="window.toggleMenu()" aria-label="Toggle menu">&#9776;</button>
 </header>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-    <a onclick="openAbout(); closeMenu()">ABOUT</a>
-    <a onclick="openContact(); closeMenu()">CONTACT</a>
+    <a onclick="window.openAbout(); window.closeMenu()">ABOUT</a>
+    <a onclick="window.openContact(); window.closeMenu()">CONTACT</a>
 </div>
 
 <!-- MAIN CONTAINER -->
@@ -331,7 +342,7 @@ footer {
         </div>
     </section>
 
-    <section class="section sec3">
+    <section class="section sec3" id="lastSection">
         <div class="content">
             <h1>INTELLIGENT OBJECT DETECTION</h1>
             <p>Turning aerial data into real-time object detection</p>
@@ -340,19 +351,18 @@ footer {
 
 </div>
 
-    <!-- FOOTER -->
-<footer>&copy; Aerosearch Technologies Pvt Ltd, India</footer>
-
+<!-- FOOTER — fixed, shown only when last section is visible -->
+<footer id="siteFooter">&copy; Aerosearch Technologies Pvt Ltd, India</footer>
 
 <!-- SIDE DOTS -->
 <div class="dots">
-    <div class="dot active" onclick="goTo(0)" title="Section 1"></div>
-    <div class="dot" onclick="goTo(1)" title="Section 2"></div>
-    <div class="dot" onclick="goTo(2)" title="Section 3"></div>
+    <div class="dot active" onclick="window.goTo(0)" title="Section 1"></div>
+    <div class="dot" onclick="window.goTo(1)" title="Section 2"></div>
+    <div class="dot" onclick="window.goTo(2)" title="Section 3"></div>
 </div>
 
 <!-- PANEL BACKDROP -->
-<div class="panel-backdrop" id="panelBackdrop" onclick="closeAbout()"></div>
+<div class="panel-backdrop" id="panelBackdrop" onclick="window.closeAbout()"></div>
 
 <!-- ABOUT PANEL (React mount point) -->
 <div class="side-panel-wrapper" id="aboutPanel">
@@ -360,10 +370,10 @@ footer {
 </div>
 
 <!-- CONTACT MODAL -->
-<div class="modal" id="contactModal" onclick="closeContact()">
+<div class="modal" id="contactModal" onclick="window.closeContact()">
     <div class="modal-content" onclick="event.stopPropagation()">
         <p><strong>Email:</strong><br>aerosearchtech@gmail.com</p>
-        <button onclick="closeContact()">OK</button>
+        <button onclick="window.closeContact()">OK</button>
     </div>
 </div>
 
@@ -377,17 +387,17 @@ const reasons = [
     {
         icon: "⚡",
         title: "Seamless Integration",
-        
+        desc: "Plug-and-play with existing defence & industrial systems — zero disruption to your operations."
     },
     {
         icon: "🚀",
         title: "Rapid Deployment",
-        
+        desc: "From unboxing to airborne in under 30 minutes. Built for field conditions, not boardrooms."
     },
     {
         icon: "💡",
         title: "Zero Capex",
-        
+        desc: "Subscription-first model. Full access to enterprise-grade drone tech without heavy upfront investment."
     }
 ];
 
@@ -446,7 +456,7 @@ function AboutPanel() {
                         letterSpacing: 0.5,
                         lineHeight: 1.25,
                         marginBottom: 12,
-                    }}>AEROSEARCH TECHNOLOGIES PVT. LTD.</h2>
+                    }}>AEROSEARCH TECHNOLOGIES<br />PVT. LTD.</h2>
                     <p style={{ fontSize: 13.5, color: "#444", lineHeight: 1.7, textAlign: "justify" }}>
                         A leading provider of drone solutions with AI-powered data analytics and digital
                         transformation. We enable the defence sector and industries to optimise operations
@@ -480,11 +490,11 @@ function AboutPanel() {
                     <div key={label} style={{ marginBottom: 16 }}>
                         <p style={{
                             fontFamily: "'Barlow Condensed', Arial, sans-serif",
-                            fontSize: 16,
+                            fontSize: 10,
                             letterSpacing: 2.5,
                             color: "#0a4fa3",
                             textTransform: "uppercase",
-                            fontWeight: 800,
+                            fontWeight: 600,
                             marginBottom: 4,
                         }}>{label}</p>
                         <p style={{ fontSize: 13.5, color: "#333", lineHeight: 1.65 }}>{content}</p>
@@ -497,11 +507,11 @@ function AboutPanel() {
                 <div>
                     <p style={{
                         fontFamily: "'Barlow Condensed', Arial, sans-serif",
-                        fontSize: 16,
+                        fontSize: 10,
                         letterSpacing: 2.5,
                         color: "#0a4fa3",
                         textTransform: "uppercase",
-                        fontWeight: 800,
+                        fontWeight: 600,
                         marginBottom: 14,
                     }}>Why Choose Us</p>
 
@@ -603,22 +613,46 @@ ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPa
      VANILLA JS — page behaviour
      ============================================================ -->
 <script>
-    const container = document.getElementById("container");
-    const sections  = document.querySelectorAll(".section");
-    const dots      = document.querySelectorAll(".dot");
-    const contents  = document.querySelectorAll(".content");
+    const container   = document.getElementById("container");
+    const sections    = document.querySelectorAll(".section");
+    const dots        = document.querySelectorAll(".dot");
+    const contents    = document.querySelectorAll(".content");
+    const siteFooter  = document.getElementById("siteFooter");
+    const lastSection = document.getElementById("lastSection");
 
-    /* Expose closeAbout globally so React ✕ button can call it */
+    /* ── Expose all functions on window so inline onclick attributes work ── */
+
     window.closeAbout = function () {
         document.getElementById("aboutPanel").classList.remove("open");
         document.getElementById("panelBackdrop").classList.remove("open");
     };
 
-    /* ── Dot navigation ── */
-    function goTo(i) {
-        sections[i].scrollIntoView({ behavior: "smooth" });
-    }
+    window.openAbout = function () {
+        document.getElementById("aboutPanel").classList.add("open");
+        document.getElementById("panelBackdrop").classList.add("open");
+    };
 
+    window.openContact = function () {
+        document.getElementById("contactModal").classList.add("open");
+    };
+
+    window.closeContact = function () {
+        document.getElementById("contactModal").classList.remove("open");
+    };
+
+    window.toggleMenu = function () {
+        document.getElementById("mobileMenu").classList.toggle("open");
+    };
+
+    window.closeMenu = function () {
+        document.getElementById("mobileMenu").classList.remove("open");
+    };
+
+    window.goTo = function (i) {
+        sections[i].scrollIntoView({ behavior: "smooth" });
+    };
+
+    /* ── Dot active state ── */
     function updateDots() {
         const index = Math.round(container.scrollTop / window.innerHeight);
         dots.forEach((d, i) => d.classList.toggle("active", i === index));
@@ -626,16 +660,31 @@ ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPa
 
     container.addEventListener("scroll", updateDots);
 
+    /* ── Footer: show when last section is visible, hide otherwise ── */
+    const footerObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                siteFooter.classList.toggle("visible", entry.isIntersecting);
+            });
+        },
+        {
+            root: container,      // observe within the scroll container
+            threshold: 0.3        // trigger when 30 % of last section is visible
+        }
+    );
+
+    footerObserver.observe(lastSection);
+
     /* ── Per-section zoom animation ── */
     const sectionObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.remove("animate");
-                void entry.target.offsetWidth; // force reflow
+                void entry.target.offsetWidth; // force reflow to restart animation
                 entry.target.classList.add("animate");
             }
         });
-    }, { threshold: 0.4 });
+    }, { root: container, threshold: 0.4 });
 
     sections.forEach(sec => sectionObserver.observe(sec));
 
@@ -644,33 +693,9 @@ ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPa
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add("show");
         });
-    }, { threshold: 0.3 });
+    }, { root: container, threshold: 0.3 });
 
     contents.forEach(el => contentObserver.observe(el));
-
-    /* ── Mobile menu ── */
-    function toggleMenu() {
-        document.getElementById("mobileMenu").classList.toggle("open");
-    }
-
-    function closeMenu() {
-        document.getElementById("mobileMenu").classList.remove("open");
-    }
-
-    /* ── About panel ── */
-    function openAbout() {
-        document.getElementById("aboutPanel").classList.add("open");
-        document.getElementById("panelBackdrop").classList.add("open");
-    }
-
-    /* ── Contact modal ── */
-    function openContact() {
-        document.getElementById("contactModal").classList.add("open");
-    }
-
-    function closeContact() {
-        document.getElementById("contactModal").classList.remove("open");
-    }
 
     /* ── Close mobile menu on outside click ── */
     document.addEventListener("click", function (e) {
@@ -679,7 +704,7 @@ ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPa
         if (menu.classList.contains("open") &&
             !menu.contains(e.target) &&
             !hamburger.contains(e.target)) {
-            closeMenu();
+            window.closeMenu();
         }
     });
 </script>
