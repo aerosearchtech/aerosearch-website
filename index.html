@@ -62,10 +62,16 @@ body {
     animation: zoomIn 8s ease forwards;
 }
 
-@keyframes zoomOut {
+/* @keyframes zoomOut {
     from { transform: scale(1.15); }
     to   { transform: scale(1); }
+} */
+
+@keyframes zoomIn {
+    from { transform: scale(0.08); }
+    to   { transform: scale(1.15); }
 }
+
 
 .sec1::before { background-image: url("hero.png"); }
 .sec2::before { background-image: url("hero22.png"); }
