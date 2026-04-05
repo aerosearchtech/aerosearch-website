@@ -37,17 +37,26 @@ body {
 }
 
 /* ================= SECTION ================= */
-.section {
+/* .section {
     height: 100vh;
     scroll-snap-align: start;
     position: relative;
     display: flex;
     align-items: flex-end;
     padding: 100px 60px;  
-}
+} */
 
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 100px 60px;
+    overflow: hidden;
+}
 /* ================= BACKGROUND ================= */
-.section::before {
+/* .section::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -62,20 +71,30 @@ body {
     animation: zoomIn 8s ease forwards;
 }
 
+@keyframes zoomIn {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.25); }
+} */
+
 /* @keyframes zoomOut {
     from { transform: scale(1.15); }
     to   { transform: scale(1); }
 } */
 
-@keyframes zoomIn {
-    from { transform: scale(1.0); }
-    to   { transform: scale(1.25); }
-}
-
-
-.sec1::before { background-image: url("hero.png"); }
+/* .sec1::before { background-image: url("hero.png"); }
 .sec2::before { background-image: url("hero22.png"); }
-.sec3::before { background-image: url("hero3.png"); }
+.sec3::before { background-image: url("hero3.png"); } */
+
+.section-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    filter: brightness(0.55);
+}
 
 /* ================= HEADER ================= */
 header {
@@ -164,7 +183,16 @@ nav a:hover::after { width: 100%; }
 .mobile-menu a:hover { background: rgba(255,255,255,0.1); }
 
 /* ================= SECTION TEXT ================= */
+/* .content {
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+} */
+
 .content {
+    position: relative;
+    z-index: 1;
     max-width: 600px;
     opacity: 0;
     transform: translateY(40px);
@@ -336,6 +364,9 @@ footer.visible {
 <div class="container" id="container">
 
     <section class="section sec1">
+         <video class="section-video" autoplay muted loop playsinline>
+        <source src="video1.mp4" type="video/mp4">
+    </video>
         <div class="content">
             <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
             <p>Advanced drone intelligence powered by AI</p>
@@ -343,6 +374,9 @@ footer.visible {
     </section>
 
     <section class="section sec2">
+         <video class="section-video" autoplay muted loop playsinline>
+        <source src="video2.mp4" type="video/mp4">
+    </video>
         <div class="content">
             <h1>SENSOR FUSION TECHNOLOGY</h1>
             <p>Sensor Fusion for Autonomous UAVs in defense &amp; industry</p>
@@ -350,6 +384,9 @@ footer.visible {
     </section>
 
     <section class="section sec3" id="lastSection">
+         <video class="section-video" autoplay muted loop playsinline>
+        <source src="video3.mp4" type="video/mp4">
+    </video>
         <div class="content">
             <h1>INTELLIGENT OBJECT DETECTION</h1>
             <p>Turning aerial data into real-time object detection</p>
@@ -653,6 +690,20 @@ ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPa
 
     container.addEventListener("scroll", updateDots);
 
+     /* ── Play only the visible video — pause others (saves CPU/battery) ── */
+    const videoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.play().catch(() => {}); // silently handle autoplay policy blocks
+            } else {
+                video.pause();
+            }
+        });
+    }, { root: container, threshold: 0.3 });
+ 
+    videos.forEach(v => videoObserver.observe(v));
+
     /* ── Footer: show when last section is visible, hide otherwise ── */
     const footerObserver = new IntersectionObserver(
         entries => {
@@ -669,17 +720,20 @@ ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPa
     footerObserver.observe(lastSection);
 
     /* ── Per-section zoom animation ── */
-    const sectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove("animate");
-                void entry.target.offsetWidth; // force reflow to restart animation
-                entry.target.classList.add("animate");
-            }
-        });
-    }, { root: container, threshold: 0.4 });
+    // const sectionObserver = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => {
+    //         if (entry.isIntersecting) {
+    //             entry.target.classList.remove("animate");
+    //             void entry.target.offsetWidth; // force reflow to restart animation
+    //             entry.target.classList.add("animate");
+    //         }
+    //     });
+    // }, { root: container, threshold: 0.4 });
 
-    sections.forEach(sec => sectionObserver.observe(sec));
+    // sections.forEach(sec => sectionObserver.observe(sec));
+
+
+    
 
     /* ── Content reveal ── */
     const contentObserver = new IntersectionObserver(entries => {
