@@ -43,39 +43,44 @@ body {
     position: relative;
     display: flex;
     align-items: flex-end;
-    padding: 100px 60px;  
+    padding: 100px 60px;
+    overflow: hidden;           /* clips video inside section bounds */
 }
 
-/* ================= BACKGROUND ================= */
-.section::before {
-    content: "";
+/* ================= VIDEO BACKGROUND ================= */
+.section-video {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    filter: brightness(0.6);
-    transform: scale(1.15);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* fills section like background-size: cover */
+    object-position: center;
+    z-index: 0;
+    filter: brightness(0.55);
 }
 
-.section.animate::before {
-    animation: zoomIn 8s ease forwards;
+/* ================= SECTION TEXT ================= */
+/* z-index: 1 ensures text sits above the video layer */
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
 
-/* @keyframes zoomOut {
-    from { transform: scale(1.15); }
-    to   { transform: scale(1); }
-} */
-
-@keyframes zoomIn {
-    from { transform: scale(1.0); }
-    to   { transform: scale(1.25); }
+.content.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
+.content h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
 
-.sec1::before { background-image: url("hero.png"); }
-.sec2::before { background-image: url("hero22.png"); }
-.sec3::before { background-image: url("hero3.png"); }
+.content p { font-size: 16px; }
 
 /* ================= HEADER ================= */
 header {
@@ -162,26 +167,6 @@ nav a:hover::after { width: 100%; }
 }
 
 .mobile-menu a:hover { background: rgba(255,255,255,0.1); }
-
-/* ================= SECTION TEXT ================= */
-.content {
-    max-width: 600px;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.content.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.content h1 {
-    font-size: 52px;
-    margin-bottom: 15px;
-}
-
-.content p { font-size: 16px; }
 
 /* ================= SIDE DOTS ================= */
 .dots {
@@ -288,7 +273,6 @@ footer {
     color: #aaa;
     background: #0a0a0a;
     z-index: 900;
-    /* Hidden by default — slides in from below */
     transform: translateY(100%);
     transition: transform 0.4s ease;
 }
@@ -299,7 +283,7 @@ footer.visible {
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-    .section { padding: 100px 20px 180px 20px; }  /* adjust 140px to taste */
+    .section { padding: 100px 20px 180px 20px; }
     .content h1 { font-size: 30px; }
     .content p { font-size: 14px; }
     nav { display: none; }
@@ -307,7 +291,6 @@ footer.visible {
     .side-panel-wrapper { width: 100%; right: -100%; }
     .dots { right: 12px; }
 }
-    
 </style>
 </head>
 
@@ -336,6 +319,9 @@ footer.visible {
 <div class="container" id="container">
 
     <section class="section sec1">
+        <video class="section-video" autoplay muted loop playsinline>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
         <div class="content">
             <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
             <p>Advanced drone intelligence powered by AI</p>
@@ -343,6 +329,9 @@ footer.visible {
     </section>
 
     <section class="section sec2">
+        <video class="section-video" autoplay muted loop playsinline>
+            <source src="video2.mp4" type="video/mp4">
+        </video>
         <div class="content">
             <h1>SENSOR FUSION TECHNOLOGY</h1>
             <p>Sensor Fusion for Autonomous UAVs in defense &amp; industry</p>
@@ -350,15 +339,18 @@ footer.visible {
     </section>
 
     <section class="section sec3" id="lastSection">
+        <video class="section-video" autoplay muted loop playsinline>
+            <source src="video3.mp4" type="video/mp4">
+        </video>
         <div class="content">
-            <h1>INTELLIGENT OBJECT DETECTION</h1>
-            <p>Turning aerial data into real-time object detection</p>
+            <h1>INTELLIGENT DETECTION</h1>
+            <p>Turning aerial data into real-time detection</p>
         </div>
     </section>
 
 </div>
 
-<!-- FOOTER — fixed, shown only when last section is visible -->
+<!-- FOOTER -->
 <footer id="siteFooter">&copy; Aerosearch Technologies Pvt Ltd, India</footer>
 
 <!-- SIDE DOTS -->
@@ -391,21 +383,9 @@ footer.visible {
 const { useState } = React;
 
 const reasons = [
-    {
-        icon: "⚡",
-        title: "Seamless Integration",
-       
-    },
-    {
-        icon: "🚀",
-        title: "Rapid Deployment",
-      
-    },
-    {
-        icon: "💡",
-        title: "Zero Capex",
-       
-    }
+    { icon: "⚡", title: "Seamless Integration" },
+    { icon: "🚀", title: "Rapid Deployment" },
+    { icon: "💡", title: "Zero Capex" }
 ];
 
 function AboutPanel() {
@@ -413,48 +393,26 @@ function AboutPanel() {
 
     return (
         <div style={{
-            width: "100%",
-            height: "100%",
-            background: "#fff",
-            overflowY: "auto",
-            fontFamily: "'Barlow', Arial, sans-serif",
+            width: "100%", height: "100%", background: "#fff",
+            overflowY: "auto", fontFamily: "'Barlow', Arial, sans-serif",
             boxShadow: "-8px 0 40px rgba(0,0,0,0.25)",
-            display: "flex",
-            flexDirection: "column",
+            display: "flex", flexDirection: "column",
         }}>
-            {/* Top accent bar */}
             <div style={{ height: 4, background: "linear-gradient(90deg, #0a4fa3, #1e90ff)", flexShrink: 0 }} />
 
             <div style={{ padding: "22px 26px 40px", flex: 1 }}>
 
-                {/* Close button */}
                 <div style={{ textAlign: "right", marginBottom: 4 }}>
-                    <button
-                        onClick={() => window.closeAbout()}
-                        aria-label="Close panel"
-                        style={{
-                            background: "none",
-                            border: "none",
-                            fontSize: 22,
-                            cursor: "pointer",
-                            color: "#333",
-                            lineHeight: 1,
-                            padding: 4,
-                        }}
-                    >✕</button>
+                    <button onClick={() => window.closeAbout()} aria-label="Close panel"
+                        style={{ background: "none", border: "none", fontSize: 22,
+                            cursor: "pointer", color: "#333", lineHeight: 1, padding: 4 }}>✕</button>
                 </div>
 
-                {/* Brand heading */}
                 <div style={{ marginBottom: 22 }}>
-                    <h2 style={{
-                        fontFamily: "'Barlow Condensed', Arial, sans-serif",
-                        fontSize: 24,
-                        fontWeight: 700,
-                        color: "#0d0d0d",
-                        letterSpacing: 0.5,
-                        lineHeight: 1.25,
-                        marginBottom: 12,
-                    }}>AEROSEARCH TECHNOLOGIES PVT. LTD.</h2>
+                    <h2 style={{ fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                        fontSize: 24, fontWeight: 700, color: "#0d0d0d",
+                        letterSpacing: 0.5, lineHeight: 1.25, marginBottom: 12 }}>
+                        AEROSEARCH TECHNOLOGIES PVT. LTD.</h2>
                     <p style={{ fontSize: 13.5, color: "#444", lineHeight: 1.7, textAlign: "justify" }}>
                         A leading provider of drone solutions with AI-powered data analytics and digital
                         transformation. We enable the defence sector and industries to optimise operations
@@ -464,103 +422,48 @@ function AboutPanel() {
 
                 <div style={{ height: 1, background: "#eee", marginBottom: 5 }} />
 
-                {/* Vision / Mission / Motto */}
                 {[
-                    {
-                        label: "Vision",
-                        content: 'Cementing India as "Vishwaguru" through deep-tech innovation in a high-stakes defense environment.'
-                    },
-                    {
-                        label: "Mission",
-                        content: "Military-first development: advanced technology for the frontline, then scaling to civilian markets."
-                    },
-                    {
-                        label: "Motto",
-                        content: (
-                            <>
-                                Nation First: Empowering frontline safety and national security through indigenous
-                                innovation under <strong>"Make in India"</strong> for building
-                                an <strong>"Atmanirbhar Bharat"</strong>.
-                            </>
-                        )
-                    }
+                    { label: "Vision",   content: 'Cementing India as "Vishwaguru" through deep-tech innovation in a high-stakes defense environment.' },
+                    { label: "Mission",  content: "Military-first development: advanced technology for the frontline, then scaling to civilian markets." },
+                    { label: "Motto",    content: (<>Nation First: Empowering frontline safety and national security through indigenous innovation under <strong>"Make in India"</strong> for building an <strong>"Atmanirbhar Bharat"</strong>.</>) }
                 ].map(({ label, content }) => (
                     <div key={label} style={{ marginBottom: 12 }}>
-                        <p style={{
-                            fontFamily: "'Barlow Condensed', Arial, sans-serif",
-                            fontSize: 16,
-                            letterSpacing: 2.5,
-                            color: "#0a4fa3",
-                            textTransform: "uppercase",
-                            fontWeight: 800,
-                            marginBottom: 4,
-                        }}>{label}</p>
+                        <p style={{ fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                            fontSize: 16, letterSpacing: 2.5, color: "#0a4fa3",
+                            textTransform: "uppercase", fontWeight: 800, marginBottom: 4 }}>{label}</p>
                         <p style={{ fontSize: 13.5, color: "#333", lineHeight: 1.65, textAlign: "justify" }}>{content}</p>
                     </div>
                 ))}
 
                 <div style={{ height: 1, background: "#eee", margin: "22px 0 8px" }} />
 
-                {/* Why Choose Us */}
                 <div>
-                    <p style={{
-                        fontFamily: "'Barlow Condensed', Arial, sans-serif",
-                        fontSize: 16,
-                        letterSpacing: 2.5,
-                        color: "#0a4fa3",
-                        textTransform: "uppercase",
-                        fontWeight: 800,
-                        marginBottom: 10,
-                    }}>Why Choose Us?</p>
+                    <p style={{ fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                        fontSize: 16, letterSpacing: 2.5, color: "#0a4fa3",
+                        textTransform: "uppercase", fontWeight: 800, marginBottom: 10 }}>Why Choose Us?</p>
 
                     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                         {reasons.map((item, i) => (
-                            <div
-                                key={i}
+                            <div key={i}
                                 onMouseEnter={() => setHovered(i)}
                                 onMouseLeave={() => setHovered(null)}
-                                style={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                    gap: 14,
-                                    padding: "13px 10px",
-                                    borderRadius: 8,
+                                style={{ display: "flex", alignItems: "flex-start", gap: 14,
+                                    padding: "13px 10px", borderRadius: 8,
                                     border: `1px solid ${hovered === i ? "#0a4fa3" : "#e8e8e8"}`,
                                     background: hovered === i ? "#f0f6ff" : "#fafafa",
-                                    transition: "all 0.2s ease",
-                                    cursor: "default",
-                                }}
-                            >
-                                {/* Icon bubble */}
-                                <div style={{
-                                    width: 20,
-                                    height: 20,
-                                    minWidth: 10,
-                                    borderRadius: 12,
+                                    transition: "all 0.2s ease", cursor: "default" }}>
+                                <div style={{ width: 20, height: 20, minWidth: 10, borderRadius: 12,
                                     background: hovered === i ? "#0a4fa3" : "#e8f0fe",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    fontSize: 10,
-                                    transition: "background 0.2s ease",
-                                    flexShrink: 0,
-                                }}>
+                                    display: "flex", alignItems: "center", justifyContent: "center",
+                                    fontSize: 10, transition: "background 0.2s ease", flexShrink: 0 }}>
                                     {item.icon}
                                 </div>
-
-                                {/* Text */}
                                 <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                                    <p style={{
-                                        fontFamily: "'Barlow Condensed', Arial, sans-serif",
-                                        fontSize: 15,
-                                        fontWeight: 700,
-                                        letterSpacing: 0.4,
+                                    <p style={{ fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                                        fontSize: 15, fontWeight: 700, letterSpacing: 0.4,
                                         color: hovered === i ? "#0a4fa3" : "#111",
-                                        marginBottom: 3,
-                                        transition: "color 0.2s ease",
-                                        lineHeight: 1.2,
-                                    }}>{item.title}</p>
-                                   
+                                        marginBottom: 3, transition: "color 0.2s ease", lineHeight: 1.2 }}>
+                                        {item.title}</p>
                                 </div>
                             </div>
                         ))}
@@ -569,28 +472,16 @@ function AboutPanel() {
 
                 <div style={{ height: 1, background: "#eee", margin: "24px 0 8px" }} />
 
-                {/* Contact*/}
                 <p style={{ fontSize: 13.5, color: "#444", marginBottom: 5 }}>
                     Ready to transform your operations with drones?
                 </p>
-                <a
-                    href="mailto:aerosearchtech@gmail.com"
-                    style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 8,
-                        padding: "10px 18px",
-                        background: "#0a4fa3",
-                        color: "white",
-                        borderRadius: 6,
-                        fontSize: 13,
-                        fontWeight: 500,
-                        textDecoration: "none",
-                        letterSpacing: 0.3,
-                    }}
+                <a href="mailto:aerosearchtech@gmail.com"
+                    style={{ display: "inline-flex", alignItems: "center", gap: 8,
+                        padding: "10px 18px", background: "#0a4fa3", color: "white",
+                        borderRadius: 6, fontSize: 13, fontWeight: 500,
+                        textDecoration: "none", letterSpacing: 0.3 }}
                     onMouseEnter={e => e.currentTarget.style.background = "#083d82"}
-                    onMouseLeave={e => e.currentTarget.style.background = "#0a4fa3"}
-                >
+                    onMouseLeave={e => e.currentTarget.style.background = "#0a4fa3"}>
                     ✉ aerosearchtech@gmail.com
                 </a>
 
@@ -612,74 +503,54 @@ ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPa
     const contents    = document.querySelectorAll(".content");
     const siteFooter  = document.getElementById("siteFooter");
     const lastSection = document.getElementById("lastSection");
+    const videos      = document.querySelectorAll(".section-video");
 
-    /* ── Expose all functions on window so inline onclick attributes work ── */
-
-    window.closeAbout = function () {
+    /* ── Expose all functions on window ── */
+    window.closeAbout   = function () {
         document.getElementById("aboutPanel").classList.remove("open");
         document.getElementById("panelBackdrop").classList.remove("open");
     };
-
-    window.openAbout = function () {
+    window.openAbout    = function () {
         document.getElementById("aboutPanel").classList.add("open");
         document.getElementById("panelBackdrop").classList.add("open");
     };
-
-    window.openContact = function () {
-        document.getElementById("contactModal").classList.add("open");
-    };
-
-    window.closeContact = function () {
-        document.getElementById("contactModal").classList.remove("open");
-    };
-
-    window.toggleMenu = function () {
-        document.getElementById("mobileMenu").classList.toggle("open");
-    };
-
-    window.closeMenu = function () {
-        document.getElementById("mobileMenu").classList.remove("open");
-    };
-
-    window.goTo = function (i) {
-        sections[i].scrollIntoView({ behavior: "smooth" });
-    };
+    window.openContact  = function () { document.getElementById("contactModal").classList.add("open"); };
+    window.closeContact = function () { document.getElementById("contactModal").classList.remove("open"); };
+    window.toggleMenu   = function () { document.getElementById("mobileMenu").classList.toggle("open"); };
+    window.closeMenu    = function () { document.getElementById("mobileMenu").classList.remove("open"); };
+    window.goTo         = function (i) { sections[i].scrollIntoView({ behavior: "smooth" }); };
 
     /* ── Dot active state ── */
     function updateDots() {
         const index = Math.round(container.scrollTop / window.innerHeight);
         dots.forEach((d, i) => d.classList.toggle("active", i === index));
     }
-
     container.addEventListener("scroll", updateDots);
 
-    /* ── Footer: show when last section is visible, hide otherwise ── */
+    /* ── Play only the visible video — pause others (saves CPU/battery) ── */
+    const videoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.play().catch(() => {}); // silently handle autoplay policy blocks
+            } else {
+                video.pause();
+            }
+        });
+    }, { root: container, threshold: 0.3 });
+
+    videos.forEach(v => videoObserver.observe(v));
+
+    /* ── Footer: show on last section, hide otherwise ── */
     const footerObserver = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
                 siteFooter.classList.toggle("visible", entry.isIntersecting);
             });
         },
-        {
-            root: container,      // observe within the scroll container
-            threshold: 0.3        // trigger when 30 % of last section is visible
-        }
+        { root: container, threshold: 0.3 }
     );
-
     footerObserver.observe(lastSection);
-
-    /* ── Per-section zoom animation ── */
-    const sectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove("animate");
-                void entry.target.offsetWidth; // force reflow to restart animation
-                entry.target.classList.add("animate");
-            }
-        });
-    }, { root: container, threshold: 0.4 });
-
-    sections.forEach(sec => sectionObserver.observe(sec));
 
     /* ── Content reveal ── */
     const contentObserver = new IntersectionObserver(entries => {
