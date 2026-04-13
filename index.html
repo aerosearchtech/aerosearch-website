@@ -3,338 +3,704 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="description" content="Aerosearch Technologies — AI-powered drone intelligence for defence and industry.">
 <title>Aerosearch Technologies</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- TAB ICON -->
-<link rel="icon" type="image/png" href="favicon.ico">
-<link rel="shortcut icon" href="favicon.ico">
+<!-- React + Babel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-    color: #222;
+    background: black;
+    color: white;
     overflow-x: hidden;
 }
 
-/* ================= HERO ================= */
-.hero {
-    min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-        url("hero.png") center center /cover no-repeat;
+/* ================= CONTAINER ================= */
+.container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+/* ================= SECTION ================= */
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
     position: relative;
     display: flex;
-    align-items: center;
-    padding: 120px 40px 40px;
+    align-items: flex-end;
+    padding: 100px 60px;  
 }
+
+/* ================= BACKGROUND ================= */
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: brightness(0.6);
+    transform: scale(1.15);
+}
+
+.section.animate::before {
+    animation: zoomIn 8s ease forwards;
+}
+
+/* @keyframes zoomOut {
+    from { transform: scale(1.15); }
+    to   { transform: scale(1); }
+} */
+
+@keyframes zoomIn {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.25); }
+}
+
+
+.sec1::before { background-image: url("hero.png"); }
+.sec2::before { background-image: url("hero22.png"); }
+.sec3::before { background-image: url("hero3.png"); }
 
 /* ================= HEADER ================= */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 80px;
+    padding: 20px 50px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    align-items: center;
     z-index: 1000;
-
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(8px);
 }
 
-/* Logo */
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-weight: bold;
-    font-size: 20px;
+}
+
+.logo img { height: 42px; }
+
+.logo-name {
     color: white;
-    white-space: nowrap;
-}
-
-.logo img {
-    height: 50px;
-}
-
-/* Nav */
-nav {
-    display: flex;
-    align-items: center;
+    font-size: 13px;
+    letter-spacing: 1px;
 }
 
 nav a {
-    margin: 0 12px;
+    color: white;
+    margin-left: 25px;
     text-decoration: none;
-    color: white;
-    font-weight: 500;
-}
-
-nav a:hover {
-    color: #aad4ff;
-}
-
-.contact-btn {
-    background: #000;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
+    font-size: 13px;
+    letter-spacing: 1px;
     cursor: pointer;
-    font-size: 14px;
+    position: relative;
 }
 
-/* Hamburger */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: 0.3s;
+}
+
+nav a:hover::after { width: 100%; }
+
+/* ================= HAMBURGER ================= */
 .hamburger {
     display: none;
     font-size: 26px;
-    color: white;
     cursor: pointer;
-}
-
-/* ================= HERO TEXT ================= */
-.hero h1 {
-    color: white;
-    font-size: 48px;
-    max-width: 650px;
-}
-
-/* ================= FOOTER ================= */
-footer {
-    background: #f0f0f0;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-}
-
-/* ================= CONTACT MODAL ================= */
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-}
-
-.modal-content {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    width: 90%;
-    max-width: 360px;
-}
-
-.modal-content button {
-    margin-top: 15px;
-    padding: 8px 16px;
-    background: #0a4fa3;
+    background: none;
     border: none;
     color: white;
-    border-radius: 6px;
+    line-height: 1;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
     cursor: pointer;
 }
 
-/* ================= ABOUT PANEL ================= */
-.side-panel {
+.mobile-menu a:hover { background: rgba(255,255,255,0.1); }
+
+/* ================= SECTION TEXT ================= */
+.content {
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+.content p { font-size: 16px; }
+
+/* ================= SIDE DOTS ================= */
+.dots {
+    position: fixed;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active { background: white; }
+
+/* ================= SIDE PANEL WRAPPER ================= */
+.side-panel-wrapper {
     position: fixed;
     top: 0;
     right: -420px;
     width: 420px;
     height: 100%;
-    background: white;
-    padding: 25px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
+    transition: right 0.3s ease;
     z-index: 1500;
     overflow-y: auto;
 }
 
-.side-panel.open {
-    right: 0;
-}
+.side-panel-wrapper.open { right: 0; }
 
-.close-btn {
-    float: right;
-    font-size: 22px;
+/* Backdrop */
+.panel-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1400;
     cursor: pointer;
 }
 
-.side-panel h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #0a4fa3;
+.panel-backdrop.open { display: block; }
+
+/* ================= MODAL ================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    cursor: pointer;
 }
 
-.side-panel p,
-.side-panel li {
-    font-size: 14px;
+.modal.open { display: flex; }
+
+.modal-content {
+    background: white;
+    color: black;
+    padding: 30px 35px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: default;
+    min-width: 280px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 8px;
+    color: black;
+}
+
+.modal-content button {
+    padding: 8px 28px;
+    background: #0a4fa3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modal-content button:hover { background: #083d82; }
+
+/* ================= FOOTER ================= */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 14px 30px;
+    font-size: 12px;
+    color: #aaa;
+    background: #0a0a0a;
+    z-index: 900;
+    /* Hidden by default — slides in from below */
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+footer.visible {
+    transform: translateY(0);
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-
-    .logo span {
-        font-size: 16px;
-    }
-
-    .logo img {
-        height: 44px;
-    }
-
-    nav {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: rgba(0,0,0,0.9);
-        flex-direction: column;
-        display: none;
-    }
-
-    nav a {
-        padding: 14px;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-
-    nav.open {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .contact-btn {
-        display: none;
-    }
-
-    .hero {
-        padding: 120px 20px 20px;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .side-panel {
-        width: 100%;
-        right: -100%;
-    }
+    .section { padding: 100px 20px 180px 20px; }  /* adjust 140px to taste */
+    .content h1 { font-size: 30px; }
+    .content p { font-size: 14px; }
+    nav { display: none; }
+    .hamburger { display: block; }
+    .side-panel-wrapper { width: 100%; right: -100%; }
+    .dots { right: 12px; }
 }
+    
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header>
     <div class="logo">
-       <img src="logo.png" alt="Aerosearch Logo">
-        <span>Aerosearch Technologies</span>
+        <img src="logo.png" alt="Aerosearch Technologies Logo">
+        <span class="logo-name">AEROSEARCH TECHNOLOGIES</span>
     </div>
-
-    <nav id="navMenu">
-        <a href="#" onclick="openAbout()">About Us</a>
-        <a href="#">Drone Education</a>
-        <a href="#">Drone-Lab Setup</a>
-        <a href="#">Drone Software</a>
-        <a href="#" onclick="openContact()">Contact</a>
+    <nav>
+        <a onclick="window.openAbout()">ABOUT</a>
+        <a onclick="window.openContact()">CONTACT</a>
     </nav>
-
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <div class="contact-btn" onclick="openContact()">Contact</div>
+    <button class="hamburger" onclick="window.toggleMenu()" aria-label="Toggle menu">&#9776;</button>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-    <h1>Research-Driven Innovations</h1>
-</section>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a onclick="window.openAbout(); window.closeMenu()">ABOUT</a>
+    <a onclick="window.openContact(); window.closeMenu()">CONTACT</a>
+</div>
 
-<!-- ================= FOOTER ================= -->
-<footer>
-    © Aerosearch Technologies Private Limited, India, 2024.<br>
-    <strong>Make in India</strong>
-</footer>
+<!-- MAIN CONTAINER -->
+<div class="container" id="container">
 
-<!-- ================= CONTACT MODAL ================= -->
-<div class="modal" id="contactModal">
-    <div class="modal-content">
+    <section class="section sec1">
+        <div class="content">
+            <h1>RESEARCH-DRIVEN INNOVATIONS</h1>
+            <p>Advanced drone intelligence powered by AI</p>
+        </div>
+    </section>
+
+    <section class="section sec2">
+        <div class="content">
+            <h1>SENSOR FUSION TECHNOLOGY</h1>
+            <p>Sensor Fusion for Autonomous UAVs in defense &amp; industry</p>
+        </div>
+    </section>
+
+    <section class="section sec3" id="lastSection">
+        <div class="content">
+            <h1>INTELLIGENT OBJECT DETECTION</h1>
+            <p>Turning aerial data into real-time object detection</p>
+        </div>
+    </section>
+
+</div>
+
+<!-- FOOTER — fixed, shown only when last section is visible -->
+<footer id="siteFooter">&copy; Aerosearch Technologies Pvt Ltd, India</footer>
+
+<!-- SIDE DOTS -->
+<div class="dots">
+    <div class="dot active" onclick="window.goTo(0)" title="Section 1"></div>
+    <div class="dot" onclick="window.goTo(1)" title="Section 2"></div>
+    <div class="dot" onclick="window.goTo(2)" title="Section 3"></div>
+</div>
+
+<!-- PANEL BACKDROP -->
+<div class="panel-backdrop" id="panelBackdrop" onclick="window.closeAbout()"></div>
+
+<!-- ABOUT PANEL (React mount point) -->
+<div class="side-panel-wrapper" id="aboutPanel">
+    <div id="about-react-root" style="height:100%;"></div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal" onclick="window.closeContact()">
+    <div class="modal-content" onclick="event.stopPropagation()">
         <p><strong>Email:</strong><br>aerosearchtech@gmail.com</p>
-        <button onclick="closeContact()">OK</button>
+        <button onclick="window.closeContact()">OK</button>
     </div>
 </div>
 
-<!-- ================= ABOUT PANEL ================= -->
-<div class="side-panel" id="aboutPanel">
-    <span class="close-btn" onclick="closeAbout()">✕</span>
+<!-- ============================================================
+     REACT — ABOUT PANEL COMPONENT
+     ============================================================ -->
+<script type="text/babel">
+const { useState } = React;
 
-    <h3>Aerosearch Technologies Private Limited</h3>
-    <p style="text-align: justify;">is a leading provider of drone solutions, AI-powered data analytics, digital transformation services, Drone-as-a-Service (DaaS), and Drone Education. We enable businesses, defence sectors, and educational institutions to optimise operations and improve efficiency.</p>
-<hr>
-    <h3>Vision</h3>
-    <p style="text-align: justify;">“To be a global leader in automation and AI-driven drone technologies, revolutionizing industries and defense with innovative, sustainable, and efficient solutions while fostering indigenous innovation.”</p>
-<hr>
-    <h3>Mission</h3>
-    <p style="text-align: justify;">“At Aerosearch Technologies, we innovate drone and AI-driven solutions to empower industries and defense with efficiency and sustainability. Committed to Atmanirbhar Bharat, we foster indigenous capabilities and entrepreneurship for a transformative future.”</p>
+const reasons = [
+    {
+        icon: "⚡",
+        title: "Seamless Integration",
+       
+    },
+    {
+        icon: "🚀",
+        title: "Rapid Deployment",
+      
+    },
+    {
+        icon: "💡",
+        title: "Zero Capex",
+       
+    }
+];
 
-    <hr>
+function AboutPanel() {
+    const [hovered, setHovered] = useState(null);
 
-    <h3>Why Choose Us?</h3>
-    <ul>
-        <li>Seamless Integration</li>
-        <li>Rapid Deployment</li>
-        <li>Zero Capex</li>
-        <li>Immediate Results</li>
-    </ul>
-    <hr>
-<p>Ready to transform your operations with drones?</p>
-    <p style="margin-top:15px;">
-        Write us at: <strong>aerosearchtech@gmail.com</strong>
-    </p>
-</div>
+    return (
+        <div style={{
+            width: "100%",
+            height: "100%",
+            background: "#fff",
+            overflowY: "auto",
+            fontFamily: "'Barlow', Arial, sans-serif",
+            boxShadow: "-8px 0 40px rgba(0,0,0,0.25)",
+            display: "flex",
+            flexDirection: "column",
+        }}>
+            {/* Top accent bar */}
+            <div style={{ height: 4, background: "linear-gradient(90deg, #0a4fa3, #1e90ff)", flexShrink: 0 }} />
 
+            <div style={{ padding: "22px 26px 40px", flex: 1 }}>
+
+                {/* Close button */}
+                <div style={{ textAlign: "right", marginBottom: 4 }}>
+                    <button
+                        onClick={() => window.closeAbout()}
+                        aria-label="Close panel"
+                        style={{
+                            background: "none",
+                            border: "none",
+                            fontSize: 22,
+                            cursor: "pointer",
+                            color: "#333",
+                            lineHeight: 1,
+                            padding: 4,
+                        }}
+                    >✕</button>
+                </div>
+
+                {/* Brand heading */}
+                <div style={{ marginBottom: 22 }}>
+                    <h2 style={{
+                        fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                        fontSize: 24,
+                        fontWeight: 700,
+                        color: "#0d0d0d",
+                        letterSpacing: 0.5,
+                        lineHeight: 1.25,
+                        marginBottom: 12,
+                    }}>AEROSEARCH TECHNOLOGIES PVT. LTD.</h2>
+                    <p style={{ fontSize: 13.5, color: "#444", lineHeight: 1.7, textAlign: "justify" }}>
+                        A leading provider of drone solutions with AI-powered data analytics and digital
+                        transformation. We enable the defence sector and industries to optimise operations
+                        and improve efficiency.
+                    </p>
+                </div>
+
+                <div style={{ height: 1, background: "#eee", marginBottom: 5 }} />
+
+                {/* Vision / Mission / Motto */}
+                {[
+                    {
+                        label: "Vision",
+                        content: 'Cementing India as "Vishwaguru" through deep-tech innovation in a high-stakes defense environment.'
+                    },
+                    {
+                        label: "Mission",
+                        content: "Military-first development: advanced technology for the frontline, then scaling to civilian markets."
+                    },
+                    {
+                        label: "Motto",
+                        content: (
+                            <>
+                                Nation First: Empowering frontline safety and national security through indigenous
+                                innovation under <strong>"Make in India"</strong> for building
+                                an <strong>"Atmanirbhar Bharat"</strong>.
+                            </>
+                        )
+                    }
+                ].map(({ label, content }) => (
+                    <div key={label} style={{ marginBottom: 12 }}>
+                        <p style={{
+                            fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                            fontSize: 16,
+                            letterSpacing: 2.5,
+                            color: "#0a4fa3",
+                            textTransform: "uppercase",
+                            fontWeight: 800,
+                            marginBottom: 4,
+                        }}>{label}</p>
+                        <p style={{ fontSize: 13.5, color: "#333", lineHeight: 1.65, textAlign: "justify" }}>{content}</p>
+                    </div>
+                ))}
+
+                <div style={{ height: 1, background: "#eee", margin: "22px 0 8px" }} />
+
+                {/* Why Choose Us */}
+                <div>
+                    <p style={{
+                        fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                        fontSize: 16,
+                        letterSpacing: 2.5,
+                        color: "#0a4fa3",
+                        textTransform: "uppercase",
+                        fontWeight: 800,
+                        marginBottom: 10,
+                    }}>Why Choose Us?</p>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                        {reasons.map((item, i) => (
+                            <div
+                                key={i}
+                                onMouseEnter={() => setHovered(i)}
+                                onMouseLeave={() => setHovered(null)}
+                                style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: 14,
+                                    padding: "13px 10px",
+                                    borderRadius: 8,
+                                    border: `1px solid ${hovered === i ? "#0a4fa3" : "#e8e8e8"}`,
+                                    background: hovered === i ? "#f0f6ff" : "#fafafa",
+                                    transition: "all 0.2s ease",
+                                    cursor: "default",
+                                }}
+                            >
+                                {/* Icon bubble */}
+                                <div style={{
+                                    width: 20,
+                                    height: 20,
+                                    minWidth: 10,
+                                    borderRadius: 12,
+                                    background: hovered === i ? "#0a4fa3" : "#e8f0fe",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    fontSize: 10,
+                                    transition: "background 0.2s ease",
+                                    flexShrink: 0,
+                                }}>
+                                    {item.icon}
+                                </div>
+
+                                {/* Text */}
+                                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                                    <p style={{
+                                        fontFamily: "'Barlow Condensed', Arial, sans-serif",
+                                        fontSize: 15,
+                                        fontWeight: 700,
+                                        letterSpacing: 0.4,
+                                        color: hovered === i ? "#0a4fa3" : "#111",
+                                        marginBottom: 3,
+                                        transition: "color 0.2s ease",
+                                        lineHeight: 1.2,
+                                    }}>{item.title}</p>
+                                   
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div style={{ height: 1, background: "#eee", margin: "24px 0 8px" }} />
+
+                {/* Contact*/}
+                <p style={{ fontSize: 13.5, color: "#444", marginBottom: 5 }}>
+                    Ready to transform your operations with drones?
+                </p>
+                <a
+                    href="mailto:aerosearchtech@gmail.com"
+                    style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                        padding: "10px 18px",
+                        background: "#0a4fa3",
+                        color: "white",
+                        borderRadius: 6,
+                        fontSize: 13,
+                        fontWeight: 500,
+                        textDecoration: "none",
+                        letterSpacing: 0.3,
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.background = "#083d82"}
+                    onMouseLeave={e => e.currentTarget.style.background = "#0a4fa3"}
+                >
+                    ✉ aerosearchtech@gmail.com
+                </a>
+
+            </div>
+        </div>
+    );
+}
+
+ReactDOM.createRoot(document.getElementById("about-react-root")).render(<AboutPanel />);
+</script>
+
+<!-- ============================================================
+     VANILLA JS — page behaviour
+     ============================================================ -->
 <script>
-function toggleMenu() {
-    document.getElementById("navMenu").classList.toggle("open");
-}
+    const container   = document.getElementById("container");
+    const sections    = document.querySelectorAll(".section");
+    const dots        = document.querySelectorAll(".dot");
+    const contents    = document.querySelectorAll(".content");
+    const siteFooter  = document.getElementById("siteFooter");
+    const lastSection = document.getElementById("lastSection");
 
-function openContact() {
-    document.getElementById("contactModal").style.display = "flex";
-}
+    /* ── Expose all functions on window so inline onclick attributes work ── */
 
-function closeContact() {
-    document.getElementById("contactModal").style.display = "none";
-}
+    window.closeAbout = function () {
+        document.getElementById("aboutPanel").classList.remove("open");
+        document.getElementById("panelBackdrop").classList.remove("open");
+    };
 
-function openAbout() {
-    document.getElementById("aboutPanel").classList.add("open");
-}
+    window.openAbout = function () {
+        document.getElementById("aboutPanel").classList.add("open");
+        document.getElementById("panelBackdrop").classList.add("open");
+    };
 
-function closeAbout() {
-    document.getElementById("aboutPanel").classList.remove("open");
-}
+    window.openContact = function () {
+        document.getElementById("contactModal").classList.add("open");
+    };
+
+    window.closeContact = function () {
+        document.getElementById("contactModal").classList.remove("open");
+    };
+
+    window.toggleMenu = function () {
+        document.getElementById("mobileMenu").classList.toggle("open");
+    };
+
+    window.closeMenu = function () {
+        document.getElementById("mobileMenu").classList.remove("open");
+    };
+
+    window.goTo = function (i) {
+        sections[i].scrollIntoView({ behavior: "smooth" });
+    };
+
+    /* ── Dot active state ── */
+    function updateDots() {
+        const index = Math.round(container.scrollTop / window.innerHeight);
+        dots.forEach((d, i) => d.classList.toggle("active", i === index));
+    }
+
+    container.addEventListener("scroll", updateDots);
+
+    /* ── Footer: show when last section is visible, hide otherwise ── */
+    const footerObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                siteFooter.classList.toggle("visible", entry.isIntersecting);
+            });
+        },
+        {
+            root: container,      // observe within the scroll container
+            threshold: 0.3        // trigger when 30 % of last section is visible
+        }
+    );
+
+    footerObserver.observe(lastSection);
+
+    /* ── Per-section zoom animation ── */
+    const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove("animate");
+                void entry.target.offsetWidth; // force reflow to restart animation
+                entry.target.classList.add("animate");
+            }
+        });
+    }, { root: container, threshold: 0.4 });
+
+    sections.forEach(sec => sectionObserver.observe(sec));
+
+    /* ── Content reveal ── */
+    const contentObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+        });
+    }, { root: container, threshold: 0.3 });
+
+    contents.forEach(el => contentObserver.observe(el));
+
+    /* ── Close mobile menu on outside click ── */
+    document.addEventListener("click", function (e) {
+        const menu      = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger");
+        if (menu.classList.contains("open") &&
+            !menu.contains(e.target) &&
+            !hamburger.contains(e.target)) {
+            window.closeMenu();
+        }
+    });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
