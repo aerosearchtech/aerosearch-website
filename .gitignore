@@ -1,0 +1,44 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.claude/
+.DS_Store
+*.pem
+.playwright-mcp/
+*.jpeg
+
+# internal-only assets: proprietary renders, payload components, reference shots.
+# Archived deliberately — never ship these to the public site.
+/_private/
+/blender/
+
+# Internal decks and working files kept in the project root. None of these are
+# served by Next, but the repo may be public, so they stay out of it entirely.
+/*.pdf
+/*.pptx
+/Logo_Aerosearch_Technologies_transparent.png
+# Working screenshots: demos, competitor captures, scene checks.
+/*.png
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

@@ -1,0 +1,35 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
+
+// WebGL scene is client-only (no SSR) and code-split from the initial payload.
+const RasterScene = dynamic(() => import("./RasterScene"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full" />,
+});
+
+export default function RasterMount() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  // The scan only runs while it is on screen; scrolling past parks the loop.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {
+      rootMargin: "150px",
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="relative aspect-[4/3] w-full border border-line bg-night sm:aspect-[16/10] lg:aspect-[2/1]"
+    >
+      <RasterScene frameloop={visible ? "always" : "never"} />
+    </div>
+  );
+}

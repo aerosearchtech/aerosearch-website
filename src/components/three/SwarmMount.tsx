@@ -1,0 +1,35 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
+
+// WebGL scene is client-only (no SSR) and code-split from the initial payload.
+const SwarmScene = dynamic(() => import("./SwarmScene"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full" />,
+});
+
+export default function SwarmMount() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  // The formation only flies while it is on screen; scrolling past parks the loop.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {
+      rootMargin: "150px",
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="relative aspect-[4/3] w-full border border-line bg-night sm:aspect-[16/9] lg:aspect-[21/9]"
+    >
+      <SwarmScene frameloop={visible ? "always" : "never"} />
+    </div>
+  );
+}
