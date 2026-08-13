@@ -2,11 +2,12 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
+import LogoSpinner from "@/components/ui/LogoSpinner";
 
 // WebGL scene is client-only (no SSR) and code-split from the initial payload.
 const SurveyScene = dynamic(() => import("./SurveyScene"), {
   ssr: false,
-  loading: () => <div className="h-full w-full" />,
+  loading: () => <LogoSpinner />,
 });
 
 export default function SurveyMount() {

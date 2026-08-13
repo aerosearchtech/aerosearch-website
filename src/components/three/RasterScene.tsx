@@ -5,7 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Grid } from "@react-three/drei";
 import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import * as THREE from "three";
-import { colors } from "@/theme/colors";
+import { colors, feeds } from "@/theme/colors";
 import SurveyDrone from "./SurveyDrone";
 import Ordnance from "./Ordnance";
 
@@ -17,26 +17,44 @@ const ALT = 1.6; // survey altitude above the ground plane
 const SWATH_R = 0.62; // radius of the sensor footprint on the ground
 const DETECT_R = 0.9; // a contact is called when the footprint reaches this
 const TURN = 0.86; // lane fraction at which the aircraft starts its turn
-const SWEEP = 0.88; // share of the cycle spent flying; the rest holds the map
-const PERIOD = 21; // seconds for one full survey and reset
+const SWEEP = 0.78; // share of the cycle spent flying; the rest holds the map
+const PERIOD = 22; // seconds for one full survey and reset
 const POP = 0.85; // seconds for a contact marker to rise and settle
 
 /**
- * Buried threats: x, z, silhouette kind, and yaw. Unknown until the swath
- * crosses them. Kinds are generic ordnance shapes — a blast disc, a shell, a
- * stake mine, a small canister — and identify no specific munition.
+ * Three aircraft fly the same lanes in trail, each carrying a different sensor.
+ * That is the argument of the scene: no single read finds everything, so ground
+ * the leader passes clean is called by the aircraft behind it. Each channel has
+ * its own hue, and a contact flashes in the hue of whichever sensor called it.
  */
-const MINES: ReadonlyArray<readonly [number, number, number, number]> = [
-  [-3.4, -3.0, 0, 0.3],
-  [1.1, -3.0, 1, 1.1],
-  [3.6, -1.8, 2, 0],
-  [-2.5, -1.8, 3, 0.7],
-  [-0.4, -0.6, 0, 2.2],
-  [2.9, -0.6, 1, -0.6],
-  [-3.8, 0.6, 3, 1.9],
-  [0.7, 0.6, 0, 0.9],
-  [2.2, 1.8, 2, 0],
-  [-1.6, 3.0, 1, 2.6],
+const CRAFT = 3;
+const LAG = 0.03; // cycle fraction each aircraft trails the one ahead
+const WASH = 0.05; // ground wash per aircraft; three of them stack additively
+
+/** Cycle progress for one aircraft, which holds at the start until its turn. */
+const progressFor = (p: number, craft: number): number => Math.max(0, p - craft * LAG);
+
+/**
+ * Buried threats: x, z, silhouette kind, yaw, and the sensor that calls it.
+ * Kinds are generic ordnance shapes — a blast disc, a shell, a stake mine, a
+ * small canister — and identify no specific munition.
+ *
+ * The last field is the whole point of the scene. Four of these are found by
+ * the leader; the other six stay dark until the second or third aircraft is
+ * over them, which is what one sensor flying alone would have left in the
+ * ground.
+ */
+const MINES: ReadonlyArray<readonly [number, number, number, number, number]> = [
+  [-3.4, -3.0, 0, 0.3, 0],
+  [1.1, -3.0, 1, 1.1, 1],
+  [3.6, -1.8, 2, 0, 2],
+  [-2.5, -1.8, 3, 0.7, 0],
+  [-0.4, -0.6, 0, 2.2, 1],
+  [2.9, -0.6, 1, -0.6, 0],
+  [-3.8, 0.6, 3, 1.9, 2],
+  [0.7, 0.6, 0, 0.9, 1],
+  [2.2, 1.8, 2, 0, 2],
+  [-1.6, 3.0, 1, 2.6, 0],
 ];
 
 type Probe = { x: number; z: number; p: number };
@@ -45,9 +63,10 @@ const cSignal = new THREE.Color(colors.signal);
 const easeOutBack = (t: number): number => 1 + 2.2 * Math.pow(t - 1, 3) + 1.4 * Math.pow(t - 1, 2);
 
 /**
- * Where the aircraft is at cycle progress p, and how far through the survey it
- * is. Everything else in the scene derives from this one function, which is what
- * keeps the swath, the coverage, and the detections in agreement.
+ * Where an aircraft is at its own cycle progress p, and how far through the
+ * survey it is. Every aircraft flies this same track, just offset in time.
+ * Everything else in the scene derives from this one function, which is what
+ * keeps the swaths, the coverage, and the detections in agreement.
  */
 function flightAt(p: number): { x: number; z: number; lane: number; frac: number; heading: number } {
   const t = Math.min(p / SWEEP, 1) * LANE_Z.length;
@@ -66,45 +85,58 @@ function flightAt(p: number): { x: number; z: number; lane: number; frac: number
   return { x, z, lane, frac, heading: heading + turn * Math.PI * (dir > 0 ? 1 : -1) };
 }
 
-/** Ground already flown, painted in behind the aircraft one lane at a time. */
-function Coverage({ probe }: { probe: MutableRefObject<Probe> }) {
+/**
+ * Ground already read, as one translucent wash per aircraft laid over the same
+ * lanes. The leader's ochre goes down first, the second aircraft's blue over
+ * it, then the third's teal, and because the washes blend additively the turf
+ * pales as each sensor adds its read. Coverage is therefore not one state but
+ * three, and you can see at a glance how many sensors have been over any strip.
+ */
+function Coverage({ probes }: { probes: MutableRefObject<Probe[]> }) {
   const refs = useRef<(THREE.Mesh | null)[]>([]);
 
   useFrame(() => {
-    const { lane, frac } = flightAt(probe.current.p);
-    LANE_Z.forEach((_, i) => {
-      const mesh = refs.current[i];
-      if (!mesh) return;
-      const done = i < lane ? 1 : i === lane ? Math.min(frac / TURN, 1) : 0;
-      const dir = i % 2 === 0 ? 1 : -1;
-      mesh.scale.x = Math.max(0.0001, done);
-      // Grow from the end the aircraft entered from, not from the middle.
-      mesh.position.x = -dir * FIELD_X * (1 - done);
-      (mesh.material as THREE.MeshBasicMaterial).opacity = done > 0 ? 0.075 : 0;
-    });
+    for (let c = 0; c < CRAFT; c++) {
+      const { lane, frac } = flightAt(probes.current[c].p);
+      LANE_Z.forEach((_, i) => {
+        const mesh = refs.current[c * LANE_Z.length + i];
+        if (!mesh) return;
+        const done = i < lane ? 1 : i === lane ? Math.min(frac / TURN, 1) : 0;
+        const dir = i % 2 === 0 ? 1 : -1;
+        mesh.scale.x = Math.max(0.0001, done);
+        // Grow from the end the aircraft entered from, not from the middle.
+        mesh.position.x = -dir * FIELD_X * (1 - done);
+        (mesh.material as THREE.MeshBasicMaterial).opacity = done > 0 ? WASH : 0;
+      });
+    }
   });
 
   return (
-    <group position={[0, 0.006, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-      {LANE_Z.map((z, i) => (
-        <mesh
-          key={z}
-          ref={(m) => {
-            refs.current[i] = m;
-          }}
-          position={[0, -z, 0]}
-        >
-          <planeGeometry args={[FIELD_X * 2, LANE_W]} />
-          <meshBasicMaterial
-            color={colors.survey}
-            transparent
-            opacity={0}
-            depthWrite={false}
-            blending={THREE.AdditiveBlending}
-          />
-        </mesh>
+    <>
+      {Array.from({ length: CRAFT }, (_, c) => (
+        // Stacked a hair apart so the washes never fight for the same depth.
+        <group key={c} position={[0, 0.006 + c * 0.0012, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          {LANE_Z.map((z, i) => (
+            <mesh
+              key={z}
+              ref={(m) => {
+                refs.current[c * LANE_Z.length + i] = m;
+              }}
+              position={[0, -z, 0]}
+            >
+              <planeGeometry args={[FIELD_X * 2, LANE_W]} />
+              <meshBasicMaterial
+                color={feeds[c]}
+                transparent
+                opacity={0}
+                depthWrite={false}
+                blending={THREE.AdditiveBlending}
+              />
+            </mesh>
+          ))}
+        </group>
       ))}
-    </group>
+    </>
   );
 }
 
@@ -117,13 +149,15 @@ function Contact({
   z,
   kind,
   yaw,
-  probe,
+  by,
+  probes,
 }: {
   x: number;
   z: number;
   kind: number;
   yaw: number;
-  probe: MutableRefObject<Probe>;
+  by: number;
+  probes: MutableRefObject<Probe[]>;
 }) {
   const found = useRef(-1);
   const group = useRef<THREE.Group>(null);
@@ -134,10 +168,13 @@ function Contact({
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
-    const { p } = probe.current;
+    // Only this contact's own sensor can call it. The others fly over it blind,
+    // which is exactly what the reader is meant to notice.
+    const { p } = probes.current[0];
     if (p < 0.02) found.current = -1;
-    else if (found.current < 0 && Math.hypot(probe.current.x - x, probe.current.z - z) < DETECT_R) {
-      found.current = t;
+    else if (found.current < 0) {
+      const q = probes.current[by];
+      if (Math.hypot(q.x - x, q.z - z) < DETECT_R) found.current = t;
     }
 
     const age = found.current < 0 ? -1 : t - found.current;
@@ -177,11 +214,14 @@ function Contact({
         />
       </mesh>
 
+      {/* The call flashes in the channel that made it; the marker it leaves
+          behind stays red, because red on this site means hazard and nothing
+          else. Who found it is a moment — what it is, is permanent. */}
       <mesh ref={wave} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
         <ringGeometry args={[0.82, 1, 48]} />
         <meshBasicMaterial
           ref={waveMat}
-          color={cSignal}
+          color={feeds[by]}
           transparent
           opacity={0}
           side={THREE.DoubleSide}
@@ -199,14 +239,22 @@ function Contact({
   );
 }
 
-/** The live sensor footprint and the beam that puts it there. */
-function Swath({ probe }: { probe: MutableRefObject<Probe> }) {
+/**
+ * One aircraft's live footprint and the beam that puts it there, in that
+ * aircraft's channel hue. Three of these read the same ground differently.
+ */
+function Swath({ probes, craft }: { probes: MutableRefObject<Probe[]>; craft: number }) {
   const group = useRef<THREE.Group>(null);
   const core = useRef<THREE.MeshBasicMaterial>(null);
+  const hue = feeds[craft];
 
   useFrame((state) => {
-    if (group.current) group.current.position.set(probe.current.x, 0, probe.current.z);
-    if (core.current) core.current.opacity = 0.2 + Math.sin(state.clock.elapsedTime * 3.4) * 0.06;
+    const q = probes.current[craft];
+    if (group.current) group.current.position.set(q.x, 0, q.z);
+    // Offset the throb per aircraft, so three beams do not pulse as one.
+    if (core.current) {
+      core.current.opacity = 0.2 + Math.sin(state.clock.elapsedTime * 3.4 + craft) * 0.06;
+    }
   });
 
   return (
@@ -214,7 +262,7 @@ function Swath({ probe }: { probe: MutableRefObject<Probe> }) {
       <mesh position={[0, ALT / 2, 0]}>
         <coneGeometry args={[SWATH_R, ALT, 40, 1, true]} />
         <meshBasicMaterial
-          color={colors.survey}
+          color={hue}
           transparent
           opacity={0.11}
           side={THREE.DoubleSide}
@@ -226,7 +274,7 @@ function Swath({ probe }: { probe: MutableRefObject<Probe> }) {
         <mesh>
           <ringGeometry args={[SWATH_R * 0.9, SWATH_R, 56]} />
           <meshBasicMaterial
-            color={colors.survey}
+            color={hue}
             transparent
             opacity={0.8}
             side={THREE.DoubleSide}
@@ -238,7 +286,7 @@ function Swath({ probe }: { probe: MutableRefObject<Probe> }) {
           <circleGeometry args={[SWATH_R * 0.9, 40]} />
           <meshBasicMaterial
             ref={core}
-            color={colors.survey}
+            color={hue}
             transparent
             opacity={0.2}
             depthWrite={false}
@@ -250,29 +298,44 @@ function Swath({ probe }: { probe: MutableRefObject<Probe> }) {
   );
 }
 
-/** Drives the cycle and carries the aircraft along the track. */
-function Flight({ probe }: { probe: MutableRefObject<Probe> }) {
-  const craft = useRef<THREE.Group>(null);
+/** Drives the cycle and carries every aircraft along its own track. */
+function Flight({ probes }: { probes: MutableRefObject<Probe[]> }) {
+  const craft = useRef<(THREE.Group | null)[]>([]);
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
     const p = (t % PERIOD) / PERIOD;
-    const { x, z, heading } = flightAt(p);
-    probe.current = { x, z, p };
-    if (!craft.current) return;
-    craft.current.position.set(x, ALT + Math.sin(t * 1.7) * 0.03, z);
-    craft.current.rotation.y = heading;
-    // Bank into the turns, which is where the track curvature actually is.
-    craft.current.rotation.z = THREE.MathUtils.lerp(craft.current.rotation.z, 0, 0.05);
+
+    for (let i = 0; i < CRAFT; i++) {
+      const pi = progressFor(p, i);
+      const { x, z, heading } = flightAt(pi);
+      probes.current[i] = { x, z, p: pi };
+      const g = craft.current[i];
+      if (!g) continue;
+      // Stagger the hover bob, or the formation reads as one rigid object.
+      g.position.set(x, ALT + Math.sin(t * 1.7 + i * 2.1) * 0.03, z);
+      g.rotation.y = heading;
+      // Bank into the turns, which is where the track curvature actually is.
+      g.rotation.z = THREE.MathUtils.lerp(g.rotation.z, 0, 0.05);
+    }
   });
 
   return (
-    <group ref={craft}>
-      {/* Scaled to read as an aircraft over a field, not a model on a desk. */}
-      <group scale={0.5}>
-        <SurveyDrone />
-      </group>
-    </group>
+    <>
+      {Array.from({ length: CRAFT }, (_, i) => (
+        <group
+          key={i}
+          ref={(g) => {
+            craft.current[i] = g;
+          }}
+        >
+          {/* Scaled to read as an aircraft over a field, not a model on a desk. */}
+          <group scale={0.5}>
+            <SurveyDrone />
+          </group>
+        </group>
+      ))}
+    </>
   );
 }
 
@@ -293,7 +356,9 @@ function CameraRig() {
 }
 
 function Scene() {
-  const probe = useRef<Probe>({ x: -FIELD_X, z: LANE_Z[0], p: 0 });
+  const probes = useRef<Probe[]>(
+    Array.from({ length: CRAFT }, () => ({ x: -FIELD_X, z: LANE_Z[0], p: 0 })),
+  );
 
   return (
     <>
@@ -324,12 +389,14 @@ function Scene() {
         <lineBasicMaterial color={colors.boneFaint} transparent opacity={0.5} />
       </lineSegments>
 
-      <Coverage probe={probe} />
-      <Swath probe={probe} />
-      {MINES.map(([x, z, kind, yaw]) => (
-        <Contact key={`${x}:${z}`} x={x} z={z} kind={kind} yaw={yaw} probe={probe} />
+      <Coverage probes={probes} />
+      {Array.from({ length: CRAFT }, (_, i) => (
+        <Swath key={i} probes={probes} craft={i} />
       ))}
-      <Flight probe={probe} />
+      {MINES.map(([x, z, kind, yaw, by]) => (
+        <Contact key={`${x}:${z}`} x={x} z={z} kind={kind} yaw={yaw} by={by} probes={probes} />
+      ))}
+      <Flight probes={probes} />
 
       <CameraRig />
 

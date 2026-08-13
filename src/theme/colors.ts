@@ -37,12 +37,14 @@ export const colors = {
 } as const;
 
 /**
- * Feed colours for the formation scene.
+ * Feed colours for the scenes that show more than one aircraft.
  *
  * These are channel identifiers, not field semantics — one hue per aircraft so
  * the reader can tell the reads apart. They are chosen to blend additively
- * toward white where they overlap, which is the whole argument of that scene:
- * separate feeds resolving into one picture. Used nowhere else on the site.
+ * toward white where they overlap, which is the whole argument of those scenes:
+ * separate feeds resolving into one picture. The first is deliberately the same
+ * ochre as `survey`, so a single-aircraft read still looks like the rest of the
+ * site. Used only by the formation and raster scenes, never for chrome.
  */
 export const feeds = ["#D9A441", "#4E9BFF", "#35C9A8", "#E8D9B0", "#9B7BFF"] as const;
 

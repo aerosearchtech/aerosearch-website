@@ -50,12 +50,25 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        // The mark under load. Clockwise, because it is a rotorcraft from above.
+        rotor: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "hold-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both",
         "pulse-soft": "pulse-soft 2.6s ease-in-out infinite",
         slew: "slew 9s ease-in-out infinite",
         marquee: "marquee 42s linear infinite",
+        rotor: "rotor 1.4s linear infinite",
+        // `both` keeps it invisible through the delay, so a scene that arrives
+        // quickly never flashes a loader on its way in.
+        "hold-in": "hold-in 0.35s ease-out 0.25s both",
       },
     },
   },

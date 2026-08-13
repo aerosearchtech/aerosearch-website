@@ -101,7 +101,8 @@ export const approach = {
     },
     { step: "Map", title: "A map a team can act on", note: "Handed to the deminers" },
   ] satisfies readonly ApproachStep[],
-  scanCaption: "Illustrative - a lane pattern run over a suspected area, contacts marked as they are called.",
+  scanCaption:
+    "Illustrative - three sensors over the same ground, each contact marked by whichever one calls it.",
 } as const;
 
 export type Capability = {
