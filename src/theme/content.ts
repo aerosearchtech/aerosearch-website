@@ -24,21 +24,22 @@ export const brand = {
   full: "Aerosearch Technologies",
   domain: "aerosearchtech.com",
   email: "aerosearchtech@gmail.com",
-  emailDirect: "vineet@aerosearchtech.com",
+  /** Domain inbox, published second — the Gmail above is the one we watch. */
+  emailAlt: "info@aerosearchtech.com",
   phone: "+91 99993 96306",
   /** Same number, dial-safe for the tel: scheme. */
   phoneHref: "+919999396306",
   location: "India",
-  tagline: "Airborne threat detection for national defence.",
+  tagline: "Autonomous threat prediction for national defence.",
   product: "ClearLandMine",
 } as const;
 
 export const nav = {
   /** Order mirrors the page, so the nav doubles as a table of contents. */
   links: [
-    { label: "Mission", href: "#mission" },
+    { label: "Technology", href: "#technology" },
     { label: "Approach", href: "#approach" },
-    { label: "Capabilities", href: "#capabilities" },
+    { label: "Mission", href: "#mission" },
     { label: "Vision", href: "#horizon" },
     // Press is held back; restore this alongside <Press /> in page.tsx.
     // { label: "Press", href: "#press" },
@@ -47,22 +48,31 @@ export const nav = {
 } as const;
 
 export const hero = {
-  kicker: "Military-first. Built for India.",
-  title: ["Every mine found", "is a life saved."],
   /**
-   * The hero states the whole proposition, including the dual purpose, because
-   * it is the one screen every reader sees. Everything downstream avoids
-   * repeating it rather than the other way round.
+   * Two lines making two different claims: what the company does, then where it
+   * is from. Kept apart because a reader who only takes one should take the first.
+   */
+  kicker: "Autonomous threat prediction & tactical edge perception",
+  kickerSub: "Built for India",
+  title: ["Every threat found", "is a life saved."],
+  /**
+   * The hero states the company, not the product. No platform is named here —
+   * the autonomy is the thing we sell, and it does not belong to one airframe.
    */
   body:
-    "A complete solution. Intelligence on proven airframes, turning a single flight into a threat map - before anyone walks the ground. The same search that protects a border gives a village its fields back.",
-  primary: { label: "How it works", href: "#approach" },
+    "Aerosearch Technologies develops hardware-integrated autonomy for contested environments. We fuse raw multi-dimensional signals into real-time predictive threat intelligence - neutralizing risk before boots touch the ground.",
+  primary: { label: "Our technology", href: "#technology" },
   secondary: { label: "Talk to us", href: "#contact" },
   status: "Search · active",
 } as const;
 
+/**
+ * Everything from here to the end of `approach` is the ClearLandMine block. It
+ * is the one programme discussed openly, and the kicker says so rather than
+ * letting a reader assume it is all we do.
+ */
 export const crisis = {
-  kicker: "The ground remembers",
+  kicker: `${brand.product} · flagship programme`,
   title: "The threat doesn't wait for a war.",
   body:
     "Clearing ground by hand is slow, expensive, and dangerous. A deminer advances a few square metres an hour, on their knees, hoping the detector speaks first. There are not enough of them, and there is far too much ground.",
@@ -86,11 +96,11 @@ export const approach = {
   kicker: "How it works",
   title: "Take the search off the ground.",
   body:
-    "The search is the slowest, most dangerous part of demining. It is also the part a machine can take over.",
+    "The search is the slowest, most dangerous part of clearing contaminated ground. It is also the part a machine can take over.",
   system: {
     label: "The system",
     name: brand.product,
-    body: "Our first platform. Advanced detection from the air.",
+    body: "The first application of our detection stack.",
   },
   steps: [
     { step: "Search", title: "The aircraft goes first", note: "No one enters the ground" },
@@ -99,7 +109,7 @@ export const approach = {
       title: "The model reads what the eye misses",
       note: "Candidates, not conclusions",
     },
-    { step: "Map", title: "A map a team can act on", note: "Handed to the deminers" },
+    { step: "Map", title: "A map a team can act on", note: "Handed to the team that acts on it" },
   ] satisfies readonly ApproachStep[],
   scanCaption:
     "Illustrative - three sensors over the same ground, each contact marked by whichever one calls it.",
@@ -110,24 +120,25 @@ export type Capability = {
   readonly body: string;
 };
 
-export const capabilities = {
-  id: "capabilities",
-  kicker: "What we do",
+export const technology = {
+  id: "technology",
+  kicker: "Technology",
   title: "Intelligence for the missions that matter.",
   /**
    * Two cards on how the work is done, two on where it goes. The reach cards
-   * state design intent, never a customer we do not have.
+   * state design intent, never a customer we do not have. The pillars are named
+   * plainly; nothing here says which programme any of it currently flies on.
    */
   items: [
+    {
+      title: "Autonomous swarming",
+      body:
+        "Coordinated multi-aircraft coverage, so a large area is covered in one sortie rather than a season of them.",
+    },
     {
       title: "Sensor fusion",
       body:
         "Several feeds read as one picture, so a contact that is ambiguous on its own becomes readable in combination.",
-    },
-    {
-      title: "Autonomous mission planning",
-      body:
-        "Coordinated multi-aircraft coverage, so a large area is covered in one sortie rather than a season of them.",
     },
     {
       title: "Across the services",
@@ -142,6 +153,10 @@ export const capabilities = {
   ] satisfies readonly Capability[],
   swarmCaption:
     "Illustrative - a formation on station, each aircraft reading the ground its own way.",
+  fusionCaption:
+    "Illustrative - three channels of noise over the same ground; only what is really there survives the merge.",
+  /** Says the obvious thing out loud so silence does not read as absence. */
+  note: "Our other programmes are not discussed publicly.",
 } as const;
 
 export type HorizonStage = {
@@ -157,12 +172,12 @@ export const horizon = {
   title: "From detection to prediction.",
   stages: [
     {
-      title: "Mine detection",
+      title: "Detection",
       body: "Finding what is already buried, from the air.",
       here: true,
     },
     {
-      title: "Autonomous demining",
+      title: "Autonomous clearance",
       body:
         "Closing the loop from detection to clearance. Our heroes must not risk their lives in a minefield.",
     },
@@ -346,8 +361,8 @@ export const contact = {
     "Whether you are a defence partner, a mine action operator, a researcher, or a funder - we would like to hear from you.",
   cta: { label: "Email us", href: `mailto:${brand.email}` },
   details: [
-    { label: "General", value: brand.email, href: `mailto:${brand.email}` },
-    { label: "Direct", value: brand.emailDirect, href: `mailto:${brand.emailDirect}` },
+    { label: "Direct", value: brand.email, href: `mailto:${brand.email}` },
+    { label: "Alternate", value: brand.emailAlt, href: `mailto:${brand.emailAlt}` },
     { label: "Phone", value: brand.phone, href: `tel:${brand.phoneHref}` },
   ] satisfies readonly ContactDetail[],
   alt: "We reply to every enquiry.",
@@ -358,9 +373,9 @@ export const footer = {
     {
       heading: "Explore",
       links: [
-        { label: "Mission", href: "#mission" },
+        { label: "Technology", href: "#technology" },
         { label: "Approach", href: "#approach" },
-        { label: "Capabilities", href: "#capabilities" },
+        { label: "Mission", href: "#mission" },
         { label: "Vision", href: "#horizon" },
         // { label: "Press", href: "#press" },
       ],

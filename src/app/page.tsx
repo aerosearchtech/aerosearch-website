@@ -5,7 +5,7 @@ import PartnerMarquee from "@/components/ui/PartnerMarquee";
 import Hero from "@/components/sections/Hero";
 import Crisis from "@/components/sections/Crisis";
 import Approach from "@/components/sections/Approach";
-import Capabilities from "@/components/sections/Capabilities";
+import Technology from "@/components/sections/Technology";
 import Horizon from "@/components/sections/Horizon";
 // import Press from "@/components/sections/Press";
 import Mission from "@/components/sections/Mission";
@@ -18,11 +18,13 @@ export default function Home() {
       <ClearanceRail />
       <main>
         <Hero />
+        {/* What the company builds comes before any one thing it is built into.
+            Crisis and Approach are the ClearLandMine block — the one programme
+            discussed in the open — and Mission closes it by saying why. */}
+        <Technology />
         <Crisis />
-        {/* Why we exist lands before how it works — the origin is the argument. */}
-        <Mission />
         <Approach />
-        <Capabilities />
+        <Mission />
         <Horizon />
         {/* Press & milestones — held back for now. Restoring it also needs its
             nav and footer links uncommented in content.ts. */}

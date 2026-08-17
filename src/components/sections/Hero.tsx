@@ -15,11 +15,17 @@ export default function Hero() {
 
       <div className="relative z-10 flex min-h-[100svh] items-end pb-20 pt-28">
         <div className="shell">
+          {/* Two stacked tags: what we do, then where we are from. The rule sits
+              on the first because that is the one carrying the claim. */}
           <Reveal>
             <span className="eyebrow inline-flex items-center gap-3">
               <span className="h-px w-8 bg-survey" aria-hidden />
               {hero.kicker}
             </span>
+          </Reveal>
+
+          <Reveal delay={50}>
+            <span className="eyebrow mt-2.5 block pl-11 text-bone-faint">{hero.kickerSub}</span>
           </Reveal>
 
           <Reveal delay={90}>

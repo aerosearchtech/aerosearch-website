@@ -38,9 +38,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(`https://www.${brand.domain}`),
   // Kept under ~60 characters; the tagline is too long to survive a search result.
-  title: `${brand.full} - Airborne mine detection`,
+  title: `${brand.full} - Autonomous threat prediction`,
   description:
-    "Aerosearch Technologies puts intelligence on proven airframes, turning a single flight into a map of buried threats - before anyone walks the ground.",
+    "Aerosearch Technologies develops hardware-integrated autonomy for contested environments - fusing multi-dimensional signals into predictive threat intelligence.",
   keywords: [
     brand.product,
     "landmine detection drone",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: brand.full,
     description:
-      "Every mine found is a life saved. Airborne mine detection for defence and humanitarian demining.",
+      "Every threat found is a life saved. Autonomous threat prediction for defence and humanitarian demining.",
     type: "website",
   },
 };
