@@ -48,13 +48,9 @@ export const nav = {
 } as const;
 
 export const hero = {
-  /**
-   * Two lines making two different claims: what the company does, then where it
-   * is from. Kept apart because a reader who only takes one should take the first.
-   */
-  kicker: "Autonomous threat prediction & tactical edge perception",
-  kickerSub: "Built for India",
-  title: ["Every threat found", "is a life saved."],
+  kicker: "Tactical edge perception",
+  /** Set as two lines; the break is deliberate, not a wrap. */
+  title: ["Autonomous threat", "prediction."],
   /**
    * The hero states the company, not the product. No platform is named here —
    * the autonomy is the thing we sell, and it does not belong to one airframe.
