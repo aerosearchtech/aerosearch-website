@@ -285,7 +285,9 @@ export type Partner = {
 /**
  * Programmes and institutions Aerosearch is recognised by. Marks are used as
  * published; the FITT wordmark is its reversed form and the DPIIT lockup has had
- * its flat backing keyed out, neither of which alters the artwork itself.
+ * its flat backing keyed out, and the nasscom DeepTech Club lockup has its
+ * lower wordmark reversed to bone because the maroon it ships in is
+ * unreadable on night. None of these alter the artwork itself.
  */
 export const partners = {
   heading: "Supported by",
@@ -331,6 +333,13 @@ export const partners = {
       width: 176,
       height: 56,
       displayHeight: 43,
+    },
+    {
+      name: "nasscom DeepTech Club",
+      src: "/logos/deeptech.png",
+      width: 152,
+      height: 54,
+      displayHeight: 44,
     },
   ] satisfies readonly Partner[],
 } as const;
