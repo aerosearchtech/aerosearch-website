@@ -64,6 +64,12 @@ export const demo = {
       label: "AI Gun Recce Module",
       body: "Candidate sites, ingress, and a terrain-mask check.",
     },
+    {
+      slug: "drishti",
+      href: "/demo/drishti",
+      label: "Drishti Swarm",
+      body: "A distributed radar swarm.",
+    },
   ],
 } as const;
 

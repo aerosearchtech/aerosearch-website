@@ -1,0 +1,92 @@
+.drishti-root {
+  --bg: #030708;
+  --panel: #050c09;
+  --card: #070f0b;
+  --bd-dim: #0c1e13;
+  --bd-mid: #16382a;
+  --bd-hi: #2a6040;
+  --green: #00e060;
+  --green-d: #006030;
+  --amber: #ffa800;
+  --red: #ff3333;
+  --blue: #3d8cff;
+  --txt-hi: #c0ffd0;
+  --txt-mid: #60c880;
+  --txt-lo: #2e5c40;
+  --font-mono: var(--font-drishti-mono), "IBM Plex Mono", monospace;
+  --font-cond: var(--font-drishti-cond), "Arial Narrow", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  color: var(--txt-hi);
+  background: var(--bg);
+  font-family: var(--font-mono);
+}
+
+.drishti-root *,
+.drishti-root *::before,
+.drishti-root *::after {
+  box-sizing: border-box;
+}
+
+.drishti-root button {
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+.drishti-root button:hover {
+  filter: brightness(1.2);
+}
+
+.drishti-root ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.drishti-root ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+.drishti-root ::-webkit-scrollbar-thumb {
+  background: var(--bd-mid);
+}
+
+@keyframes drishti-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes drishti-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+.drishti-root .animate-radar-pulse {
+  animation: drishti-pulse 1.8s ease-in-out infinite;
+}
+
+.drishti-root .animate-rec-blink {
+  animation: drishti-blink 1s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drishti-root .animate-radar-pulse,
+  .drishti-root .animate-rec-blink {
+    animation: none;
+  }
+}
