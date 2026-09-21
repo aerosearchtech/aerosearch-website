@@ -280,7 +280,9 @@ function App() {
           <Logo />
           <div className="brand-copy">
             <span>AEROSEARCH TECHNOLOGIES</span>
-            <strong>AIGARM <i>// v0.7 DEMO</i></strong>
+            <strong>
+              AIGARM <i>{"// v0.7 DEMO"}</i>
+            </strong>
           </div>
           <div className="module-name">GUN AREA RECCE</div>
         </div>
