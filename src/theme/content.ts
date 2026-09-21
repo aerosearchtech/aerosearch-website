@@ -35,15 +35,13 @@ export const brand = {
 } as const;
 
 /**
- * BreachMineField GCS, shipped from ui_demo. Unlisted — reachable at
- * `demo.href`, not linked from the nav or footer. The password check lives
- * in `src/bmf/auth.ts`.
+ * Unlisted capability demos. Reachable at `demo.href`, not linked from the
+ * nav or footer. The password check lives in `src/bmf/auth.ts`.
  */
 export const demo = {
   href: "/demo",
-  label: "BreachMineField",
-  title: "BreachMineField",
-  body: "Breach-lane planning over UAV-mapped minefields — least-density corridors through a laid obstacle.",
+  title: "Demos",
+  body: "Password-gated capability consoles.",
   gate: {
     kicker: "AeroSearch",
     body: "Enter the demo password to continue.",
@@ -53,6 +51,20 @@ export const demo = {
     error: "Incorrect password",
     fail: "Could not sign in",
   },
+  items: [
+    {
+      slug: "breachminefield",
+      href: "/demo/breachminefield",
+      label: "Breach Minefield",
+      body: "A lane through a mapped minefield.",
+    },
+    {
+      slug: "aigarm",
+      href: "/demo/aigarm",
+      label: "AI Gun Recce Module",
+      body: "Candidate sites, ingress, and a terrain-mask check.",
+    },
+  ],
 } as const;
 
 export const nav = {

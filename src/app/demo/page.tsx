@@ -1,9 +1,12 @@
-import DemoShell from "./DemoShell";
+import DemoGate from "./DemoGate";
+import DemoIndex from "./DemoIndex";
 
 export default function DemoPage() {
   return (
     <main className="fixed inset-0 bg-night">
-      <DemoShell />
+      <DemoGate>
+        <DemoIndex />
+      </DemoGate>
     </main>
   );
 }

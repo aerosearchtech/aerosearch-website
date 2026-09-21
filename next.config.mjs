@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["three", "zustand"],
+  transpilePackages: ["three", "zustand", "maplibre-gl"],
   // GitHub Pages is a plain file host: prerender everything to ./out and let the
   // client components hydrate there. No route here needs a server.
   output: "export",
