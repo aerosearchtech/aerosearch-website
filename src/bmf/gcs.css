@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+/* Scoped to the demo shell so these rules do not restyle the marketing site. */
+
+.bmf-root {
+  height: 100%;
+  background: var(--bg0);
+  font-family: "Saira", system-ui, sans-serif;
+  color: var(--tx);
+  -webkit-font-smoothing: antialiased;
+}
+
+.bmf-root *,
+.bmf-root *::before,
+.bmf-root *::after {
+  box-sizing: border-box;
+}
+
+.bmf-root ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.bmf-root ::-webkit-scrollbar-track {
+  background: var(--bg0);
+}
+.bmf-root ::-webkit-scrollbar-thumb {
+  background: var(--bd2);
+  border: 1px solid var(--bg0);
+}
+.bmf-root ::-webkit-scrollbar-thumb:hover {
+  background: var(--tx3);
+}
+
+.bmf-root input[type="range"] {
+  width: 100%;
+  height: 3px;
+  appearance: none;
+  background: var(--bg3);
+  outline: none;
+  cursor: pointer;
+}
+.bmf-root input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--am);
+  border: none;
+  cursor: pointer;
+}
+.bmf-root input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: var(--am);
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes clmPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes clmBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes clmReveal {
+  0% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}

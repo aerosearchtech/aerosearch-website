@@ -34,17 +34,39 @@ export const brand = {
   product: "ClearLandMine",
 } as const;
 
+/**
+ * BreachMineField GCS, shipped from ui_demo. Unlisted — reachable at
+ * `demo.href`, not linked from the nav or footer. The password check lives
+ * in `src/bmf/auth.ts`.
+ */
+export const demo = {
+  href: "/demo",
+  label: "BreachMineField",
+  title: "BreachMineField",
+  body: "Breach-lane planning over UAV-mapped minefields — least-density corridors through a laid obstacle.",
+  gate: {
+    kicker: "AeroSearch",
+    body: "Enter the demo password to continue.",
+    passwordLabel: "Password",
+    submit: "Enter",
+    checking: "Checking…",
+    error: "Incorrect password",
+    fail: "Could not sign in",
+  },
+} as const;
+
 export const nav = {
-  /** Order mirrors the page, so the nav doubles as a table of contents. */
+  /** Order mirrors the page, so the nav doubles as a table of contents.
+   *  Hash targets are rooted (`/#…`) so they still resolve from /demo. */
   links: [
-    { label: "Technology", href: "#technology" },
-    { label: "Approach", href: "#approach" },
-    { label: "Mission", href: "#mission" },
-    { label: "Vision", href: "#horizon" },
+    { label: "Technology", href: "/#technology" },
+    { label: "Approach", href: "/#approach" },
+    { label: "Mission", href: "/#mission" },
+    { label: "Vision", href: "/#horizon" },
     // Press is held back; restore this alongside <Press /> in page.tsx.
-    // { label: "Press", href: "#press" },
+    // { label: "Press", href: "/#press" },
   ],
-  cta: { label: "Talk to us", href: "#contact" },
+  cta: { label: "Talk to us", href: "/#contact" },
 } as const;
 
 export const hero = {
@@ -378,17 +400,17 @@ export const footer = {
     {
       heading: "Explore",
       links: [
-        { label: "Technology", href: "#technology" },
-        { label: "Approach", href: "#approach" },
-        { label: "Mission", href: "#mission" },
-        { label: "Vision", href: "#horizon" },
-        // { label: "Press", href: "#press" },
+        { label: "Technology", href: "/#technology" },
+        { label: "Approach", href: "/#approach" },
+        { label: "Mission", href: "/#mission" },
+        { label: "Vision", href: "/#horizon" },
+        // { label: "Press", href: "/#press" },
       ],
     },
     {
       heading: "Company",
       links: [
-        { label: "Contact", href: "#contact" },
+        { label: "Contact", href: "/#contact" },
         { label: "Email", href: `mailto:${brand.email}` },
         { label: "Phone", href: `tel:${brand.phoneHref}` },
       ],

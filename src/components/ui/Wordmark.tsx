@@ -13,7 +13,7 @@ export default function Wordmark({ className = "" }: { className?: string }) {
   const [name, ...rest] = brand.full.split(" ");
 
   return (
-    <a href="#top" className={`flex items-center gap-2.5 ${className}`} aria-label={`${brand.full} home`}>
+    <a href="/#top" className={`flex items-center gap-2.5 ${className}`} aria-label={`${brand.full} home`}>
       <Logo className="h-[1.3rem] w-[1.3rem] shrink-0 text-mark" />
       <span className="font-mark text-[1.0625rem] font-normal tracking-[0.005em] sm:text-lg">
         <span className="text-bone">{name}</span>{" "}

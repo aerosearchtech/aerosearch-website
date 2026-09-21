@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Wordmark from "@/components/ui/Wordmark";
 import { nav } from "@/theme/content";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const onHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -18,7 +21,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open
+        scrolled || open || !onHome
           ? "border-b border-line bg-night/85 backdrop-blur-md"
           : "border-b border-transparent"
       }`}
@@ -27,15 +30,23 @@ export default function Navbar() {
         <Wordmark />
 
         <div className="hidden items-center gap-9 md:flex">
-          {nav.links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-bone-muted transition-colors hover:text-bone"
-            >
-              {link.label}
-            </a>
-          ))}
+          {nav.links.map((link) => {
+            const current =
+              link.href.startsWith("/") &&
+              !link.href.startsWith("/#") &&
+              (pathname === link.href || pathname === `${link.href}/`);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm transition-colors hover:text-bone ${
+                  current ? "text-bone" : "text-bone-muted"
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-3">
