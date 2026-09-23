@@ -1,0 +1,72 @@
+{
+  "vessel": {
+    "id": "T-1204",
+    "mmsi": "538004112",
+    "imo": "9566421",
+    "name": "NORDIC FALCON",
+    "flag": "Marshall Islands",
+    "type": "70",
+    "status": "CRITICAL",
+    "riskScore": 82,
+    "lastPosition": {
+      "lat": 19.04,
+      "lon": 72.68
+    },
+    "speedKnots": 13.2,
+    "courseDegrees": 95,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "IDENTITY MISMATCH",
+      "EO DIVERGENCE"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [
+    {
+      "id": "evt-T-1204-IDENTITY-MISMATCH",
+      "trackId": "T-1204",
+      "type": "identity_mismatch",
+      "severity": "critical",
+      "title": "IDENTITY MISMATCH Detected: NORDIC FALCON",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "AIS identity mismatch \u2014 EO shows frigate profile"
+      ]
+    },
+    {
+      "id": "evt-T-1204-EO-DIVERGENCE",
+      "trackId": "T-1204",
+      "type": "eo_divergence",
+      "severity": "critical",
+      "title": "EO DIVERGENCE Detected: NORDIC FALCON",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "AIS identity mismatch \u2014 EO shows frigate profile"
+      ]
+    }
+  ],
+  "dossier": {
+    "trackId": "T-1204",
+    "vesselName": "NORDIC FALCON",
+    "description": "AIS identity mismatch \u2014 EO shows frigate profile",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 19.04,
+        "lon": 72.68,
+        "speedKnots": 13.2,
+        "courseDegrees": 95
+      }
+    ],
+    "alerts": [
+      "IDENTITY MISMATCH",
+      "EO DIVERGENCE"
+    ],
+    "pansRecords": []
+  }
+}

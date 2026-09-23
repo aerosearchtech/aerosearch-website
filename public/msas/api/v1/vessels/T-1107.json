@@ -1,0 +1,85 @@
+{
+  "vessel": {
+    "id": "T-1107",
+    "mmsi": "477888123",
+    "imo": "9712045",
+    "name": "GHOST LANTERN",
+    "flag": "Hong Kong",
+    "type": "80",
+    "status": "CRITICAL",
+    "riskScore": 94,
+    "lastPosition": {
+      "lat": 22.18,
+      "lon": 68.42
+    },
+    "speedKnots": 0.4,
+    "courseDegrees": 0,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "AIS INTERMITTENT",
+      "LOITERING",
+      "PROXIMITY STS"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [
+    {
+      "id": "evt-T-1107-AIS-INTERMITTENT",
+      "trackId": "T-1107",
+      "type": "ais_intermittent",
+      "severity": "critical",
+      "title": "AIS INTERMITTENT Detected: GHOST LANTERN",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "DARK \u2014 AIS off 04:12 prior. Loitering off Kutch."
+      ]
+    },
+    {
+      "id": "evt-T-1107-LOITERING",
+      "trackId": "T-1107",
+      "type": "loitering",
+      "severity": "critical",
+      "title": "LOITERING Detected: GHOST LANTERN",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "DARK \u2014 AIS off 04:12 prior. Loitering off Kutch."
+      ]
+    },
+    {
+      "id": "evt-T-1107-PROXIMITY-STS",
+      "trackId": "T-1107",
+      "type": "proximity_sts",
+      "severity": "critical",
+      "title": "PROXIMITY STS Detected: GHOST LANTERN",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "DARK \u2014 AIS off 04:12 prior. Loitering off Kutch."
+      ]
+    }
+  ],
+  "dossier": {
+    "trackId": "T-1107",
+    "vesselName": "GHOST LANTERN",
+    "description": "DARK \u2014 AIS off 04:12 prior. Loitering off Kutch.",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 22.18,
+        "lon": 68.42,
+        "speedKnots": 0.4,
+        "courseDegrees": 0
+      }
+    ],
+    "alerts": [
+      "AIS INTERMITTENT",
+      "LOITERING",
+      "PROXIMITY STS"
+    ],
+    "pansRecords": []
+  }
+}

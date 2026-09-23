@@ -70,6 +70,12 @@ export const demo = {
       label: "Drishti Swarm",
       body: "A distributed radar swarm.",
     },
+    {
+      slug: "msas",
+      href: "/demo/msas",
+      label: "MSAS",
+      body: "A maritime watchkeeper console.",
+    },
   ],
 } as const;
 

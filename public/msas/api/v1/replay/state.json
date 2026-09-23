@@ -1,0 +1,15 @@
+{
+  "scenario": "multi-sensor-fusion-active",
+  "status": "ready",
+  "trackCount": 10,
+  "eventCount": 10,
+  "zones": [
+    "Arabian Sea"
+  ],
+  "fusion": {
+    "radarActive": true,
+    "aisActive": true,
+    "eoSlewToCue": true,
+    "sarSatellite": true
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "vessel": {
+    "id": "T-1811",
+    "mmsi": "563112987",
+    "imo": "0",
+    "name": "SINGAPORE STAR [DUP]",
+    "flag": "Singapore",
+    "type": "80",
+    "status": "WARNING",
+    "riskScore": 71,
+    "lastPosition": {
+      "lat": 23.42,
+      "lon": 67.88
+    },
+    "speedKnots": 0.2,
+    "courseDegrees": 0,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "DUPLICATE MMSI"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [
+    {
+      "id": "evt-T-1811-DUPLICATE-MMSI",
+      "trackId": "T-1811",
+      "type": "duplicate_mmsi",
+      "severity": "high",
+      "title": "DUPLICATE MMSI Detected: SINGAPORE STAR [DUP]",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "Duplicate MMSI broadcast \u2014 820 NM from T-0512"
+      ]
+    }
+  ],
+  "dossier": {
+    "trackId": "T-1811",
+    "vesselName": "SINGAPORE STAR [DUP]",
+    "description": "Duplicate MMSI broadcast \u2014 820 NM from T-0512",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 23.42,
+        "lon": 67.88,
+        "speedKnots": 0.2,
+        "courseDegrees": 0
+      }
+    ],
+    "alerts": [
+      "DUPLICATE MMSI"
+    ],
+    "pansRecords": []
+  }
+}

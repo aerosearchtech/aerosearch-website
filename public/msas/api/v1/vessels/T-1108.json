@@ -1,0 +1,73 @@
+{
+  "vessel": {
+    "id": "T-1108",
+    "mmsi": "636019221",
+    "imo": "9455810",
+    "name": "SEA PATRIOT",
+    "flag": "Liberia",
+    "type": "80",
+    "status": "Dark Track (Radar Only)",
+    "riskScore": 100,
+    "lastPosition": {
+      "lat": 22.16,
+      "lon": 68.44
+    },
+    "speedKnots": 0.6,
+    "courseDegrees": 175,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "PROXIMITY STS",
+      "SPEED MISMATCH",
+      "Dark Vessel: Radar track with no AIS"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [
+    {
+      "id": "evt-T-1108-PROXIMITY-STS",
+      "trackId": "T-1108",
+      "type": "proximity_sts",
+      "severity": "critical",
+      "title": "PROXIMITY STS Detected: SEA PATRIOT",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "Suspected STS rendezvous with T-1107"
+      ]
+    },
+    {
+      "id": "evt-T-1108-SPEED-MISMATCH",
+      "trackId": "T-1108",
+      "type": "speed_mismatch",
+      "severity": "critical",
+      "title": "SPEED MISMATCH Detected: SEA PATRIOT",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "Suspected STS rendezvous with T-1107"
+      ]
+    }
+  ],
+  "dossier": {
+    "trackId": "T-1108",
+    "vesselName": "SEA PATRIOT",
+    "description": "Suspected STS rendezvous with T-1107",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 22.16,
+        "lon": 68.44,
+        "speedKnots": 0.6,
+        "courseDegrees": 175
+      }
+    ],
+    "alerts": [
+      "PROXIMITY STS",
+      "SPEED MISMATCH"
+    ],
+    "pansRecords": []
+  }
+}

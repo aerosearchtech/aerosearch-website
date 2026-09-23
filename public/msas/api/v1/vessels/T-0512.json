@@ -1,0 +1,43 @@
+{
+  "vessel": {
+    "id": "T-0512",
+    "mmsi": "563112987",
+    "imo": "9761208",
+    "name": "SINGAPORE STAR",
+    "flag": "Singapore",
+    "type": "80",
+    "status": "NORMAL",
+    "riskScore": 14,
+    "lastPosition": {
+      "lat": 20.88,
+      "lon": 71.44
+    },
+    "speedKnots": 10.8,
+    "courseDegrees": 268,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [],
+  "dossier": {
+    "trackId": "T-0512",
+    "vesselName": "SINGAPORE STAR",
+    "description": "Transit ISL",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 20.88,
+        "lon": 71.44,
+        "speedKnots": 10.8,
+        "courseDegrees": 268
+      }
+    ],
+    "alerts": [],
+    "pansRecords": []
+  }
+}

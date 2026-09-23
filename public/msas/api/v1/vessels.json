@@ -1,0 +1,257 @@
+[
+  {
+    "id": "T-1107",
+    "mmsi": "477888123",
+    "imo": "9712045",
+    "name": "GHOST LANTERN",
+    "flag": "Hong Kong",
+    "type": "80",
+    "status": "CRITICAL",
+    "riskScore": 94,
+    "lastPosition": {
+      "lat": 22.18,
+      "lon": 68.42
+    },
+    "speedKnots": 0.4,
+    "courseDegrees": 0,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "AIS INTERMITTENT",
+      "LOITERING",
+      "PROXIMITY STS"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-1108",
+    "mmsi": "636019221",
+    "imo": "9455810",
+    "name": "SEA PATRIOT",
+    "flag": "Liberia",
+    "type": "80",
+    "status": "CRITICAL",
+    "riskScore": 88,
+    "lastPosition": {
+      "lat": 22.16,
+      "lon": 68.44
+    },
+    "speedKnots": 0.6,
+    "courseDegrees": 175,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "PROXIMITY STS",
+      "SPEED MISMATCH"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-1204",
+    "mmsi": "538004112",
+    "imo": "9566421",
+    "name": "NORDIC FALCON",
+    "flag": "Marshall Islands",
+    "type": "70",
+    "status": "CRITICAL",
+    "riskScore": 82,
+    "lastPosition": {
+      "lat": 19.04,
+      "lon": 72.68
+    },
+    "speedKnots": 13.2,
+    "courseDegrees": 95,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "IDENTITY MISMATCH",
+      "EO DIVERGENCE"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-1311",
+    "mmsi": "457991200",
+    "imo": "0",
+    "name": "UNKNOWN / FF-03",
+    "flag": "Unknown",
+    "type": "0",
+    "status": "WARNING",
+    "riskScore": 76,
+    "lastPosition": {
+      "lat": 20.14,
+      "lon": 71.98
+    },
+    "speedKnots": 18.4,
+    "courseDegrees": 72,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "NO AIS",
+      "HIGH SPEED"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-1811",
+    "mmsi": "563112987",
+    "imo": "0",
+    "name": "SINGAPORE STAR [DUP]",
+    "flag": "Singapore",
+    "type": "80",
+    "status": "WARNING",
+    "riskScore": 71,
+    "lastPosition": {
+      "lat": 23.42,
+      "lon": 67.88
+    },
+    "speedKnots": 0.2,
+    "courseDegrees": 0,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "DUPLICATE MMSI"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-0512",
+    "mmsi": "563112987",
+    "imo": "9761208",
+    "name": "SINGAPORE STAR",
+    "flag": "Singapore",
+    "type": "80",
+    "status": "NORMAL",
+    "riskScore": 14,
+    "lastPosition": {
+      "lat": 20.88,
+      "lon": 71.44
+    },
+    "speedKnots": 10.8,
+    "courseDegrees": 268,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-0718",
+    "mmsi": "470118832",
+    "imo": "9488121",
+    "name": "GULF MARINER",
+    "flag": "UAE",
+    "type": "80",
+    "status": "NORMAL",
+    "riskScore": 11,
+    "lastPosition": {
+      "lat": 22.41,
+      "lon": 68.82
+    },
+    "speedKnots": 11.6,
+    "courseDegrees": 85,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-0441",
+    "mmsi": "419001234",
+    "imo": "9874123",
+    "name": "MV ARABIAN DAWN",
+    "flag": "India",
+    "type": "70",
+    "status": "NORMAL",
+    "riskScore": 8,
+    "lastPosition": {
+      "lat": 21.32,
+      "lon": 69.11
+    },
+    "speedKnots": 12.4,
+    "courseDegrees": 92,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-0603",
+    "mmsi": "419555901",
+    "imo": "9502881",
+    "name": "JAL KESARI",
+    "flag": "India",
+    "type": "70",
+    "status": "NORMAL",
+    "riskScore": 6,
+    "lastPosition": {
+      "lat": 19.72,
+      "lon": 72.31
+    },
+    "speedKnots": 14.2,
+    "courseDegrees": 118,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  {
+    "id": "T-0821",
+    "mmsi": "419622011",
+    "imo": "0",
+    "name": "RF VERAVAL-112",
+    "flag": "India",
+    "type": "30",
+    "status": "NORMAL",
+    "riskScore": 4,
+    "lastPosition": {
+      "lat": 20.91,
+      "lon": 70.26
+    },
+    "speedKnots": 3.2,
+    "courseDegrees": 45,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  }
+]

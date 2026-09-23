@@ -1,0 +1,43 @@
+{
+  "vessel": {
+    "id": "T-0603",
+    "mmsi": "419555901",
+    "imo": "9502881",
+    "name": "JAL KESARI",
+    "flag": "India",
+    "type": "70",
+    "status": "NORMAL",
+    "riskScore": 6,
+    "lastPosition": {
+      "lat": 19.72,
+      "lon": 72.31
+    },
+    "speedKnots": 14.2,
+    "courseDegrees": 118,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [],
+  "dossier": {
+    "trackId": "T-0603",
+    "vesselName": "JAL KESARI",
+    "description": "Port approach \u2014 Mumbai",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 19.72,
+        "lon": 72.31,
+        "speedKnots": 14.2,
+        "courseDegrees": 118
+      }
+    ],
+    "alerts": [],
+    "pansRecords": []
+  }
+}

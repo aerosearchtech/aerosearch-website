@@ -1,0 +1,43 @@
+{
+  "vessel": {
+    "id": "T-0821",
+    "mmsi": "419622011",
+    "imo": "0",
+    "name": "RF VERAVAL-112",
+    "flag": "India",
+    "type": "30",
+    "status": "NORMAL",
+    "riskScore": 4,
+    "lastPosition": {
+      "lat": 20.91,
+      "lon": 70.26
+    },
+    "speedKnots": 3.2,
+    "courseDegrees": 45,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [],
+  "dossier": {
+    "trackId": "T-0821",
+    "vesselName": "RF VERAVAL-112",
+    "description": "Fishing \u2014 zig-zag pattern",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 20.91,
+        "lon": 70.26,
+        "speedKnots": 3.2,
+        "courseDegrees": 45
+      }
+    ],
+    "alerts": [],
+    "pansRecords": []
+  }
+}

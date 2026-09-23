@@ -1,0 +1,112 @@
+[
+  {
+    "id": "evt-T-1107-AIS-INTERMITTENT",
+    "trackId": "T-1107",
+    "type": "ais_intermittent",
+    "severity": "critical",
+    "title": "AIS INTERMITTENT Detected: GHOST LANTERN",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "DARK \u2014 AIS off 04:12 prior. Loitering off Kutch."
+    ]
+  },
+  {
+    "id": "evt-T-1107-LOITERING",
+    "trackId": "T-1107",
+    "type": "loitering",
+    "severity": "critical",
+    "title": "LOITERING Detected: GHOST LANTERN",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "DARK \u2014 AIS off 04:12 prior. Loitering off Kutch."
+    ]
+  },
+  {
+    "id": "evt-T-1107-PROXIMITY-STS",
+    "trackId": "T-1107",
+    "type": "proximity_sts",
+    "severity": "critical",
+    "title": "PROXIMITY STS Detected: GHOST LANTERN",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "DARK \u2014 AIS off 04:12 prior. Loitering off Kutch."
+    ]
+  },
+  {
+    "id": "evt-T-1108-PROXIMITY-STS",
+    "trackId": "T-1108",
+    "type": "proximity_sts",
+    "severity": "critical",
+    "title": "PROXIMITY STS Detected: SEA PATRIOT",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "Suspected STS rendezvous with T-1107"
+    ]
+  },
+  {
+    "id": "evt-T-1108-SPEED-MISMATCH",
+    "trackId": "T-1108",
+    "type": "speed_mismatch",
+    "severity": "critical",
+    "title": "SPEED MISMATCH Detected: SEA PATRIOT",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "Suspected STS rendezvous with T-1107"
+    ]
+  },
+  {
+    "id": "evt-T-1204-IDENTITY-MISMATCH",
+    "trackId": "T-1204",
+    "type": "identity_mismatch",
+    "severity": "critical",
+    "title": "IDENTITY MISMATCH Detected: NORDIC FALCON",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "AIS identity mismatch \u2014 EO shows frigate profile"
+    ]
+  },
+  {
+    "id": "evt-T-1204-EO-DIVERGENCE",
+    "trackId": "T-1204",
+    "type": "eo_divergence",
+    "severity": "critical",
+    "title": "EO DIVERGENCE Detected: NORDIC FALCON",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "AIS identity mismatch \u2014 EO shows frigate profile"
+    ]
+  },
+  {
+    "id": "evt-T-1311-NO-AIS",
+    "trackId": "T-1311",
+    "type": "no_ais",
+    "severity": "high",
+    "title": "NO AIS Detected: UNKNOWN / FF-03",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "High-speed, no AIS, inbound TW Maharashtra"
+    ]
+  },
+  {
+    "id": "evt-T-1311-HIGH-SPEED",
+    "trackId": "T-1311",
+    "type": "high_speed",
+    "severity": "high",
+    "title": "HIGH SPEED Detected: UNKNOWN / FF-03",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "High-speed, no AIS, inbound TW Maharashtra"
+    ]
+  },
+  {
+    "id": "evt-T-1811-DUPLICATE-MMSI",
+    "trackId": "T-1811",
+    "type": "duplicate_mmsi",
+    "severity": "high",
+    "title": "DUPLICATE MMSI Detected: SINGAPORE STAR [DUP]",
+    "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+    "evidence": [
+      "Duplicate MMSI broadcast \u2014 820 NM from T-0512"
+    ]
+  }
+]

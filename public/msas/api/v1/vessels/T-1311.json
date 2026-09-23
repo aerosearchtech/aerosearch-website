@@ -1,0 +1,72 @@
+{
+  "vessel": {
+    "id": "T-1311",
+    "mmsi": "457991200",
+    "imo": "0",
+    "name": "UNKNOWN / FF-03",
+    "flag": "Unknown",
+    "type": "0",
+    "status": "WARNING",
+    "riskScore": 76,
+    "lastPosition": {
+      "lat": 20.14,
+      "lon": 71.98
+    },
+    "speedKnots": 18.4,
+    "courseDegrees": 72,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [
+      "NO AIS",
+      "HIGH SPEED"
+    ],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [
+    {
+      "id": "evt-T-1311-NO-AIS",
+      "trackId": "T-1311",
+      "type": "no_ais",
+      "severity": "high",
+      "title": "NO AIS Detected: UNKNOWN / FF-03",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "High-speed, no AIS, inbound TW Maharashtra"
+      ]
+    },
+    {
+      "id": "evt-T-1311-HIGH-SPEED",
+      "trackId": "T-1311",
+      "type": "high_speed",
+      "severity": "high",
+      "title": "HIGH SPEED Detected: UNKNOWN / FF-03",
+      "occurredAt": "2026-04-21T16:42:20.462370+00:00",
+      "evidence": [
+        "High-speed, no AIS, inbound TW Maharashtra"
+      ]
+    }
+  ],
+  "dossier": {
+    "trackId": "T-1311",
+    "vesselName": "UNKNOWN / FF-03",
+    "description": "High-speed, no AIS, inbound TW Maharashtra",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 20.14,
+        "lon": 71.98,
+        "speedKnots": 18.4,
+        "courseDegrees": 72
+      }
+    ],
+    "alerts": [
+      "NO AIS",
+      "HIGH SPEED"
+    ],
+    "pansRecords": []
+  }
+}

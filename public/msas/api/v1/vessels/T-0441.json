@@ -1,0 +1,43 @@
+{
+  "vessel": {
+    "id": "T-0441",
+    "mmsi": "419001234",
+    "imo": "9874123",
+    "name": "MV ARABIAN DAWN",
+    "flag": "India",
+    "type": "70",
+    "status": "NORMAL",
+    "riskScore": 8,
+    "lastPosition": {
+      "lat": 21.32,
+      "lon": 69.11
+    },
+    "speedKnots": 12.4,
+    "courseDegrees": 92,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [],
+  "dossier": {
+    "trackId": "T-0441",
+    "vesselName": "MV ARABIAN DAWN",
+    "description": "Transit ISL",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 21.32,
+        "lon": 69.11,
+        "speedKnots": 12.4,
+        "courseDegrees": 92
+      }
+    ],
+    "alerts": [],
+    "pansRecords": []
+  }
+}

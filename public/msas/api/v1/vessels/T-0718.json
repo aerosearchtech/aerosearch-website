@@ -1,0 +1,43 @@
+{
+  "vessel": {
+    "id": "T-0718",
+    "mmsi": "470118832",
+    "imo": "9488121",
+    "name": "GULF MARINER",
+    "flag": "UAE",
+    "type": "80",
+    "status": "NORMAL",
+    "riskScore": 11,
+    "lastPosition": {
+      "lat": 22.41,
+      "lon": 68.82
+    },
+    "speedKnots": 11.6,
+    "courseDegrees": 85,
+    "zone": "Arabian Sea",
+    "lastUpdate": "2026-04-21T16:42:20.462370+00:00",
+    "suspicionFactors": [],
+    "registry": {
+      "source": "Designer Mock",
+      "matched": true,
+      "confidence": 0.9
+    }
+  },
+  "events": [],
+  "dossier": {
+    "trackId": "T-0718",
+    "vesselName": "GULF MARINER",
+    "description": "Transit ISL",
+    "history": [
+      {
+        "timestamp": "2026-04-21T16:42:20.462370+00:00",
+        "lat": 22.41,
+        "lon": 68.82,
+        "speedKnots": 11.6,
+        "courseDegrees": 85
+      }
+    ],
+    "alerts": [],
+    "pansRecords": []
+  }
+}
