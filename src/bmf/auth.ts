@@ -6,11 +6,11 @@
  *   node -e "console.log(require('crypto').createHash('sha256').update('YOUR_PASSWORD').digest('hex'))"
  */
 
-export const AUTH_STORAGE_KEY = "bmf-demo-auth-v3";
+export const AUTH_STORAGE_KEY = "bmf-demo-auth-v4";
 
 /** SHA-256 of the demo password. Overridden by NEXT_PUBLIC_DEMO_PASSWORD_SHA256. */
 const FALLBACK_SHA256 =
-  "89414d19e8c6932f9f8dbff572e2418a3593fccd8adb4a8bd733978deeef01f0";
+  "ca2538261c864c7ad6ef0843042db074027904299c3bf51b816fd7ca310850db";
 
 function expectedHash(): string {
   return (process.env.NEXT_PUBLIC_DEMO_PASSWORD_SHA256 ?? FALLBACK_SHA256).toLowerCase();

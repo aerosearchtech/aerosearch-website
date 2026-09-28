@@ -21,4 +21,12 @@
 .clean-ui .inspection-note,.clean-ui .tile-details small{display:none}
 .clean-ui .layer-controls:has(input:disabled){display:none}
 
+.options-tabs{display:flex;gap:20px;border-bottom:1px solid var(--line);margin-bottom:18px}.options-tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;padding:10px 0;color:var(--sub);font-size:12px}.options-tabs button[aria-selected=true]{border-bottom-color:var(--accent);color:var(--ink);font-weight:600}
+
+.wordmark svg{fill:#0155cc;stroke:none;width:25px;height:25px;flex-shrink:0}.wordmark small{font-size:inherit;font-weight:400;color:var(--sub)}
+
+.site-select{max-width:180px;min-width:0;padding:7px 28px 7px 10px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);font-size:11px}.top{gap:18px}@media(max-width:760px){.top{flex-wrap:wrap;height:auto;min-height:62px;padding:12px 16px;gap:10px}.top .wordmark{width:auto;margin-right:auto}.top .site-select{order:3;flex:1;max-width:none}.top .breadcrumb{order:4}.layout{height:calc(100dvh - 104px)}}
+
+.wordmark img{display:block;width:226px;height:auto;max-height:38px;object-fit:contain}.wordmark .brand-dark{display:none}html[data-theme=dark] .wordmark .brand-light{display:none}html[data-theme=dark] .wordmark .brand-dark{display:block}@media(max-width:760px){.wordmark img{width:190px;max-height:32px}}
+
 @media(max-width:760px){.top-actions>a{display:inline;font-size:10px}.top{gap:10px}.wordmark{font-size:12px}.top-actions{gap:8px}}

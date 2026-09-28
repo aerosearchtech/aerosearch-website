@@ -1,4 +1,4 @@
-# Sensor Fusion — public research demonstration
+# AeroSurvey — public research demonstration
 
 This viewer illustrates independent public surveys of the DRC seeded test field
 in Pawnee, Oklahoma. It does not represent an AeroSearch hardware configuration,

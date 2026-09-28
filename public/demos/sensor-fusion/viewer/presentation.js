@@ -32,9 +32,9 @@ adaptiveView.drawAnnotations=function(){
 };
 document.body.classList.add('clean-ui');
 $('selectedTitle').textContent='Inspect';$('mapHint').textContent='Drag · zoom · inspect';
-$('dataInfo').firstChild.textContent='About the data ';
+$('dataInfo').firstChild.textContent='Options ';
 document.querySelector('.sidebar-title p').textContent='Pawnee · Site 02';
-document.querySelector('.sidebar-title h1').textContent='Sensor fusion';
+document.querySelector('.sidebar-title h1').textContent='AeroSurvey';
 $('fixedView').textContent='Fixed';$('adaptiveView').textContent='Adaptive';
 $('alignmentAudit').textContent='Alignment';
 $('replayMode').textContent='Replay';
@@ -50,5 +50,27 @@ const playbackBase=updatePlayback;updatePlayback=function(){playbackBase();$('as
 // Start in the concise optical view; retain all other layers behind one control.
 const selectOptical=setInterval(()=>{if(!state.ready||!adaptiveView.ready)return;clearInterval(selectOptical);selectedLayer='rgb';renderLayers();},50);
 
-document.querySelector('.sidebar-bottom').append($('alignmentAudit'));
+$('alignmentAudit').remove();
 const recordBase=$('record').onclick;$('record').onclick=()=>{if(!state.recording){for(const l of layers)l.on=['rgb','thermal'].includes(l.id);setAdaptive(true);adaptiveView.alignment=false;renderLayers();}recordBase();};
+
+// One options popup, with data and alignment in separate tabs.
+const optionsDialog=$('info');
+optionsDialog.setAttribute('aria-labelledby','optionsTitle');
+optionsDialog.querySelector('h2').id='optionsTitle';
+optionsDialog.querySelector('h2').textContent='Options';
+$('closeInfo').setAttribute('aria-label','Close options');
+const optionsTabs=document.createElement('div');
+optionsTabs.className='options-tabs';optionsTabs.setAttribute('role','tablist');optionsTabs.setAttribute('aria-label','Options');
+optionsTabs.innerHTML='<button id="dataTab" role="tab" aria-controls="infoContent" aria-selected="true">About the data</button><button id="alignmentTab" role="tab" aria-controls="infoContent" aria-selected="false" tabindex="-1">Alignment</button>';
+$('infoContent').before(optionsTabs);
+$('infoContent').setAttribute('role','tabpanel');$('infoContent').tabIndex=0;
+function selectOptionsTab(id){
+  for(const tab of optionsTabs.children){const active=tab.id===id;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;}
+  $('infoContent').setAttribute('aria-labelledby',id);
+  if(id==='dataTab')info(false);else{$('infoContent').innerHTML=alignmentContent();bindAlignment(optionsDialog);}
+  optionsDialog.scrollTop=0;
+}
+for(const tab of optionsTabs.children){tab.onclick=()=>selectOptionsTab(tab.id);tab.onkeydown=e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const id=e.key==='Home'?'dataTab':e.key==='End'?'alignmentTab':tab.id==='dataTab'?'alignmentTab':'dataTab';selectOptionsTab(id);$(id).focus();};}
+$('dataInfo').onclick=()=>{selectOptionsTab('dataTab');optionsDialog.showModal();};
+
+$('siteSelect').onchange=()=>{const site=$('siteSelect');if(site.value!=='drc')toast(site.selectedOptions[0].textContent+' preview - displaying DRC data.');};

@@ -73,7 +73,7 @@ export const demo = {
     {
       slug: "sensor-fusion",
       href: "/demo/sensor-fusion/",
-      label: "Sensor Fusion",
+      label: "AeroSurvey",
       body: "Explore a public research field with layered survey data and adaptive visualization.",
     },
     {
