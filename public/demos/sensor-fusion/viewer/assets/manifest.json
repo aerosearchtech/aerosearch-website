@@ -1,0 +1,78 @@
+{
+  "tile_size": 256,
+  "layers": {
+    "rgb": {
+      "levels": [
+        {
+          "width": 1132,
+          "height": 558
+        },
+        {
+          "width": 2263,
+          "height": 1115
+        },
+        {
+          "width": 4526,
+          "height": 2230
+        },
+        {
+          "width": 9052,
+          "height": 4460
+        }
+      ],
+      "native_aligned_size": [
+        9052,
+        4460
+      ]
+    },
+    "thermal": {
+      "levels": [
+        {
+          "width": 888,
+          "height": 438
+        },
+        {
+          "width": 1777,
+          "height": 875
+        },
+        {
+          "width": 3554,
+          "height": 1750
+        }
+      ],
+      "native_aligned_size": [
+        3554,
+        1750
+      ]
+    }
+  },
+  "magnetic_grid": {
+    "source_zip": "MagDrone_R1__Processed_Data_MagDrone_R1.zip",
+    "source_file": "Processed_Data_MagDrone_R1/grids/R1_50cm/R1_50cm_Anomaly_RM_2500_v2.grd",
+    "width": 284,
+    "height": 141,
+    "cell_size_m": 0.1,
+    "valid_cells": 40031,
+    "color_limit": 107.66974792480475,
+    "native_range": [
+      -592.0968627929688,
+      323.0447998046875
+    ],
+    "units": "nT",
+    "kind": "Supplier processed magnetic anomaly grid; interpolated surface",
+    "crs_note": "UTM 14N placement consistent with survey metadata and field coordinate extents; registration not independently validated",
+    "source": "https://www.sphengineering.com/news/uxo-detection-total-field-vs-fluxgate-magnetometer"
+  },
+  "rgb_original": {
+    "width": 9052,
+    "height": 4460,
+    "pixel_size_m": 0.0031176977463586563,
+    "epsg": 32614
+  },
+  "thermal_original": {
+    "width": 3554,
+    "height": 1464,
+    "epsg": 4326,
+    "kind": "8-bit rendered false color, not radiometric temperature"
+  }
+}

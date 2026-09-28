@@ -1,0 +1,1292 @@
+{
+  "method": "Thermal weight = 0.12 + 0.76 * (T + 0.025) / (R + T + 0.05); R/T are normalized contrast averaged with a 24 px Gaussian over valid non-pad support. Thermal weight is zero outside shared coverage and within visible-pad exclusions.",
+  "kind": "Visual heuristic; not temperature, detection confidence or learned sensor reliability",
+  "rows": 8,
+  "columns": 16,
+  "tiles": [
+    {
+      "row": 0,
+      "col": 0,
+      "thermal": 0.4772,
+      "rgb": 0.5228,
+      "rgb_contrast": 0.1636,
+      "thermal_contrast": 0.2061,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "thermal": 0.5323,
+      "rgb": 0.4677,
+      "rgb_contrast": 0.0237,
+      "thermal_contrast": 0.0506,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "thermal": 0.5579,
+      "rgb": 0.4421,
+      "rgb_contrast": 0.0201,
+      "thermal_contrast": 0.0368,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "thermal": 0.5713,
+      "rgb": 0.4287,
+      "rgb_contrast": 0.0262,
+      "thermal_contrast": 0.0515,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "thermal": 0.529,
+      "rgb": 0.471,
+      "rgb_contrast": 0.1058,
+      "thermal_contrast": 0.1245,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "thermal": 0.583,
+      "rgb": 0.417,
+      "rgb_contrast": 0.0838,
+      "thermal_contrast": 0.1407,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 6,
+      "thermal": 0.5924,
+      "rgb": 0.4076,
+      "rgb_contrast": 0.0683,
+      "thermal_contrast": 0.1258,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 7,
+      "thermal": 0.6262,
+      "rgb": 0.3738,
+      "rgb_contrast": 0.0386,
+      "thermal_contrast": 0.1025,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 8,
+      "thermal": 0.5768,
+      "rgb": 0.4232,
+      "rgb_contrast": 0.0285,
+      "thermal_contrast": 0.0557,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 9,
+      "thermal": 0.554,
+      "rgb": 0.446,
+      "rgb_contrast": 0.0389,
+      "thermal_contrast": 0.0589,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 10,
+      "thermal": 0.5426,
+      "rgb": 0.4574,
+      "rgb_contrast": 0.1068,
+      "thermal_contrast": 0.1408,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 11,
+      "thermal": 0.5349,
+      "rgb": 0.4651,
+      "rgb_contrast": 0.1046,
+      "thermal_contrast": 0.1298,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 12,
+      "thermal": 0.5283,
+      "rgb": 0.4717,
+      "rgb_contrast": 0.2096,
+      "thermal_contrast": 0.243,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 13,
+      "thermal": 0.5699,
+      "rgb": 0.4301,
+      "rgb_contrast": 0.1147,
+      "thermal_contrast": 0.1727,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 0,
+      "col": 14,
+      "thermal": 0.5188,
+      "rgb": 0.4812,
+      "rgb_contrast": 0.1018,
+      "thermal_contrast": 0.1157,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 0,
+      "col": 15,
+      "thermal": 0.2949,
+      "rgb": 0.7051,
+      "rgb_contrast": 0.1296,
+      "thermal_contrast": 0.1657,
+      "coverage": 0.5612,
+      "reason": "Limited shared optical coverage"
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "thermal": 0.5852,
+      "rgb": 0.4148,
+      "rgb_contrast": 0.1039,
+      "thermal_contrast": 0.1825,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "thermal": 0.584,
+      "rgb": 0.416,
+      "rgb_contrast": 0.0575,
+      "thermal_contrast": 0.1076,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "thermal": 0.5812,
+      "rgb": 0.4188,
+      "rgb_contrast": 0.0188,
+      "thermal_contrast": 0.0427,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "thermal": 0.5792,
+      "rgb": 0.4208,
+      "rgb_contrast": 0.0317,
+      "thermal_contrast": 0.0634,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "thermal": 0.62,
+      "rgb": 0.38,
+      "rgb_contrast": 0.0357,
+      "thermal_contrast": 0.0927,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "thermal": 0.6397,
+      "rgb": 0.3603,
+      "rgb_contrast": 0.0295,
+      "thermal_contrast": 0.0945,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 6,
+      "thermal": 0.6255,
+      "rgb": 0.3745,
+      "rgb_contrast": 0.0276,
+      "thermal_contrast": 0.0801,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 7,
+      "thermal": 0.6589,
+      "rgb": 0.3411,
+      "rgb_contrast": 0.0394,
+      "thermal_contrast": 0.136,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 8,
+      "thermal": 0.5714,
+      "rgb": 0.4286,
+      "rgb_contrast": 0.0241,
+      "thermal_contrast": 0.0474,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 9,
+      "thermal": 0.5546,
+      "rgb": 0.4454,
+      "rgb_contrast": 0.0336,
+      "thermal_contrast": 0.0532,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 10,
+      "thermal": 0.5239,
+      "rgb": 0.4761,
+      "rgb_contrast": 0.0497,
+      "thermal_contrast": 0.0598,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 11,
+      "thermal": 0.5409,
+      "rgb": 0.4591,
+      "rgb_contrast": 0.0705,
+      "thermal_contrast": 0.0961,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 12,
+      "thermal": 0.5801,
+      "rgb": 0.4199,
+      "rgb_contrast": 0.1169,
+      "thermal_contrast": 0.1945,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 13,
+      "thermal": 0.5503,
+      "rgb": 0.4497,
+      "rgb_contrast": 0.0699,
+      "thermal_contrast": 0.1018,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 1,
+      "col": 14,
+      "thermal": 0.4662,
+      "rgb": 0.5338,
+      "rgb_contrast": 0.0833,
+      "thermal_contrast": 0.0792,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 1,
+      "col": 15,
+      "thermal": 0.1534,
+      "rgb": 0.8466,
+      "rgb_contrast": 0.1581,
+      "thermal_contrast": 0.3719,
+      "coverage": 0.3971,
+      "reason": "Limited shared optical coverage"
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "thermal": 0.4351,
+      "rgb": 0.5649,
+      "rgb_contrast": 0.1276,
+      "thermal_contrast": 0.1711,
+      "coverage": 1.0,
+      "reason": "Survey-pad exclusion favors RGB"
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "thermal": 0.5295,
+      "rgb": 0.4705,
+      "rgb_contrast": 0.1133,
+      "thermal_contrast": 0.1375,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "thermal": 0.583,
+      "rgb": 0.417,
+      "rgb_contrast": 0.0492,
+      "thermal_contrast": 0.0914,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "thermal": 0.5745,
+      "rgb": 0.4255,
+      "rgb_contrast": 0.0435,
+      "thermal_contrast": 0.0818,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "thermal": 0.5911,
+      "rgb": 0.4089,
+      "rgb_contrast": 0.0388,
+      "thermal_contrast": 0.0784,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "thermal": 0.5029,
+      "rgb": 0.4971,
+      "rgb_contrast": 0.0464,
+      "thermal_contrast": 0.1146,
+      "coverage": 1.0,
+      "reason": "Survey-pad exclusion favors RGB"
+    },
+    {
+      "row": 2,
+      "col": 6,
+      "thermal": 0.6322,
+      "rgb": 0.3678,
+      "rgb_contrast": 0.0404,
+      "thermal_contrast": 0.1108,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 7,
+      "thermal": 0.6104,
+      "rgb": 0.3896,
+      "rgb_contrast": 0.051,
+      "thermal_contrast": 0.1148,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 8,
+      "thermal": 0.5711,
+      "rgb": 0.4289,
+      "rgb_contrast": 0.0396,
+      "thermal_contrast": 0.0689,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 9,
+      "thermal": 0.5004,
+      "rgb": 0.4996,
+      "rgb_contrast": 0.1303,
+      "thermal_contrast": 0.1215,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 2,
+      "col": 10,
+      "thermal": 0.504,
+      "rgb": 0.496,
+      "rgb_contrast": 0.0929,
+      "thermal_contrast": 0.0932,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 2,
+      "col": 11,
+      "thermal": 0.5114,
+      "rgb": 0.4886,
+      "rgb_contrast": 0.05,
+      "thermal_contrast": 0.0566,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 2,
+      "col": 12,
+      "thermal": 0.5304,
+      "rgb": 0.4696,
+      "rgb_contrast": 0.0718,
+      "thermal_contrast": 0.0888,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 13,
+      "thermal": 0.5627,
+      "rgb": 0.4373,
+      "rgb_contrast": 0.0781,
+      "thermal_contrast": 0.1198,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 14,
+      "thermal": 0.551,
+      "rgb": 0.449,
+      "rgb_contrast": 0.124,
+      "thermal_contrast": 0.1753,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 2,
+      "col": 15,
+      "thermal": 0.3619,
+      "rgb": 0.6381,
+      "rgb_contrast": 0.1111,
+      "thermal_contrast": 0.3006,
+      "coverage": 0.5586,
+      "reason": "Limited shared optical coverage"
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "thermal": 0.4659,
+      "rgb": 0.5341,
+      "rgb_contrast": 0.2003,
+      "thermal_contrast": 0.1615,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "thermal": 0.5336,
+      "rgb": 0.4664,
+      "rgb_contrast": 0.2032,
+      "thermal_contrast": 0.2454,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "thermal": 0.5666,
+      "rgb": 0.4334,
+      "rgb_contrast": 0.0994,
+      "thermal_contrast": 0.1479,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "thermal": 0.5626,
+      "rgb": 0.4374,
+      "rgb_contrast": 0.1235,
+      "thermal_contrast": 0.1741,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "thermal": 0.5452,
+      "rgb": 0.4548,
+      "rgb_contrast": 0.1496,
+      "thermal_contrast": 0.1885,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "thermal": 0.5396,
+      "rgb": 0.4604,
+      "rgb_contrast": 0.1116,
+      "thermal_contrast": 0.148,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 6,
+      "thermal": 0.5828,
+      "rgb": 0.4172,
+      "rgb_contrast": 0.0333,
+      "thermal_contrast": 0.0679,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 7,
+      "thermal": 0.5649,
+      "rgb": 0.4351,
+      "rgb_contrast": 0.0641,
+      "thermal_contrast": 0.1,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 8,
+      "thermal": 0.5771,
+      "rgb": 0.4229,
+      "rgb_contrast": 0.0402,
+      "thermal_contrast": 0.0733,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 3,
+      "col": 9,
+      "thermal": 0.5048,
+      "rgb": 0.4952,
+      "rgb_contrast": 0.1011,
+      "thermal_contrast": 0.0991,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 3,
+      "col": 10,
+      "thermal": 0.3746,
+      "rgb": 0.6254,
+      "rgb_contrast": 0.2141,
+      "thermal_contrast": 0.176,
+      "coverage": 1.0,
+      "reason": "Survey-pad exclusion favors RGB"
+    },
+    {
+      "row": 3,
+      "col": 11,
+      "thermal": 0.4902,
+      "rgb": 0.5098,
+      "rgb_contrast": 0.129,
+      "thermal_contrast": 0.1238,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 3,
+      "col": 12,
+      "thermal": 0.4796,
+      "rgb": 0.5204,
+      "rgb_contrast": 0.1056,
+      "thermal_contrast": 0.091,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 3,
+      "col": 13,
+      "thermal": 0.5128,
+      "rgb": 0.4872,
+      "rgb_contrast": 0.1065,
+      "thermal_contrast": 0.1122,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 3,
+      "col": 14,
+      "thermal": 0.4838,
+      "rgb": 0.5162,
+      "rgb_contrast": 0.2151,
+      "thermal_contrast": 0.1943,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 3,
+      "col": 15,
+      "thermal": 0.3992,
+      "rgb": 0.6008,
+      "rgb_contrast": 0.2124,
+      "thermal_contrast": 0.356,
+      "coverage": 0.6866,
+      "reason": "Limited shared optical coverage"
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "thermal": 0.5242,
+      "rgb": 0.4758,
+      "rgb_contrast": 0.113,
+      "thermal_contrast": 0.129,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "thermal": 0.5796,
+      "rgb": 0.4204,
+      "rgb_contrast": 0.0875,
+      "thermal_contrast": 0.1475,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "thermal": 0.5774,
+      "rgb": 0.4226,
+      "rgb_contrast": 0.0782,
+      "thermal_contrast": 0.1322,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "thermal": 0.5356,
+      "rgb": 0.4644,
+      "rgb_contrast": 0.1562,
+      "thermal_contrast": 0.1955,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "thermal": 0.5701,
+      "rgb": 0.4299,
+      "rgb_contrast": 0.2307,
+      "thermal_contrast": 0.3456,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "thermal": 0.5591,
+      "rgb": 0.4409,
+      "rgb_contrast": 0.1102,
+      "thermal_contrast": 0.1525,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 6,
+      "thermal": 0.5534,
+      "rgb": 0.4466,
+      "rgb_contrast": 0.0794,
+      "thermal_contrast": 0.1047,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 7,
+      "thermal": 0.5381,
+      "rgb": 0.4619,
+      "rgb_contrast": 0.0602,
+      "thermal_contrast": 0.0755,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 8,
+      "thermal": 0.5713,
+      "rgb": 0.4287,
+      "rgb_contrast": 0.0473,
+      "thermal_contrast": 0.0795,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 9,
+      "thermal": 0.4966,
+      "rgb": 0.5034,
+      "rgb_contrast": 0.0667,
+      "thermal_contrast": 0.066,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 4,
+      "col": 10,
+      "thermal": 0.5457,
+      "rgb": 0.4543,
+      "rgb_contrast": 0.1227,
+      "thermal_contrast": 0.1704,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 11,
+      "thermal": 0.5711,
+      "rgb": 0.4289,
+      "rgb_contrast": 0.1632,
+      "thermal_contrast": 0.2646,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 12,
+      "thermal": 0.5554,
+      "rgb": 0.4446,
+      "rgb_contrast": 0.1681,
+      "thermal_contrast": 0.2408,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 13,
+      "thermal": 0.5306,
+      "rgb": 0.4694,
+      "rgb_contrast": 0.2102,
+      "thermal_contrast": 0.2567,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 4,
+      "col": 14,
+      "thermal": 0.4738,
+      "rgb": 0.5262,
+      "rgb_contrast": 0.2962,
+      "thermal_contrast": 0.2597,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 4,
+      "col": 15,
+      "thermal": 0.449,
+      "rgb": 0.551,
+      "rgb_contrast": 0.2493,
+      "thermal_contrast": 0.3111,
+      "coverage": 0.8335,
+      "reason": "Limited shared optical coverage"
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "thermal": 0.4694,
+      "rgb": 0.5306,
+      "rgb_contrast": 0.2468,
+      "thermal_contrast": 0.2054,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "thermal": 0.5777,
+      "rgb": 0.4223,
+      "rgb_contrast": 0.104,
+      "thermal_contrast": 0.1689,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "thermal": 0.5633,
+      "rgb": 0.4367,
+      "rgb_contrast": 0.0795,
+      "thermal_contrast": 0.1207,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "thermal": 0.5676,
+      "rgb": 0.4324,
+      "rgb_contrast": 0.116,
+      "thermal_contrast": 0.1819,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "thermal": 0.5678,
+      "rgb": 0.4322,
+      "rgb_contrast": 0.1936,
+      "thermal_contrast": 0.297,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "thermal": 0.493,
+      "rgb": 0.507,
+      "rgb_contrast": 0.1056,
+      "thermal_contrast": 0.1029,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 5,
+      "col": 6,
+      "thermal": 0.5638,
+      "rgb": 0.4362,
+      "rgb_contrast": 0.0731,
+      "thermal_contrast": 0.1123,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 7,
+      "thermal": 0.6104,
+      "rgb": 0.3896,
+      "rgb_contrast": 0.0521,
+      "thermal_contrast": 0.1155,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 8,
+      "thermal": 0.6106,
+      "rgb": 0.3894,
+      "rgb_contrast": 0.0825,
+      "thermal_contrast": 0.1626,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 9,
+      "thermal": 0.4761,
+      "rgb": 0.5239,
+      "rgb_contrast": 0.0891,
+      "thermal_contrast": 0.1188,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 10,
+      "thermal": 0.5845,
+      "rgb": 0.4155,
+      "rgb_contrast": 0.1094,
+      "thermal_contrast": 0.2876,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 11,
+      "thermal": 0.6454,
+      "rgb": 0.3546,
+      "rgb_contrast": 0.1685,
+      "thermal_contrast": 0.4046,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 12,
+      "thermal": 0.5881,
+      "rgb": 0.4119,
+      "rgb_contrast": 0.1744,
+      "thermal_contrast": 0.297,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 13,
+      "thermal": 0.5359,
+      "rgb": 0.4641,
+      "rgb_contrast": 0.2582,
+      "thermal_contrast": 0.3176,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 5,
+      "col": 14,
+      "thermal": 0.4481,
+      "rgb": 0.5519,
+      "rgb_contrast": 0.2827,
+      "thermal_contrast": 0.2233,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 5,
+      "col": 15,
+      "thermal": 0.4176,
+      "rgb": 0.5824,
+      "rgb_contrast": 0.2982,
+      "thermal_contrast": 0.2569,
+      "coverage": 0.8877,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "thermal": 0.4022,
+      "rgb": 0.5978,
+      "rgb_contrast": 0.2656,
+      "thermal_contrast": 0.2375,
+      "coverage": 1.0,
+      "reason": "Survey-pad exclusion favors RGB"
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "thermal": 0.5357,
+      "rgb": 0.4643,
+      "rgb_contrast": 0.1213,
+      "thermal_contrast": 0.1429,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "thermal": 0.5357,
+      "rgb": 0.4643,
+      "rgb_contrast": 0.0849,
+      "thermal_contrast": 0.1132,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "thermal": 0.5762,
+      "rgb": 0.4238,
+      "rgb_contrast": 0.1141,
+      "thermal_contrast": 0.1957,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 4,
+      "thermal": 0.5631,
+      "rgb": 0.4369,
+      "rgb_contrast": 0.229,
+      "thermal_contrast": 0.3295,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 5,
+      "thermal": 0.5548,
+      "rgb": 0.4452,
+      "rgb_contrast": 0.1714,
+      "thermal_contrast": 0.2474,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 6,
+      "thermal": 0.6183,
+      "rgb": 0.3817,
+      "rgb_contrast": 0.1036,
+      "thermal_contrast": 0.2283,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 7,
+      "thermal": 0.6002,
+      "rgb": 0.3998,
+      "rgb_contrast": 0.0634,
+      "thermal_contrast": 0.1367,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 8,
+      "thermal": 0.6096,
+      "rgb": 0.3904,
+      "rgb_contrast": 0.1586,
+      "thermal_contrast": 0.2981,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 9,
+      "thermal": 0.5525,
+      "rgb": 0.4475,
+      "rgb_contrast": 0.2206,
+      "thermal_contrast": 0.3026,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 10,
+      "thermal": 0.5326,
+      "rgb": 0.4674,
+      "rgb_contrast": 0.1918,
+      "thermal_contrast": 0.239,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 11,
+      "thermal": 0.5389,
+      "rgb": 0.4611,
+      "rgb_contrast": 0.2796,
+      "thermal_contrast": 0.3472,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 12,
+      "thermal": 0.5615,
+      "rgb": 0.4385,
+      "rgb_contrast": 0.2245,
+      "thermal_contrast": 0.32,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 6,
+      "col": 13,
+      "thermal": 0.4227,
+      "rgb": 0.5773,
+      "rgb_contrast": 0.2754,
+      "thermal_contrast": 0.1829,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 6,
+      "col": 14,
+      "thermal": 0.3512,
+      "rgb": 0.6488,
+      "rgb_contrast": 0.2383,
+      "thermal_contrast": 0.1024,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 6,
+      "col": 15,
+      "thermal": 0.192,
+      "rgb": 0.808,
+      "rgb_contrast": 0.2942,
+      "thermal_contrast": 0.311,
+      "coverage": 0.3777,
+      "reason": "Limited shared optical coverage"
+    },
+    {
+      "row": 7,
+      "col": 0,
+      "thermal": 0.3675,
+      "rgb": 0.6325,
+      "rgb_contrast": 0.1929,
+      "thermal_contrast": 0.1321,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 7,
+      "col": 1,
+      "thermal": 0.4575,
+      "rgb": 0.5425,
+      "rgb_contrast": 0.1598,
+      "thermal_contrast": 0.1336,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 7,
+      "col": 2,
+      "thermal": 0.5186,
+      "rgb": 0.4814,
+      "rgb_contrast": 0.1257,
+      "thermal_contrast": 0.1442,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 7,
+      "col": 3,
+      "thermal": 0.5503,
+      "rgb": 0.4497,
+      "rgb_contrast": 0.1497,
+      "thermal_contrast": 0.2067,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 4,
+      "thermal": 0.4984,
+      "rgb": 0.5016,
+      "rgb_contrast": 0.2203,
+      "thermal_contrast": 0.2252,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 7,
+      "col": 5,
+      "thermal": 0.4638,
+      "rgb": 0.5362,
+      "rgb_contrast": 0.2339,
+      "thermal_contrast": 0.2547,
+      "coverage": 1.0,
+      "reason": "Similar optical contrast"
+    },
+    {
+      "row": 7,
+      "col": 6,
+      "thermal": 0.5641,
+      "rgb": 0.4359,
+      "rgb_contrast": 0.1768,
+      "thermal_contrast": 0.2474,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 7,
+      "thermal": 0.5828,
+      "rgb": 0.4172,
+      "rgb_contrast": 0.1258,
+      "thermal_contrast": 0.2035,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 8,
+      "thermal": 0.5887,
+      "rgb": 0.4113,
+      "rgb_contrast": 0.1011,
+      "thermal_contrast": 0.1795,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 9,
+      "thermal": 0.6009,
+      "rgb": 0.3991,
+      "rgb_contrast": 0.1129,
+      "thermal_contrast": 0.2231,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 10,
+      "thermal": 0.5743,
+      "rgb": 0.4257,
+      "rgb_contrast": 0.1504,
+      "thermal_contrast": 0.2398,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 11,
+      "thermal": 0.5329,
+      "rgb": 0.4671,
+      "rgb_contrast": 0.2088,
+      "thermal_contrast": 0.2574,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 12,
+      "thermal": 0.5327,
+      "rgb": 0.4673,
+      "rgb_contrast": 0.2318,
+      "thermal_contrast": 0.2822,
+      "coverage": 1.0,
+      "reason": "Higher rendered thermal contrast"
+    },
+    {
+      "row": 7,
+      "col": 13,
+      "thermal": 0.4451,
+      "rgb": 0.5549,
+      "rgb_contrast": 0.308,
+      "thermal_contrast": 0.2288,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 7,
+      "col": 14,
+      "thermal": 0.3296,
+      "rgb": 0.6704,
+      "rgb_contrast": 0.2699,
+      "thermal_contrast": 0.1323,
+      "coverage": 1.0,
+      "reason": "Stronger RGB contrast"
+    },
+    {
+      "row": 7,
+      "col": 15,
+      "thermal": 0.2664,
+      "rgb": 0.7336,
+      "rgb_contrast": 0.1721,
+      "thermal_contrast": 0.0984,
+      "coverage": 0.75,
+      "reason": "Limited shared optical coverage"
+    }
+  ],
+  "range": [
+    0.25409770011901855,
+    0.7125334739685059
+  ]
+}

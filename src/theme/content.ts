@@ -71,6 +71,12 @@ export const demo = {
       body: "A distributed radar swarm.",
     },
     {
+      slug: "sensor-fusion",
+      href: "/demo/sensor-fusion/",
+      label: "Sensor Fusion",
+      body: "Explore a public research field with layered survey data and adaptive visualization.",
+    },
+    {
       slug: "msas",
       href: "/demo/msas",
       label: "MSAS",

@@ -1,0 +1,28 @@
+{
+  "magdrone": {
+    "kind": "Local display interpolation of normalized magnetic response; not a supplier anomaly grid",
+    "method": "Linear Delaunay interpolation inside the sample hull only",
+    "grid_size": [
+      283,
+      140
+    ],
+    "nominal_cell_m": 0.1,
+    "max_nearest_sample_m": 0.75,
+    "max_triangle_edge_m": 1.5,
+    "display_coverage_fraction": 0.9095,
+    "valid_grid_cells": 36462
+  },
+  "magnimbus": {
+    "kind": "Local display interpolation of normalized magnetic response; not a supplier anomaly grid",
+    "method": "Linear Delaunay interpolation inside the sample hull only",
+    "grid_size": [
+      283,
+      140
+    ],
+    "nominal_cell_m": 0.1,
+    "max_nearest_sample_m": 0.75,
+    "max_triangle_edge_m": 1.5,
+    "display_coverage_fraction": 0.7857,
+    "valid_grid_cells": 31490
+  }
+}

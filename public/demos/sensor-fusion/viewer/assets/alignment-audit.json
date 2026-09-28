@@ -1,0 +1,83 @@
+{
+  "projection": "pyproj / PROJ EPSG:4326 to EPSG:32614, always_xy=True; image pixel-center transform",
+  "old_vs_proj_max_m": 0.00019590727517967665,
+  "old_vs_proj_mean_m": 0.0001171394429245746,
+  "control_comparisons": [
+    {
+      "id": "GCP NE",
+      "x": 1892.63064072587,
+      "y": 142.03071219249085,
+      "nearest_visible_pad": "M04",
+      "pad_x": 1892,
+      "pad_y": 146,
+      "east_offset_m": -0.008898782090547097,
+      "north_offset_m": -0.056033045720299435,
+      "distance_m": 0.05673526712185471,
+      "plausible_match": true
+    },
+    {
+      "id": "GCP NW",
+      "x": 122.65405282312277,
+      "y": 94.78072142417923,
+      "nearest_visible_pad": "M01",
+      "pad_x": 119,
+      "pad_y": 96,
+      "east_offset_m": -0.05156124317130889,
+      "north_offset_m": -0.017212128597855307,
+      "distance_m": 0.054358248391941,
+      "plausible_match": true
+    },
+    {
+      "id": "GCP SE",
+      "x": 1864.9936061737903,
+      "y": 903.7806302495886,
+      "nearest_visible_pad": "M05",
+      "pad_x": 1869,
+      "pad_y": 900,
+      "east_offset_m": 0.05653302136357388,
+      "north_offset_m": 0.05336983305317004,
+      "distance_m": 0.0777452351248457,
+      "plausible_match": true
+    },
+    {
+      "id": "GCP SW",
+      "x": 730.6415254243547,
+      "y": 825.9261303197028,
+      "nearest_visible_pad": "M11",
+      "pad_x": 701,
+      "pad_y": 984,
+      "east_offset_m": -0.41826267280601265,
+      "north_offset_m": -2.2314734522964765,
+      "distance_m": 2.270334211469048,
+      "plausible_match": false
+    },
+    {
+      "id": "GCP NW-center",
+      "x": 720.0385732626033,
+      "y": 348.09166315470605,
+      "nearest_visible_pad": "M02",
+      "pad_x": 714,
+      "pad_y": 344,
+      "east_offset_m": -0.08520849573673331,
+      "north_offset_m": 0.05776057563424258,
+      "distance_m": 0.10294062290134035,
+      "plausible_match": true
+    },
+    {
+      "id": "GCP SE-center",
+      "x": 1248.4759224027132,
+      "y": 648.5360584273799,
+      "nearest_visible_pad": "M03",
+      "pad_x": 1247,
+      "pad_y": 644,
+      "east_offset_m": -0.020826298247993532,
+      "north_offset_m": 0.06403394804742712,
+      "distance_m": 0.06733558644026927,
+      "plausible_match": true
+    }
+  ],
+  "plausible_matches": 5,
+  "plausible_rmse_m": 0.07395793984801988,
+  "correction_applied": false,
+  "conclusion": "Projection discrepancy is negligible. Five published control coordinates are near manually annotated visible pads; SW has no plausible nearby pad. These are image-based correspondences, not independent survey checks. No global shift or warp is justified. Target alignment and thermal/magnetic registration remain unvalidated."
+}

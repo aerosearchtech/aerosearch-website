@@ -1,0 +1,198 @@
+{
+  "width": 2000,
+  "height": 985,
+  "overlap_fraction": 0.977,
+  "rgb_epsg": 32614,
+  "thermal_epsg": 4326,
+  "rgb_origin": [
+    692275.1568,
+    4025247.9952
+  ],
+  "rgb_pixel_size": [
+    0.014110700000019278,
+    0.014116649746157343
+  ],
+  "geographic_corners": [
+    [
+      -96.85718994520576,
+      36.353123499070335
+    ],
+    [
+      -96.85687578766246,
+      36.35311786245546
+    ],
+    [
+      -96.85719337648393,
+      36.35299835576209
+    ]
+  ],
+  "candidates": [
+    {
+      "x": 1312,
+      "y": 404,
+      "score": 0.838,
+      "lat": 36.3530684,
+      "lon": -96.8569852
+    },
+    {
+      "x": 618,
+      "y": 603,
+      "score": 0.968,
+      "lat": 36.3530451,
+      "lon": -96.8570949
+    },
+    {
+      "x": 1261,
+      "y": 268,
+      "score": 0.863,
+      "lat": 36.3530859,
+      "lon": -96.8569927
+    },
+    {
+      "x": 1310,
+      "y": 855,
+      "score": 0.741,
+      "lat": 36.3530111,
+      "lon": -96.8569871
+    },
+    {
+      "x": 854,
+      "y": 586,
+      "score": 0.793,
+      "lat": 36.3530466,
+      "lon": -96.8570578
+    },
+    {
+      "x": 1182,
+      "y": 309,
+      "score": 0.692,
+      "lat": 36.3530809,
+      "lon": -96.8570053
+    },
+    {
+      "x": 1285,
+      "y": 479,
+      "score": 0.728,
+      "lat": 36.353059,
+      "lon": -96.8569897
+    },
+    {
+      "x": 1230,
+      "y": 798,
+      "score": 0.924,
+      "lat": 36.3530185,
+      "lon": -96.8569994
+    }
+  ],
+  "emi_candidates": [
+    {
+      "x": 1245,
+      "y": 874,
+      "score": 0.903,
+      "emi_score": 0.943,
+      "line": "lineF_shift",
+      "lat": 36.3530088,
+      "lon": -96.8569973
+    },
+    {
+      "x": 1533,
+      "y": 733,
+      "score": 0.805,
+      "emi_score": 0.853,
+      "line": "lineE_shift",
+      "lat": 36.353026,
+      "lon": -96.8569516
+    },
+    {
+      "x": 194,
+      "y": 434,
+      "score": 0.728,
+      "emi_score": 0.607,
+      "line": "lineC_shift",
+      "lat": 36.3530678,
+      "lon": -96.857161
+    },
+    {
+      "x": 764,
+      "y": 168,
+      "score": 0.717,
+      "emi_score": 0.713,
+      "line": "lineA_shift",
+      "lat": 36.3531,
+      "lon": -96.8570705
+    },
+    {
+      "x": 1325,
+      "y": 169,
+      "score": 0.711,
+      "emi_score": 0.613,
+      "line": "lineA_shift",
+      "lat": 36.3530983,
+      "lon": -96.8569823
+    },
+    {
+      "x": 1357,
+      "y": 437,
+      "score": 0.711,
+      "emi_score": 0.359,
+      "line": "lineC_shift",
+      "lat": 36.3530641,
+      "lon": -96.8569782
+    },
+    {
+      "x": 1297,
+      "y": 302,
+      "score": 0.698,
+      "emi_score": 0.539,
+      "line": "lineB_shift",
+      "lat": 36.3530814,
+      "lon": -96.8569872
+    },
+    {
+      "x": 902,
+      "y": 165,
+      "score": 0.664,
+      "emi_score": 0.658,
+      "line": "lineA_shift",
+      "lat": 36.3531,
+      "lon": -96.8570488
+    }
+  ],
+  "emi_total_readings": 2042,
+  "emi_aligned_readings": 1969,
+  "emi_lines": [
+    "lineA_shift",
+    "lineB_shift",
+    "lineC_shift",
+    "lineD_shift",
+    "lineE_shift",
+    "lineF_shift"
+  ],
+  "emi_value_field": "Channel1_new",
+  "emi_method": "Log1p shifted channel-1 response, normalized between field median and 99th percentile; 5-pixel display dots. Three-sensor score is geometric mean at EMI sample positions only.",
+  "method": "Georeferenced resampling; local CIE Lab color contrast and rendered thermal luminance contrast; geometric mean of normalized scores",
+  "magnetometer": {
+    "magnimbus": {
+      "source_file": "MagNIMBUS__MagNIMBUS raw data.zip",
+      "source_csv": "MagNIMBUS 50cm/2024-05-09-21-03-09-quspin.csv",
+      "raw_rows": 220479,
+      "aligned_rows": 122732,
+      "measured_pixels": 4701,
+      "baseline_tmi": 50205.35,
+      "deviation_p50": 6.71,
+      "deviation_p99": 185.56,
+      "method": "Absolute mean TMI deviation from this survey's field median, normalized by measured-pixel p50-p99; 7-pixel display dilation only."
+    },
+    "magdrone": {
+      "source_file": "MagDrone_R1__SENSYS MagDrone R1 raw data.zip",
+      "source_csv": "R1 50cm/2024-05-09-18-03-43-sensys.csv",
+      "raw_rows": 283145,
+      "aligned_rows": 191454,
+      "measured_pixels": 6676,
+      "baseline_tmi": 50160.7,
+      "deviation_p50": 9.72,
+      "deviation_p99": 200.92,
+      "method": "Absolute mean TMI deviation from this survey's field median, normalized by measured-pixel p50-p99; 7-pixel display dilation only."
+    }
+  }
+}
