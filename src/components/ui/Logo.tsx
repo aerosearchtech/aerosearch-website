@@ -1,19 +1,13 @@
-import { LOGO_PATH } from "./logoPath";
-
-/**
- * The Aerosearch Technologies mark: four arms around a concave body, which
- * reads as a rotorcraft seen from above.
- *
- * The outline lives in `logoPath.ts` because it is generated from the supplied
- * artwork rather than authored — see the note there before changing it.
- *
- * `fill="currentColor"` by default so the mark inherits text colour in the
- * chrome; pass a colour where the artwork has to appear as published.
- */
+/** Aerosearch symbol from the supplied logo artwork. */
 export default function Logo({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 100 100" className={className} aria-hidden>
-      <path d={LOGO_PATH} fill="currentColor" />
+    <svg viewBox="46 230 84 64" className={className} aria-hidden>
+      <g fill="currentColor">
+        <polygon points="60.86 273.49 87.92 232.52 114.73 273.78 109.14 271.04 87.8 248.01 66.24 270.94 60.86 273.49" />
+        <polygon points="48.25 291.39 54.39 281.67 79.57 269.84 74.35 278.14 48.25 291.39" />
+        <polygon points="95.72 269.95 101.29 278.35 127.22 291.38 120.92 281.6 95.72 269.95" />
+        <circle cx="87.56" cy="267" r="4" />
+      </g>
     </svg>
   );
 }

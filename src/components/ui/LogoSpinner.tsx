@@ -6,9 +6,7 @@ import Logo from "./Logo";
  * The mark is a rotorcraft seen from above, so it turns rather than pulses or
  * fades — the motion belongs to the object instead of being applied to it.
  *
- * It is mark blue, the same as the lockup in the header and the footer. That is
- * the only hue in the palette with no field meaning, which is exactly what a
- * loading state needs: waiting is not hazard, not survey, not cleared ground.
+ * It stays mark blue so the loading state has a clear brand cue.
  *
  * Held back a quarter-second before appearing, since on a fast connection a
  * loader that flashes reads as jank rather than as progress.

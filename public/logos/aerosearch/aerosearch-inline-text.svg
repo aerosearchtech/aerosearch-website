@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="570" height="24" viewBox="0 0 570 24" preserveAspectRatio="xMidYMid meet">
+  <!-- Letter shapes from main file-05.svg, with tighter spacing for a single line. -->
+  <style>
+    polygon, rect, text { fill: #ede7dd; }
+    text { font-family: Eurostile-Med, Eurostile, Arial, sans-serif; font-size: 22.48px; }
+  </style>
+  <g transform="translate(-153.32 -246)"><polygon class="cls-4" points="178.64 265.97 167.02 250.62 165.12 250.62 153.32 265.94 156.33 265.97 165.98 253.7 175.45 266.08 178.64 265.97"/></g>
+          <g transform="translate(-204.8 -246)"><polygon class="cls-4" points="382.13 265.97 370.51 250.62 368.6 250.62 356.8 265.94 359.82 265.97 369.47 253.7 378.94 266.08 382.13 265.97"/></g>
+          <g transform="translate(-162.95 -246)"><rect class="cls-4" x="190.95" y="250.86" width="18.94" height="2.15"/></g>
+          <g transform="translate(-162.95 -246)"><rect class="cls-4" x="190.95" y="257.51" width="16.72" height="2.15"/></g>
+          <g transform="translate(-162.95 -246)"><rect class="cls-4" x="190.95" y="263.85" width="18.94" height="2.15"/></g>
+          <g transform="translate(-197.19 -246)"><rect class="cls-4" x="327.19" y="250.86" width="18.94" height="2.15"/></g>
+          <g transform="translate(-197.19 -246)"><rect class="cls-4" x="327.19" y="257.51" width="16.72" height="2.15"/></g>
+          <g transform="translate(-197.19 -246)"><rect class="cls-4" x="327.19" y="263.85" width="18.94" height="2.15"/></g>
+          <g transform="translate(-175.07 -246)"><text class="cls-7" transform="translate(225.07 265.83) scale(1.44 1)"><tspan x="0" y="0">R</tspan></text></g>
+          <g transform="translate(-182.86 -246)"><text class="cls-5" transform="translate(258.86 266.38) scale(1.44 1)"><tspan x="0" y="0">O</tspan></text></g>
+          <g transform="translate(-190.79 -246)"><text class="cls-7" transform="translate(294.79 266.38) scale(1.44 1)"><tspan x="0" y="0">S</tspan></text></g>
+          <g transform="translate(-213.29 -246)"><text class="cls-7" transform="translate(393.29 266.08) scale(1.44 1)"><tspan x="0" y="0">R</tspan></text></g>
+          <g transform="translate(-219.48 -246)"><text class="cls-5" transform="translate(425.48 265.83) scale(1.44 1)"><tspan x="0" y="0">C</tspan></text></g>
+          <g transform="translate(-224.95 -246)"><text class="cls-5" transform="translate(456.95 265.83) scale(1.44 1)"><tspan x="0" y="0">H</tspan></text></g>
+  <!-- Match Aerosearch's font, glyph proportions, and three-bar E. -->
+  <g aria-label="Technologies">
+    <text transform="translate(270 20.08) scale(1.44 1)">T</text>
+    <g transform="translate(295 0)"><rect x="0" y="4.86" width="18.94" height="2.15"/><rect x="0" y="11.51" width="16.72" height="2.15"/><rect x="0" y="17.85" width="18.94" height="2.15"/></g>
+    <text transform="translate(318 20.08) scale(1.44 1)">C</text>
+    <text transform="translate(345 20.08) scale(1.44 1)">H</text>
+    <text transform="translate(372 20.08) scale(1.44 1)">N</text>
+    <text transform="translate(399 20.08) scale(1.44 1)">O</text>
+    <text transform="translate(427 20.08) scale(1.44 1)">L</text>
+    <text transform="translate(450 20.08) scale(1.44 1)">O</text>
+    <text transform="translate(478 20.08) scale(1.44 1)">G</text>
+    <text transform="translate(506 20.08) scale(1.44 1)">I</text>
+    <g transform="translate(519 0)"><rect x="0" y="4.86" width="18.94" height="2.15"/><rect x="0" y="11.51" width="16.72" height="2.15"/><rect x="0" y="17.85" width="18.94" height="2.15"/></g>
+    <text transform="translate(542 20.08) scale(1.44 1)">S</text>
+  </g>
+</svg>

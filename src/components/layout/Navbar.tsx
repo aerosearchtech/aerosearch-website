@@ -29,7 +29,7 @@ export default function Navbar() {
       <nav className="shell flex h-16 items-center justify-between">
         <Wordmark />
 
-        <div className="hidden items-center gap-9 md:flex">
+        <div className="hidden items-center gap-5 lg:flex xl:gap-9">
           {nav.links.map((link) => {
             const current =
               link.href.startsWith("/") &&
@@ -61,7 +61,7 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="flex h-9 w-9 items-center justify-center text-bone md:hidden"
+            className="flex h-9 w-9 items-center justify-center text-bone lg:hidden"
           >
             <span className="relative block h-3 w-5">
               <span
@@ -80,7 +80,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="shell flex flex-col gap-1 border-t border-line pb-5 pt-3 md:hidden">
+        <div className="shell flex flex-col gap-1 border-t border-line pb-5 pt-3 lg:hidden">
           {nav.links.map((link) => (
             <a
               key={link.href}

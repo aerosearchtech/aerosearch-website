@@ -5,23 +5,16 @@ interface Props {
   color?: string;
 }
 
-/**
- * AeroSearch Technologies mark: four-arm rotor star.
- *
- * Traced from design/Logo_Aerosearch_Technologies.png — arm caps at r 4.5 on a
- * 100 unit box, concave flanks cutting to 27.2 from each edge. Kept as a path
- * rather than the source bitmap so it inherits the theme and stays crisp.
- */
+/** Aerosearch symbol from the supplied logo artwork. */
 export default function AeroSearchLogo({ size = 20, color = BRAND_BLUE }: Props) {
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-label="AeroSearch">
-      <path
-        d="M7.68 1.32 Q50 53.04 92.32 1.32 A4.5 4.5 0 0 1 98.68 7.68
-           Q46.96 50 98.68 92.32 A4.5 4.5 0 0 1 92.32 98.68
-           Q50 46.96 7.68 98.68 A4.5 4.5 0 0 1 1.32 92.32
-           Q53.04 50 1.32 7.68 A4.5 4.5 0 0 1 7.68 1.32 Z"
-        fill={color}
-      />
+    <svg width={size} height={size} viewBox="46 230 84 64" aria-label="AeroSearch">
+      <g fill={color}>
+        <polygon points="60.86 273.49 87.92 232.52 114.73 273.78 109.14 271.04 87.8 248.01 66.24 270.94 60.86 273.49" />
+        <polygon points="48.25 291.39 54.39 281.67 79.57 269.84 74.35 278.14 48.25 291.39" />
+        <polygon points="95.72 269.95 101.29 278.35 127.22 291.38 120.92 281.6 95.72 269.95" />
+        <circle cx="87.56" cy="267" r="4" />
+      </g>
     </svg>
   );
 }

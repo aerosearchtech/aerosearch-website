@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 526.98 523.91">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .71em;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        font-family: Eurostile-Reg, Eurostile;
+        font-size: 10px;
+      }
+
+      .cls-5 {
+        letter-spacing: .7em;
+      }
+
+      .cls-6 {
+        letter-spacing: .7em;
+      }
+
+      .cls-4 {
+        font-family: Eurostile-Med, Eurostile;
+        font-size: 22.96px;
+        letter-spacing: .38em;
+      }
+
+      .cls-7 {
+        letter-spacing: .7em;
+      }
+
+      .cls-8 {
+        letter-spacing: .7em;
+      }
+
+      .cls-9 {
+        letter-spacing: .7em;
+      }
+
+      .cls-10 {
+        letter-spacing: .7em;
+      }
+    </style>
+  </defs>
+  <rect width="526.98" height="523.91"/>
+  <g id="Layer_1" data-name="Layer 1">
+    <g>
+      <g>
+        <polygon class="cls-2" points="224.99 250.02 263.76 191.33 302.17 250.45 294.16 246.52 263.58 213.52 232.69 246.37 224.99 250.02"/>
+        <polygon class="cls-2" points="206.91 275.68 215.71 261.75 251.79 244.79 244.31 256.69 206.91 275.68"/>
+        <polygon class="cls-2" points="274.93 244.95 282.91 256.98 320.07 275.66 311.03 261.64 274.93 244.95"/>
+        <circle class="cls-2" cx="263.25" cy="240.72" r="5.73"/>
+      </g>
+      <g>
+        <text class="cls-3" transform="translate(150.21 330.09) scale(1.57 1)"><tspan class="cls-1" x="0" y="0">T</tspan><tspan class="cls-6" x="12.27" y="0">ECH</tspan><tspan class="cls-10" x="51.29" y="0">N</tspan><tspan class="cls-6" x="65.22" y="0">O</tspan><tspan class="cls-7" x="78.83" y="0">L</tspan><tspan class="cls-9" x="90.71" y="0">O</tspan><tspan class="cls-8" x="104.33" y="0">GI</tspan><tspan class="cls-5" x="126.68" y="0">E</tspan><tspan class="cls-6" x="138.94" y="0">S</tspan></text>
+        <g>
+          <polygon class="cls-2" points="123.19 308.45 111.32 292.77 109.38 292.77 97.32 308.41 100.4 308.45 110.26 295.92 119.93 308.56 123.19 308.45"/>
+          <polygon class="cls-2" points="331 308.45 319.13 292.77 317.19 292.77 305.13 308.41 308.21 308.45 318.07 295.92 327.74 308.56 331 308.45"/>
+          <rect class="cls-2" x="135.75" y="293.01" width="19.34" height="2.2"/>
+          <rect class="cls-2" x="135.75" y="299.81" width="17.07" height="2.2"/>
+          <rect class="cls-2" x="135.75" y="306.28" width="19.34" height="2.2"/>
+          <rect class="cls-2" x="274.89" y="293.01" width="19.34" height="2.2"/>
+          <rect class="cls-2" x="274.89" y="299.81" width="17.07" height="2.2"/>
+          <rect class="cls-2" x="274.89" y="306.28" width="19.34" height="2.2"/>
+          <text class="cls-4" transform="translate(170.6 308.3) scale(1.44 1)"><tspan x="0" y="0">R</tspan></text>
+          <text class="cls-4" transform="translate(205.11 308.86) scale(1.44 1)"><tspan x="0" y="0">O</tspan></text>
+          <text class="cls-4" transform="translate(241.8 308.86) scale(1.44 1)"><tspan x="0" y="0">S</tspan></text>
+          <text class="cls-4" transform="translate(342.39 308.56) scale(1.44 1)"><tspan x="0" y="0">R</tspan></text>
+          <text class="cls-4" transform="translate(375.27 308.3) scale(1.44 1)"><tspan x="0" y="0">C</tspan></text>
+          <text class="cls-4" transform="translate(407.41 308.3) scale(1.44 1)"><tspan x="0" y="0">H</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 526.98 523.91">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Eurostile-Med, Eurostile;
+        font-size: 22.96px;
+        letter-spacing: .38em;
+      }
+
+      .cls-2 {
+        letter-spacing: .71em;
+      }
+
+      .cls-3 {
+        letter-spacing: .7em;
+      }
+
+      .cls-4 {
+        letter-spacing: .7em;
+      }
+
+      .cls-5 {
+        letter-spacing: .7em;
+      }
+
+      .cls-6 {
+        letter-spacing: .7em;
+      }
+
+      .cls-7 {
+        letter-spacing: .7em;
+      }
+
+      .cls-8 {
+        font-family: Eurostile-Reg, Eurostile;
+        font-size: 10px;
+      }
+
+      .cls-9 {
+        letter-spacing: .7em;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon points="230.64 250.02 269.41 191.33 307.82 250.45 299.81 246.52 269.23 213.52 238.34 246.37 230.64 250.02"/>
+    <polygon points="212.56 275.68 221.36 261.75 257.44 244.79 249.96 256.69 212.56 275.68"/>
+    <polygon points="280.58 244.95 288.56 256.98 325.72 275.66 316.68 261.64 280.58 244.95"/>
+    <circle cx="268.9" cy="240.72" r="5.73"/>
+  </g>
+  <g>
+    <text class="cls-8" transform="translate(155.86 330.09) scale(1.57 1)"><tspan class="cls-2" x="0" y="0">T</tspan><tspan class="cls-4" x="12.27" y="0">ECH</tspan><tspan class="cls-9" x="51.29" y="0">N</tspan><tspan class="cls-4" x="65.22" y="0">O</tspan><tspan class="cls-5" x="78.83" y="0">L</tspan><tspan class="cls-7" x="90.71" y="0">O</tspan><tspan class="cls-6" x="104.33" y="0">GI</tspan><tspan class="cls-3" x="126.68" y="0">E</tspan><tspan class="cls-4" x="138.94" y="0">S</tspan></text>
+    <g>
+      <polygon points="128.84 308.45 116.97 292.77 115.03 292.77 102.97 308.41 106.05 308.45 115.91 295.92 125.58 308.56 128.84 308.45"/>
+      <polygon points="336.65 308.45 324.78 292.77 322.84 292.77 310.78 308.41 313.86 308.45 323.72 295.92 333.39 308.56 336.65 308.45"/>
+      <rect x="141.4" y="293.01" width="19.34" height="2.2"/>
+      <rect x="141.4" y="299.81" width="17.07" height="2.2"/>
+      <rect x="141.4" y="306.28" width="19.34" height="2.2"/>
+      <rect x="280.54" y="293.01" width="19.34" height="2.2"/>
+      <rect x="280.54" y="299.81" width="17.07" height="2.2"/>
+      <rect x="280.54" y="306.28" width="19.34" height="2.2"/>
+      <text class="cls-1" transform="translate(176.25 308.3) scale(1.44 1)"><tspan x="0" y="0">R</tspan></text>
+      <text class="cls-1" transform="translate(210.76 308.86) scale(1.44 1)"><tspan x="0" y="0">O</tspan></text>
+      <text class="cls-1" transform="translate(247.45 308.86) scale(1.44 1)"><tspan x="0" y="0">S</tspan></text>
+      <text class="cls-1" transform="translate(348.04 308.56) scale(1.44 1)"><tspan x="0" y="0">R</tspan></text>
+      <text class="cls-1" transform="translate(380.92 308.3) scale(1.44 1)"><tspan x="0" y="0">C</tspan></text>
+      <text class="cls-1" transform="translate(413.06 308.3) scale(1.44 1)"><tspan x="0" y="0">H</tspan></text>
+    </g>
+  </g>
+</svg>
