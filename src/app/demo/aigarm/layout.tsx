@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, JetBrains_Mono } from "next/font/google";
+import { Barlow_Condensed } from "next/font/google";
+import localFont from "next/font/local";
 import { brand, demo } from "@/theme/content";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "@/aigarm/aigarm.css";
@@ -13,9 +14,12 @@ const barlow = Barlow_Condensed({
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+const jetbrains = localFont({
+  src: [
+    { path: "../../../fonts/jetbrains-mono/JetBrainsMono-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../../fonts/jetbrains-mono/JetBrainsMono-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../../fonts/jetbrains-mono/JetBrainsMono-Bold.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-aigarm-data",
   display: "swap",
 });
