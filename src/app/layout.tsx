@@ -53,8 +53,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: brand.full,
-    description:
-      "Every threat found is a life saved. Autonomous threat prediction for defence and humanitarian demining.",
+    description: "Building an autonomous threat prediction platform.",
     type: "website",
   },
 };
