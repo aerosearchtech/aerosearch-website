@@ -1,0 +1,5045 @@
+{
+ "field": {
+  "width": 2000,
+  "height": 985,
+  "pixel_size_m": 0.014110700000019278
+ },
+ "sensors": {
+  "rgb": {
+   "label": "RGB",
+   "provenance": "representative",
+   "basis": "74% of surface objects, ranked by analyst visual tier then object size.",
+   "measured_auc": 0.4644
+  },
+  "thermal": {
+   "label": "Thermal",
+   "provenance": "representative",
+   "basis": "72% of surface metal at least 10 cm across, and 18% of shallow metal, largest first. Needs exposed area to hold a thermal contrast, so no minimum-metal detections.",
+   "measured_auc": 0.4943
+  },
+  "emi": {
+   "label": "EMI",
+   "provenance": "measured",
+   "basis": "EM61-Lite channel 1, thresholded at a 10% background-area false-alarm rate."
+  },
+  "mag": {
+   "label": "Magnetic",
+   "provenance": "measured",
+   "basis": "MagDrone R1 processed anomaly grid, thresholded at a 10% background-area false-alarm rate."
+  }
+ },
+ "targets": [
+  {
+   "id": "A1",
+   "name": "Pressure Cooker",
+   "kind": "IED",
+   "depth": 8.0,
+   "x": 1866.5,
+   "y": 167.3,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.1342,
+    "thermal": 0.2178,
+    "emi": 0.9961,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "A2",
+   "name": "Plastic Projectile",
+   "kind": "3D Printed",
+   "depth": 2.0,
+   "x": 1798.4,
+   "y": 167.4,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.049,
+    "thermal": 0.0571,
+    "emi": 0.9882,
+    "mag": 0.5239
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A3",
+   "name": "M6A1",
+   "kind": "Rocket",
+   "depth": 20.0,
+   "x": 1731.6,
+   "y": 167.2,
+   "class": "ordnance",
+   "size_m": 0.6,
+   "surface": false,
+   "values": {
+    "rgb": 0.0314,
+    "thermal": 0.0261,
+    "emi": 0.9922,
+    "mag": 0.8339
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A4",
+   "name": "Plastic Projectile",
+   "kind": "3D Printed",
+   "depth": 2.0,
+   "x": 1661.6,
+   "y": 168.1,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.082,
+    "thermal": 0.1061,
+    "emi": 0.4078,
+    "mag": 0.0967
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "A5",
+   "name": "M6A1",
+   "kind": "Rocket",
+   "depth": 16.0,
+   "x": 1591.5,
+   "y": 164.2,
+   "class": "ordnance",
+   "size_m": 0.6,
+   "surface": false,
+   "values": {
+    "rgb": 0.0783,
+    "thermal": 0.2011,
+    "emi": 0.6157,
+    "mag": 0.0903
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "A6",
+   "name": "Plastic Projectile",
+   "kind": "3D Printed",
+   "depth": 4.0,
+   "x": 1520.9,
+   "y": 165.1,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1942,
+    "thermal": 0.3118,
+    "emi": 0.0,
+    "mag": 0.2097
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A7",
+   "name": "M83",
+   "kind": "Projectile",
+   "depth": 12.0,
+   "x": 1452.2,
+   "y": 164.2,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.0683,
+    "thermal": 0.0815,
+    "emi": 0.6314,
+    "mag": 0.1324
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "A8",
+   "name": "Plastic Projectile",
+   "kind": "3D Printed",
+   "depth": 4.0,
+   "x": 1381.6,
+   "y": 166.8,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0709,
+    "thermal": 0.0761,
+    "emi": 0.0,
+    "mag": 0.4679
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": true
+   }
+  },
+  {
+   "id": "A9",
+   "name": "Aluminum Pipe bomb",
+   "kind": "IED",
+   "depth": 8.0,
+   "x": 1311.6,
+   "y": 169.1,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.0387,
+    "thermal": 0.0459,
+    "emi": 0.6471,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A10",
+   "name": "Plastic OZM",
+   "kind": "3D Printed",
+   "depth": 2.0,
+   "x": 1242.2,
+   "y": 166.5,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0424,
+    "thermal": 0.0588,
+    "emi": 0.0,
+    "mag": 0.2089
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A11",
+   "name": "Aluminum Pipe Bomb",
+   "kind": "IED",
+   "depth": 6.0,
+   "x": 1173.0,
+   "y": 170.1,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.0292,
+    "thermal": 0.039,
+    "emi": 0.4039,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A12",
+   "name": "Plastic OZM",
+   "kind": "3D Printed",
+   "depth": 4.0,
+   "x": 1104.8,
+   "y": 168.9,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.037,
+    "thermal": 0.0627,
+    "emi": 0.0,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": true
+   }
+  },
+  {
+   "id": "A13",
+   "name": "M6",
+   "kind": "Rocket",
+   "depth": 4.0,
+   "x": 1034.2,
+   "y": 168.1,
+   "class": "ordnance",
+   "size_m": 0.5,
+   "surface": false,
+   "values": {
+    "rgb": 0.0209,
+    "thermal": 0.0562,
+    "emi": 0.6745,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A14",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 962.8,
+   "y": 164.2,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0201,
+    "thermal": 0.1452,
+    "emi": 0.1804,
+    "mag": 0.964
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A15",
+   "name": "M65AI",
+   "kind": "Projectile",
+   "depth": 2.0,
+   "x": 894.8,
+   "y": 164.4,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.0521,
+    "thermal": 0.1469,
+    "emi": 0.6627,
+    "mag": 0.291
+   },
+   "det": {
+    "rgb": false,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A16",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 823.5,
+   "y": 164.2,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0242,
+    "thermal": 0.0676,
+    "emi": 0.0,
+    "mag": 0.1522
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A17",
+   "name": "M65AI",
+   "kind": "Projectile",
+   "depth": 0.0,
+   "x": 757.4,
+   "y": 167.1,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": true,
+   "values": {
+    "rgb": 0.0597,
+    "thermal": 0.1007,
+    "emi": 0.8706,
+    "mag": 0.7762
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A18",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 683.5,
+   "y": 165.1,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0238,
+    "thermal": 0.0807,
+    "emi": 0.0,
+    "mag": 0.0682
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A19",
+   "name": "PVC Pipe",
+   "kind": "IED",
+   "depth": 8.0,
+   "x": 614.1,
+   "y": 163.2,
+   "class": "minimum_metal",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.0489,
+    "thermal": 0.1967,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A20",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 544.7,
+   "y": 161.1,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0495,
+    "thermal": 0.0933,
+    "emi": 0.2471,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A21",
+   "name": "Propane Tank",
+   "kind": "IED",
+   "depth": 16.0,
+   "x": 472.8,
+   "y": 161.6,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.0538,
+    "thermal": 0.0927,
+    "emi": 1.0,
+    "mag": 0.3033
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "A22",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 404.1,
+   "y": 161.7,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.012,
+    "thermal": 0.0324,
+    "emi": 0.6588,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A23",
+   "name": "PVC Pipe",
+   "kind": "IED",
+   "depth": 8.0,
+   "x": 335.4,
+   "y": 160.9,
+   "class": "minimum_metal",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.0321,
+    "thermal": 0.0736,
+    "emi": 0.0,
+    "mag": 0.0306
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A24",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 266.1,
+   "y": 164.2,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0234,
+    "thermal": 0.0333,
+    "emi": 0.0,
+    "mag": 0.1867
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "A25",
+   "name": "M12AI",
+   "kind": "Anti-tank mine",
+   "depth": 12.0,
+   "x": 199.2,
+   "y": 160.5,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.1309,
+    "thermal": 0.1595,
+    "emi": 1.0,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B1",
+   "name": "M228",
+   "kind": "Grenade",
+   "depth": 0.0,
+   "x": 1862.0,
+   "y": 307.9,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.1448,
+    "thermal": 0.2691,
+    "emi": 0.6706,
+    "mag": 0.1021
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B2",
+   "name": "M228",
+   "kind": "Grenade",
+   "depth": 2.0,
+   "x": 1795.7,
+   "y": 304.1,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1034,
+    "thermal": 0.1387,
+    "emi": 0.5255,
+    "mag": 0.7008
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B3",
+   "name": "M228",
+   "kind": "Grenade",
+   "depth": 4.0,
+   "x": 1723.2,
+   "y": 304.6,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0535,
+    "thermal": 0.105,
+    "emi": 0.5137,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B4",
+   "name": "M228",
+   "kind": "Grenade",
+   "depth": 6.0,
+   "x": 1651.8,
+   "y": 299.4,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0758,
+    "thermal": 0.0896,
+    "emi": 0.4118,
+    "mag": 0.2592
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B5",
+   "name": "M18",
+   "kind": "Grenade",
+   "depth": 8.0,
+   "x": 1585.1,
+   "y": 305.8,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1367,
+    "thermal": 0.1169,
+    "emi": 0.3804,
+    "mag": 0.3249
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B6",
+   "name": "M228 Frag",
+   "kind": "Grenade",
+   "depth": 0.0,
+   "x": 1512.0,
+   "y": 309.9,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.0779,
+    "thermal": 0.079,
+    "emi": 0.451,
+    "mag": 0.1569
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B7",
+   "name": "Mk1",
+   "kind": "Grenade",
+   "depth": 2.0,
+   "x": 1445.8,
+   "y": 305.6,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.023,
+    "thermal": 0.0218,
+    "emi": 1.0,
+    "mag": 0.0642
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B8",
+   "name": "M228 Frag",
+   "kind": "Grenade",
+   "depth": 4.0,
+   "x": 1377.6,
+   "y": 303.2,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0571,
+    "thermal": 0.0664,
+    "emi": 0.898,
+    "mag": 0.1173
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B9",
+   "name": "M228 Frag",
+   "kind": "Grenade",
+   "depth": 6.0,
+   "x": 1303.8,
+   "y": 302.2,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0592,
+    "thermal": 0.1051,
+    "emi": 0.6157,
+    "mag": 0.1403
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B10",
+   "name": "M228 Frag",
+   "kind": "Grenade",
+   "depth": 8.0,
+   "x": 1236.2,
+   "y": 297.6,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1386,
+    "thermal": 0.1885,
+    "emi": 0.4275,
+    "mag": 0.0152
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B11",
+   "name": "M213",
+   "kind": "Grenade",
+   "depth": 0.0,
+   "x": 1163.8,
+   "y": 304.0,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.1871,
+    "thermal": 0.1803,
+    "emi": 0.2706,
+    "mag": 0.2191
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B12",
+   "name": "M213",
+   "kind": "Grenade",
+   "depth": 2.0,
+   "x": 1097.6,
+   "y": 300.1,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0452,
+    "thermal": 0.041,
+    "emi": 0.251,
+    "mag": 0.3312
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": true
+   }
+  },
+  {
+   "id": "B13",
+   "name": "M228 Frag",
+   "kind": "Grenade",
+   "depth": 4.0,
+   "x": 1025.6,
+   "y": 297.1,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.023,
+    "thermal": 0.0461,
+    "emi": 0.6353,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B14",
+   "name": "M228 Frag",
+   "kind": "Grenade",
+   "depth": 6.0,
+   "x": 953.7,
+   "y": 295.1,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0559,
+    "thermal": 0.1118,
+    "emi": 0.5176,
+    "mag": 0.1525
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B15",
+   "name": "M228 Frag",
+   "kind": "Grenade",
+   "depth": 8.0,
+   "x": 885.5,
+   "y": 293.5,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0285,
+    "thermal": 0.0687,
+    "emi": 0.3686,
+    "mag": 0.2184
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B16",
+   "name": "\"Rusty\" Aluminium",
+   "kind": "Grenade",
+   "depth": 0.0,
+   "x": 818.2,
+   "y": 299.6,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.0513,
+    "thermal": 0.1193,
+    "emi": 0.3255,
+    "mag": 0.1826
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B17",
+   "name": "M18",
+   "kind": "Grenade",
+   "depth": 2.0,
+   "x": 746.8,
+   "y": 294.3,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0457,
+    "thermal": 0.0885,
+    "emi": 0.5569,
+    "mag": 0.8349
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B18",
+   "name": "Handgranate 343d",
+   "kind": "Grenade",
+   "depth": 4.0,
+   "x": 677.4,
+   "y": 291.4,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0377,
+    "thermal": 0.0953,
+    "emi": 0.7294,
+    "mag": 0.354
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B19",
+   "name": "POMZ-2M",
+   "kind": "Anti-personnel frag",
+   "depth": 6.0,
+   "x": 606.2,
+   "y": 294.0,
+   "class": "ordnance",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.031,
+    "thermal": 0.046,
+    "emi": 0.5725,
+    "mag": 0.12
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B20",
+   "name": "PGU-24",
+   "kind": "Projectile",
+   "depth": 0.0,
+   "x": 533.9,
+   "y": 303.2,
+   "class": "ordnance",
+   "size_m": 0.3,
+   "surface": true,
+   "values": {
+    "rgb": 0.068,
+    "thermal": 0.1299,
+    "emi": 0.5176,
+    "mag": 0.2869
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B21",
+   "name": "M793",
+   "kind": "Projectile",
+   "depth": 2.0,
+   "x": 466.3,
+   "y": 299.6,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.0123,
+    "thermal": 0.0179,
+    "emi": 0.3961,
+    "mag": 0.1603
+   },
+   "det": {
+    "rgb": false,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "B22",
+   "name": "M793",
+   "kind": "Projectile",
+   "depth": 4.0,
+   "x": 396.9,
+   "y": 297.6,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.0236,
+    "thermal": 0.0828,
+    "emi": 0.3843,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B23",
+   "name": "M220",
+   "kind": "Projectile",
+   "depth": 0.0,
+   "x": 327.1,
+   "y": 301.9,
+   "class": "ordnance",
+   "size_m": 0.28,
+   "surface": true,
+   "values": {
+    "rgb": 0.0235,
+    "thermal": 0.0426,
+    "emi": 0.4745,
+    "mag": 0.5195
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B24",
+   "name": "M220",
+   "kind": "Projectile",
+   "depth": 2.0,
+   "x": 257.0,
+   "y": 298.0,
+   "class": "ordnance",
+   "size_m": 0.28,
+   "surface": false,
+   "values": {
+    "rgb": 0.028,
+    "thermal": 0.0758,
+    "emi": 0.2784,
+    "mag": 0.5123
+   },
+   "det": {
+    "rgb": false,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "B25",
+   "name": "M220",
+   "kind": "Projectile",
+   "depth": 4.0,
+   "x": 188.2,
+   "y": 297.3,
+   "class": "ordnance",
+   "size_m": 0.28,
+   "surface": false,
+   "values": {
+    "rgb": 0.1162,
+    "thermal": 0.066,
+    "emi": 0.302,
+    "mag": 0.6418
+   },
+   "det": {
+    "rgb": false,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "C1",
+   "name": "M385",
+   "kind": "40mm",
+   "depth": 0.0,
+   "x": 1859.5,
+   "y": 453.8,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.2617,
+    "thermal": 0.2855,
+    "emi": 0.3608,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C2",
+   "name": "M385E4",
+   "kind": "40mm",
+   "depth": 0.0,
+   "x": 1793.1,
+   "y": 445.6,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.276,
+    "thermal": 0.141,
+    "emi": 0.3137,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C3",
+   "name": "M385",
+   "kind": "40mm",
+   "depth": 0.0,
+   "x": 1726.8,
+   "y": 439.5,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.1383,
+    "thermal": 0.1133,
+    "emi": 0.3216,
+    "mag": 0.0017
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C4",
+   "name": "M385",
+   "kind": "40mm",
+   "depth": 0.0,
+   "x": 1654.4,
+   "y": 443.9,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.1107,
+    "thermal": 0.0973,
+    "emi": 0.302,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C5",
+   "name": "Undesignated drill",
+   "kind": "40mm",
+   "depth": 2.0,
+   "x": 1584.9,
+   "y": 438.7,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0964,
+    "thermal": 0.0888,
+    "emi": 0.2235,
+    "mag": 0.0026
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "C6",
+   "name": "M918",
+   "kind": "40mm",
+   "depth": 2.0,
+   "x": 1512.9,
+   "y": 436.9,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0929,
+    "thermal": 0.0648,
+    "emi": 0.5843,
+    "mag": 0.1347
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C7",
+   "name": "Drill Round",
+   "kind": "40mm",
+   "depth": 2.0,
+   "x": 1443.6,
+   "y": 437.8,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.1166,
+    "thermal": 0.1065,
+    "emi": 0.5804,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C8",
+   "name": "40mm 203 shrapnel",
+   "kind": "40mm",
+   "depth": 4.0,
+   "x": 1372.3,
+   "y": 437.0,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.2002,
+    "thermal": 0.286,
+    "emi": 0.4353,
+    "mag": 0.0617
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C9",
+   "name": "M385",
+   "kind": "40mm",
+   "depth": 4.0,
+   "x": 1305.5,
+   "y": 436.4,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.3739,
+    "thermal": 0.1973,
+    "emi": 0.5529,
+    "mag": 0.0295
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C10",
+   "name": "Undesignated 40mm dummy",
+   "kind": "40mm",
+   "depth": 4.0,
+   "x": 1234.9,
+   "y": 437.3,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.2313,
+    "thermal": 0.1938,
+    "emi": 0.4235,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C11",
+   "name": "M715",
+   "kind": "40mm",
+   "depth": 6.0,
+   "x": 1164.3,
+   "y": 439.5,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0676,
+    "thermal": 0.0712,
+    "emi": 0.5137,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C12",
+   "name": "M427",
+   "kind": "Fuze",
+   "depth": 6.0,
+   "x": 1094.9,
+   "y": 438.5,
+   "class": "ordnance",
+   "size_m": 0.06,
+   "surface": false,
+   "values": {
+    "rgb": 0.0331,
+    "thermal": 0.0348,
+    "emi": 0.5922,
+    "mag": 0.0166
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C13",
+   "name": "M918",
+   "kind": "40mm",
+   "depth": 6.0,
+   "x": 1025.6,
+   "y": 438.7,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0405,
+    "thermal": 0.0326,
+    "emi": 0.4471,
+    "mag": 0.2553
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "C14",
+   "name": "Drill Round",
+   "kind": "Projectile",
+   "depth": 8.0,
+   "x": 954.2,
+   "y": 436.1,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.0542,
+    "thermal": 0.0661,
+    "emi": 0.5098,
+    "mag": 0.8553
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "C15",
+   "name": "Drill Round",
+   "kind": "Projectile",
+   "depth": 8.0,
+   "x": 884.9,
+   "y": 436.3,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.0206,
+    "thermal": 0.0605,
+    "emi": 0.5216,
+    "mag": 0.7629
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "C16",
+   "name": "Drill Round",
+   "kind": "Projectile",
+   "depth": 8.0,
+   "x": 813.6,
+   "y": 435.9,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.0064,
+    "thermal": 0.0172,
+    "emi": 0.7137,
+    "mag": 0.3822
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "C17",
+   "name": "M42",
+   "kind": "Scatterable",
+   "depth": 0.0,
+   "x": 746.3,
+   "y": 440.1,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.0606,
+    "thermal": 0.1257,
+    "emi": 0.6235,
+    "mag": 0.1885
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C18",
+   "name": "M46",
+   "kind": "Scatterable",
+   "depth": 2.0,
+   "x": 676.2,
+   "y": 438.8,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1486,
+    "thermal": 0.1792,
+    "emi": 0.3804,
+    "mag": 0.2171
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C19",
+   "name": "M42",
+   "kind": "Scatterable",
+   "depth": 4.0,
+   "x": 607.0,
+   "y": 442.0,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1646,
+    "thermal": 0.2862,
+    "emi": 0.4078,
+    "mag": 0.2323
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C20",
+   "name": "M42",
+   "kind": "Scatterable",
+   "depth": 6.0,
+   "x": 538.7,
+   "y": 435.9,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1896,
+    "thermal": 0.2043,
+    "emi": 0.3412,
+    "mag": 0.2232
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C21",
+   "name": "M38",
+   "kind": "Scatterable",
+   "depth": 0.0,
+   "x": 461.7,
+   "y": 432.8,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.1459,
+    "thermal": 0.2431,
+    "emi": 0.6471,
+    "mag": 0.0383
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C22",
+   "name": "BLU-26 (D-1)/B",
+   "kind": "Scatterable",
+   "depth": 2.0,
+   "x": 397.4,
+   "y": 433.3,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0411,
+    "thermal": 0.1126,
+    "emi": 0.698,
+    "mag": 0.1068
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C23",
+   "name": "BLU-42/B",
+   "kind": "Scatterable",
+   "depth": 4.0,
+   "x": 326.8,
+   "y": 432.5,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.0194,
+    "thermal": 0.042,
+    "emi": 0.6824,
+    "mag": 0.1248
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C24",
+   "name": "BLU-42/B",
+   "kind": "Scatterable",
+   "depth": 6.0,
+   "x": 256.2,
+   "y": 433.5,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1828,
+    "thermal": 0.2674,
+    "emi": 0.6471,
+    "mag": 0.0942
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "C25",
+   "name": "BLU-26 (D-1)/B",
+   "kind": "Scatterable",
+   "depth": 8.0,
+   "x": 188.7,
+   "y": 434.0,
+   "class": "ordnance",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.2192,
+    "thermal": 0.3297,
+    "emi": 0.6078,
+    "mag": 0.0891
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "D1",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1851.2,
+   "y": 596.0,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.2381,
+    "thermal": 0.1057,
+    "emi": 0.1137,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D2",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1784.9,
+   "y": 591.7,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.3087,
+    "thermal": 0.3992,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D3",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1716.1,
+   "y": 588.4,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.2583,
+    "thermal": 0.388,
+    "emi": 0.0471,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D4",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1642.9,
+   "y": 588.1,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.2461,
+    "thermal": 0.4777,
+    "emi": 0.0314,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D5",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1576.1,
+   "y": 588.0,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.1267,
+    "thermal": 0.2575,
+    "emi": 0.1098,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D6",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1504.1,
+   "y": 584.8,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.1811,
+    "thermal": 0.3762,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D7",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1438.6,
+   "y": 585.7,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.1386,
+    "thermal": 0.3483,
+    "emi": 0.149,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D8",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1366.8,
+   "y": 589.1,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.1448,
+    "thermal": 0.4123,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D9",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1298.6,
+   "y": 585.9,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.1452,
+    "thermal": 0.1577,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D10",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 0.0,
+   "x": 1226.7,
+   "y": 582.8,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.0586,
+    "thermal": 0.0295,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D11",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 2.0,
+   "x": 1158.6,
+   "y": 585.0,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1356,
+    "thermal": 0.1281,
+    "emi": 0.149,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D12",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 2.0,
+   "x": 1089.8,
+   "y": 581.6,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0307,
+    "thermal": 0.0422,
+    "emi": 0.1569,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D13",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 4.0,
+   "x": 1019.2,
+   "y": 582.4,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0238,
+    "thermal": 0.0662,
+    "emi": 0.1255,
+    "mag": 0.0132
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D14",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 4.0,
+   "x": 947.3,
+   "y": 580.0,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0728,
+    "thermal": 0.0631,
+    "emi": 0.0706,
+    "mag": 0.0169
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D15",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 6.0,
+   "x": 878.5,
+   "y": 580.4,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.284,
+    "thermal": 0.1381,
+    "emi": 0.1882,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D16",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 6.0,
+   "x": 807.9,
+   "y": 581.6,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0775,
+    "thermal": 0.0864,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D17",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 8.0,
+   "x": 738.6,
+   "y": 581.8,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0681,
+    "thermal": 0.1385,
+    "emi": 0.0078,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D18",
+   "name": "PFM-1",
+   "kind": "Scatterable Anti-personnel",
+   "depth": 10.0,
+   "x": 669.2,
+   "y": 580.2,
+   "class": "minimum_metal",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0904,
+    "thermal": 0.0981,
+    "emi": 0.0078,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D19",
+   "name": "VPMA",
+   "kind": "3D Printed",
+   "depth": 0.0,
+   "x": 598.6,
+   "y": 583.4,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": true,
+   "values": {
+    "rgb": 0.2585,
+    "thermal": 0.4194,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D20",
+   "name": "VPMA",
+   "kind": "3D Printed",
+   "depth": 2.0,
+   "x": 532.4,
+   "y": 580.2,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1789,
+    "thermal": 0.3627,
+    "emi": 0.2627,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D21",
+   "name": "VPMA",
+   "kind": "Anti-personnel Blast",
+   "depth": 4.0,
+   "x": 457.9,
+   "y": 578.5,
+   "class": "minimum_metal",
+   "size_m": 0.1,
+   "surface": false,
+   "values": {
+    "rgb": 0.1984,
+    "thermal": 0.2045,
+    "emi": 0.0,
+    "mag": 0.0378
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D22",
+   "name": "PMN",
+   "kind": "Anti-personnel Blast",
+   "depth": 6.0,
+   "x": 389.1,
+   "y": 575.4,
+   "class": "minimum_metal",
+   "size_m": 0.112,
+   "surface": false,
+   "values": {
+    "rgb": 0.106,
+    "thermal": 0.1391,
+    "emi": 0.0,
+    "mag": 0.1684
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D23",
+   "name": "PMN",
+   "kind": "3D Printed",
+   "depth": 8.0,
+   "x": 320.9,
+   "y": 571.1,
+   "class": "minimum_metal",
+   "size_m": 0.112,
+   "surface": false,
+   "values": {
+    "rgb": 0.0483,
+    "thermal": 0.1035,
+    "emi": 0.0,
+    "mag": 0.0415
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D24",
+   "name": "TS-50",
+   "kind": "Anti-personnel",
+   "depth": 0.0,
+   "x": 248.4,
+   "y": 570.9,
+   "class": "minimum_metal",
+   "size_m": 0.09,
+   "surface": true,
+   "values": {
+    "rgb": 0.1746,
+    "thermal": 0.1623,
+    "emi": null,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "D25",
+   "name": "TS-50",
+   "kind": "3D Printed",
+   "depth": 2.0,
+   "x": 182.2,
+   "y": 569.3,
+   "class": "minimum_metal",
+   "size_m": 0.09,
+   "surface": false,
+   "values": {
+    "rgb": 0.1032,
+    "thermal": 0.1118,
+    "emi": null,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "E1",
+   "name": "M69",
+   "kind": "Projectile",
+   "depth": 10.0,
+   "x": 1850.4,
+   "y": 735.4,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.2682,
+    "thermal": 0.1559,
+    "emi": 0.3059,
+    "mag": 0.2601
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E2",
+   "name": "M69",
+   "kind": "Projectile",
+   "depth": 10.0,
+   "x": 1783.5,
+   "y": 731.3,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.2495,
+    "thermal": 0.0843,
+    "emi": 0.3961,
+    "mag": 0.2521
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E3",
+   "name": "60mm Mortar",
+   "kind": "Projectile",
+   "depth": 8.0,
+   "x": 1714.3,
+   "y": 734.9,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.3154,
+    "thermal": 0.2741,
+    "emi": 0.4745,
+    "mag": 0.0253
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E4",
+   "name": "Inert Warhead",
+   "kind": "Rocket",
+   "depth": 8.0,
+   "x": 1646.1,
+   "y": 733.2,
+   "class": "ordnance",
+   "size_m": 0.5,
+   "surface": false,
+   "values": {
+    "rgb": 0.3432,
+    "thermal": 0.3011,
+    "emi": 0.7216,
+    "mag": 0.1917
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E5",
+   "name": "M49A3",
+   "kind": "Projectile",
+   "depth": 6.0,
+   "x": 1580.6,
+   "y": 735.2,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.1553,
+    "thermal": 0.3624,
+    "emi": 0.5255,
+    "mag": 0.0542
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E6",
+   "name": "M81A1",
+   "kind": "Projectile",
+   "depth": 6.0,
+   "x": 1506.8,
+   "y": 734.0,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.1781,
+    "thermal": 0.3289,
+    "emi": 0.949,
+    "mag": 0.1068
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E7",
+   "name": "M2A3",
+   "kind": "Landmine",
+   "depth": 4.0,
+   "x": 1436.8,
+   "y": 732.3,
+   "class": "ordnance",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.2215,
+    "thermal": 0.3444,
+    "emi": 0.7451,
+    "mag": 0.4158
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E8",
+   "name": "Unknown",
+   "kind": "Projectile",
+   "depth": 4.0,
+   "x": 1367.4,
+   "y": 733.3,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.1376,
+    "thermal": 0.392,
+    "emi": 0.4314,
+    "mag": 0.2621
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E9",
+   "name": "M55A",
+   "kind": "Projectile",
+   "depth": 2.0,
+   "x": 1297.4,
+   "y": 732.5,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.1756,
+    "thermal": 0.1525,
+    "emi": 0.502,
+    "mag": 0.0452
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E10",
+   "name": "M715",
+   "kind": "Projectile",
+   "depth": 2.0,
+   "x": 1226.2,
+   "y": 735.6,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.1154,
+    "thermal": 0.1151,
+    "emi": 0.6118,
+    "mag": 0.3682
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E11",
+   "name": "Drill Round",
+   "kind": "Projectile",
+   "depth": 0.0,
+   "x": 1157.4,
+   "y": 730.7,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": true,
+   "values": {
+    "rgb": 0.2185,
+    "thermal": 0.2621,
+    "emi": 0.3333,
+    "mag": 0.6279
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E12",
+   "name": "20mm",
+   "kind": "Projectile",
+   "depth": 0.0,
+   "x": 1089.9,
+   "y": 727.0,
+   "class": "ordnance",
+   "size_m": 0.16,
+   "surface": true,
+   "values": {
+    "rgb": 0.2179,
+    "thermal": 0.3391,
+    "emi": 0.3686,
+    "mag": 0.2403
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E13",
+   "name": "KSF-cap",
+   "kind": "Casing",
+   "depth": 0.0,
+   "x": 1014.2,
+   "y": 727.8,
+   "class": "ordnance",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.0892,
+    "thermal": 0.1856,
+    "emi": 0.9255,
+    "mag": 0.067
+   },
+   "det": {
+    "rgb": false,
+    "thermal": true,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E14",
+   "name": "KSF-casing",
+   "kind": "Casing",
+   "depth": 0.0,
+   "x": 944.3,
+   "y": 732.3,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": true,
+   "values": {
+    "rgb": 0.0651,
+    "thermal": 0.0864,
+    "emi": 0.4275,
+    "mag": 0.6314
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E15",
+   "name": "KSF-casing",
+   "kind": "Casing",
+   "depth": 0.0,
+   "x": 879.9,
+   "y": 725.8,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": true,
+   "values": {
+    "rgb": 0.0472,
+    "thermal": 0.1599,
+    "emi": 0.4235,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": true,
+    "thermal": true,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E16",
+   "name": "KSF-cap",
+   "kind": "Casing",
+   "depth": 2.0,
+   "x": 811.1,
+   "y": 723.0,
+   "class": "ordnance",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1654,
+    "thermal": 0.1049,
+    "emi": 0.6078,
+    "mag": 0.2649
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E17",
+   "name": "KSF-casing",
+   "kind": "Casing",
+   "depth": 2.0,
+   "x": 740.4,
+   "y": 722.9,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.1,
+    "thermal": 0.0869,
+    "emi": 0.8588,
+    "mag": 0.2903
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E18",
+   "name": "KSF-casing",
+   "kind": "Casing",
+   "depth": 2.0,
+   "x": 669.8,
+   "y": 721.2,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.1511,
+    "thermal": 0.1065,
+    "emi": 0.9255,
+    "mag": 0.5053
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": true
+   }
+  },
+  {
+   "id": "E19",
+   "name": "TNT",
+   "kind": "TNT",
+   "depth": 12.0,
+   "x": 599.1,
+   "y": 719.1,
+   "class": "ordnance",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1998,
+    "thermal": 0.183,
+    "emi": 0.1451,
+    "mag": 0.3913
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": true
+   }
+  },
+  {
+   "id": "E20",
+   "name": "Tipman Tank",
+   "kind": "IED",
+   "depth": 20.0,
+   "x": 532.3,
+   "y": 720.2,
+   "class": "ordnance",
+   "size_m": 0.25,
+   "surface": false,
+   "values": {
+    "rgb": 0.2263,
+    "thermal": 0.3251,
+    "emi": 0.3373,
+    "mag": 0.0358
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E21",
+   "name": "MK 2/2",
+   "kind": "Projectile",
+   "depth": 16.0,
+   "x": 460.4,
+   "y": 721.8,
+   "class": "ordnance",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.146,
+    "thermal": 0.2749,
+    "emi": 0.5882,
+    "mag": 0.0053
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E22",
+   "name": "40mm Shell",
+   "kind": "Shell",
+   "depth": 2.0,
+   "x": 392.2,
+   "y": 715.2,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.0335,
+    "thermal": 0.0524,
+    "emi": 0.6235,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E23",
+   "name": "40mm Shell x2",
+   "kind": "Shell",
+   "depth": 2.0,
+   "x": 321.6,
+   "y": 713.7,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.1526,
+    "thermal": 0.0826,
+    "emi": 0.5882,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E24",
+   "name": "40mm Shell x3",
+   "kind": "Shell",
+   "depth": 2.0,
+   "x": 252.2,
+   "y": 711.8,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.0713,
+    "thermal": 0.1148,
+    "emi": 0.702,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "E25",
+   "name": "40mm Shell x4",
+   "kind": "Shell",
+   "depth": 2.0,
+   "x": 181.4,
+   "y": 708.3,
+   "class": "ordnance",
+   "size_m": 0.2,
+   "surface": false,
+   "values": {
+    "rgb": 0.0921,
+    "thermal": 0.1294,
+    "emi": 0.8196,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": true,
+    "mag": false
+   }
+  },
+  {
+   "id": "F1",
+   "name": "Shrapnel Cache",
+   "kind": "Clutter",
+   "depth": 12.0,
+   "x": 1840.5,
+   "y": 889.5,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.3062,
+    "thermal": 0.2146,
+    "emi": 1.0,
+    "mag": 0.8401
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F2",
+   "name": "Hole",
+   "kind": "Control Hole",
+   "depth": 14.0,
+   "x": 1773.5,
+   "y": 882.8,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.3089,
+    "thermal": 0.1234,
+    "emi": 0.8863,
+    "mag": 0.368
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F3",
+   "name": "Fuze Cache",
+   "kind": "Clutter",
+   "depth": 14.0,
+   "x": 1705.9,
+   "y": 876.2,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.2599,
+    "thermal": 0.1662,
+    "emi": 1.0,
+    "mag": 0.527
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F4",
+   "name": "Hole",
+   "kind": "Control Hole",
+   "depth": 15.0,
+   "x": 1635.9,
+   "y": 875.8,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.2689,
+    "thermal": 0.1971,
+    "emi": 0.0,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F5",
+   "name": "VS-1.6",
+   "kind": "Anti-tank mine",
+   "depth": 12.0,
+   "x": 1565.9,
+   "y": 872.8,
+   "class": "minimum_metal",
+   "size_m": 0.22,
+   "surface": false,
+   "values": {
+    "rgb": 0.2797,
+    "thermal": 0.3415,
+    "emi": 0.0,
+    "mag": 0.0114
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F6",
+   "name": "Hole 12cm",
+   "kind": "Control Hole",
+   "depth": 15.0,
+   "x": 1497.8,
+   "y": 872.1,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1523,
+    "thermal": 0.3367,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F7",
+   "name": "Aluminum Can",
+   "kind": "Clutter",
+   "depth": 2.0,
+   "x": 1429.1,
+   "y": 874.2,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.2973,
+    "thermal": 0.3097,
+    "emi": 0.9294,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F8",
+   "name": "Hole 13cm",
+   "kind": "Control Hole",
+   "depth": 17.0,
+   "x": 1355.9,
+   "y": 873.0,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.218,
+    "thermal": 0.428,
+    "emi": 0.0,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F9",
+   "name": "Aluminum Can",
+   "kind": "Clutter",
+   "depth": 4.0,
+   "x": 1291.0,
+   "y": 873.9,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.2841,
+    "thermal": 0.3771,
+    "emi": 0.898,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F10",
+   "name": "Hole 18cm",
+   "kind": "Control Hole",
+   "depth": 20.0,
+   "x": 1217.8,
+   "y": 872.7,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1261,
+    "thermal": 0.429,
+    "emi": 0.9451,
+    "mag": 0.1716
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F11",
+   "name": "Shrapnel",
+   "kind": "Clutter",
+   "depth": 0.0,
+   "x": 1149.7,
+   "y": 871.1,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": true,
+   "values": {
+    "rgb": 0.1347,
+    "thermal": 0.3416,
+    "emi": 0.0,
+    "mag": 0.6019
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F12",
+   "name": "Hole 15cm",
+   "kind": "Control Hole",
+   "depth": 17.0,
+   "x": 1079.6,
+   "y": 868.1,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0601,
+    "thermal": 0.2672,
+    "emi": 0.5686,
+    "mag": 0.3203
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F13",
+   "name": "Shrapnel",
+   "kind": "Clutter",
+   "depth": 2.0,
+   "x": 1007.1,
+   "y": 868.1,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1751,
+    "thermal": 0.2817,
+    "emi": 0.3686,
+    "mag": 0.1811
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F14",
+   "name": "Hole 20cm",
+   "kind": "Control Hole",
+   "depth": 20.0,
+   "x": 935.8,
+   "y": 867.9,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.062,
+    "thermal": 0.1264,
+    "emi": 0.0,
+    "mag": 0.0825
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F15",
+   "name": "Copper Pipe",
+   "kind": "Clutter",
+   "depth": 4.0,
+   "x": 867.2,
+   "y": 871.4,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1468,
+    "thermal": 0.3197,
+    "emi": 0.6784,
+    "mag": 0.0457
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F16",
+   "name": "Hole 30cm",
+   "kind": "Control Hole",
+   "depth": 30.0,
+   "x": 798.5,
+   "y": 871.0,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0687,
+    "thermal": 0.2352,
+    "emi": 0.0,
+    "mag": 0.3469
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F17",
+   "name": "Shrapnel",
+   "kind": "Clutter",
+   "depth": 6.0,
+   "x": 727.7,
+   "y": 867.0,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1291,
+    "thermal": 0.1549,
+    "emi": 0.5176,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F18",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 658.9,
+   "y": 862.8,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.2236,
+    "thermal": 0.3775,
+    "emi": 0.0,
+    "mag": 1.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F19",
+   "name": "Shrapnel",
+   "kind": "Clutter",
+   "depth": 8.0,
+   "x": 588.9,
+   "y": 860.4,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.316,
+    "thermal": 0.4126,
+    "emi": 0.2392,
+    "mag": 0.4345
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F20",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 516.2,
+   "y": 855.6,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.1615,
+    "thermal": 0.2699,
+    "emi": 0.0157,
+    "mag": 0.2777
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F21",
+   "name": "Huawei Phone",
+   "kind": "Clutter",
+   "depth": 2.0,
+   "x": 451.4,
+   "y": 858.7,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.07,
+    "thermal": 0.2569,
+    "emi": 0.2392,
+    "mag": 0.0872
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F22",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 381.4,
+   "y": 856.6,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0437,
+    "thermal": 0.0456,
+    "emi": 0.0,
+    "mag": 0.0373
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F23",
+   "name": "HTC Phone",
+   "kind": "Clutter",
+   "depth": 4.0,
+   "x": 309.5,
+   "y": 858.2,
+   "class": "clutter",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0732,
+    "thermal": 0.1683,
+    "emi": 0.0,
+    "mag": 0.0259
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F24",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 240.6,
+   "y": 852.4,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0568,
+    "thermal": 0.1484,
+    "emi": null,
+    "mag": 0.0183
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  },
+  {
+   "id": "F25",
+   "name": "",
+   "kind": "",
+   "depth": "",
+   "x": 171.3,
+   "y": 855.2,
+   "class": "control",
+   "size_m": 0.12,
+   "surface": false,
+   "values": {
+    "rgb": 0.0736,
+    "thermal": 0.1073,
+    "emi": null,
+    "mag": 0.0
+   },
+   "det": {
+    "rgb": false,
+    "thermal": false,
+    "emi": false,
+    "mag": false
+   }
+  }
+ ],
+ "alarms": [
+  {
+   "x": 1318,
+   "y": 396,
+   "sensor": "rgb",
+   "value": 0.6259,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1393,
+   "y": 804,
+   "sensor": "rgb",
+   "value": 0.4478,
+   "cause": "clutter",
+   "measured": false
+  },
+  {
+   "x": 1202,
+   "y": 325,
+   "sensor": "rgb",
+   "value": 0.4418,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 72,
+   "y": 624,
+   "sensor": "rgb",
+   "value": 0.4308,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 500,
+   "y": 463,
+   "sensor": "rgb",
+   "value": 0.4303,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 86,
+   "y": 749,
+   "sensor": "rgb",
+   "value": 0.4252,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1272,
+   "y": 463,
+   "sensor": "rgb",
+   "value": 0.4228,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1872,
+   "y": 518,
+   "sensor": "rgb",
+   "value": 0.4212,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 137,
+   "y": 417,
+   "sensor": "rgb",
+   "value": 0.3975,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 614,
+   "y": 537,
+   "sensor": "rgb",
+   "value": 0.3961,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1912,
+   "y": 698,
+   "sensor": "rgb",
+   "value": 0.3886,
+   "cause": "clutter",
+   "measured": false
+  },
+  {
+   "x": 1711,
+   "y": 777,
+   "sensor": "rgb",
+   "value": 0.382,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1602,
+   "y": 847,
+   "sensor": "rgb",
+   "value": 0.3786,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1299,
+   "y": 862,
+   "sensor": "rgb",
+   "value": 0.3773,
+   "cause": "clutter",
+   "measured": false
+  },
+  {
+   "x": 1659,
+   "y": 894,
+   "sensor": "rgb",
+   "value": 0.373,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1272,
+   "y": 273,
+   "sensor": "rgb",
+   "value": 0.3568,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1111,
+   "y": 780,
+   "sensor": "rgb",
+   "value": 0.3509,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 594,
+   "y": 855,
+   "sensor": "rgb",
+   "value": 0.3395,
+   "cause": "clutter",
+   "measured": false
+  },
+  {
+   "x": 511,
+   "y": 769,
+   "sensor": "rgb",
+   "value": 0.3231,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1687,
+   "y": 620,
+   "sensor": "rgb",
+   "value": 0.3208,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1907,
+   "y": 232,
+   "sensor": "thermal",
+   "value": 0.7581,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1463,
+   "y": 695,
+   "sensor": "thermal",
+   "value": 0.539,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1917,
+   "y": 788,
+   "sensor": "thermal",
+   "value": 0.5092,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1073,
+   "y": 817,
+   "sensor": "thermal",
+   "value": 0.4856,
+   "cause": "control",
+   "measured": false
+  },
+  {
+   "x": 527,
+   "y": 634,
+   "sensor": "thermal",
+   "value": 0.4821,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1904,
+   "y": 442,
+   "sensor": "thermal",
+   "value": 0.4652,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 602,
+   "y": 541,
+   "sensor": "thermal",
+   "value": 0.4636,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1770,
+   "y": 653,
+   "sensor": "thermal",
+   "value": 0.4486,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 501,
+   "y": 756,
+   "sensor": "thermal",
+   "value": 0.4469,
+   "cause": "control",
+   "measured": false
+  },
+  {
+   "x": 1402,
+   "y": 564,
+   "sensor": "thermal",
+   "value": 0.4264,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 818,
+   "y": 913,
+   "sensor": "thermal",
+   "value": 0.3997,
+   "cause": "clutter",
+   "measured": false
+  },
+  {
+   "x": 1316,
+   "y": 395,
+   "sensor": "thermal",
+   "value": 0.3913,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1744,
+   "y": 551,
+   "sensor": "thermal",
+   "value": 0.3728,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1680,
+   "y": 762,
+   "sensor": "thermal",
+   "value": 0.3652,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 418,
+   "y": 907,
+   "sensor": "thermal",
+   "value": 0.3586,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 382,
+   "y": 343,
+   "sensor": "thermal",
+   "value": 0.3537,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1594,
+   "y": 77,
+   "sensor": "thermal",
+   "value": 0.3521,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 684,
+   "y": 341,
+   "sensor": "thermal",
+   "value": 0.352,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 88,
+   "y": 887,
+   "sensor": "thermal",
+   "value": 0.3403,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 337,
+   "y": 499,
+   "sensor": "thermal",
+   "value": 0.3358,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 81,
+   "y": 740,
+   "sensor": "thermal",
+   "value": 0.3287,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 111,
+   "y": 269,
+   "sensor": "thermal",
+   "value": 0.3255,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 129,
+   "y": 433,
+   "sensor": "thermal",
+   "value": 0.3194,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 640,
+   "y": 405,
+   "sensor": "thermal",
+   "value": 0.316,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1559,
+   "y": 191,
+   "sensor": "thermal",
+   "value": 0.3115,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 71,
+   "y": 611,
+   "sensor": "thermal",
+   "value": 0.3097,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 911,
+   "y": 913,
+   "sensor": "thermal",
+   "value": 0.3095,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 71,
+   "y": 276,
+   "sensor": "thermal",
+   "value": 0.3075,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 1826,
+   "y": 913,
+   "sensor": "thermal",
+   "value": 0.3057,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 984,
+   "y": 345,
+   "sensor": "thermal",
+   "value": 0.2973,
+   "cause": "background",
+   "measured": false
+  },
+  {
+   "x": 156,
+   "y": 131,
+   "sensor": "emi",
+   "value": 1.0,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1707,
+   "y": 854,
+   "sensor": "emi",
+   "value": 1.0,
+   "cause": "clutter",
+   "measured": true
+  },
+  {
+   "x": 1245,
+   "y": 844,
+   "sensor": "emi",
+   "value": 0.9451,
+   "cause": "clutter",
+   "measured": true
+  },
+  {
+   "x": 1430,
+   "y": 845,
+   "sensor": "emi",
+   "value": 0.9294,
+   "cause": "clutter",
+   "measured": true
+  },
+  {
+   "x": 1902,
+   "y": 144,
+   "sensor": "emi",
+   "value": 0.8941,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 437,
+   "y": 133,
+   "sensor": "emi",
+   "value": 0.8902,
+   "cause": "control",
+   "measured": true
+  },
+  {
+   "x": 513,
+   "y": 147,
+   "sensor": "emi",
+   "value": 0.8863,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 724,
+   "y": 138,
+   "sensor": "emi",
+   "value": 0.8196,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 150,
+   "y": 678,
+   "sensor": "emi",
+   "value": 0.7765,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 868,
+   "y": 842,
+   "sensor": "emi",
+   "value": 0.6784,
+   "cause": "clutter",
+   "measured": true
+  },
+  {
+   "x": 238,
+   "y": 143,
+   "sensor": "emi",
+   "value": 0.6353,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 856,
+   "y": 146,
+   "sensor": "emi",
+   "value": 0.6353,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 999,
+   "y": 143,
+   "sensor": "emi",
+   "value": 0.6,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 936,
+   "y": 154,
+   "sensor": "emi",
+   "value": 0.5922,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1070,
+   "y": 843,
+   "sensor": "emi",
+   "value": 0.5686,
+   "cause": "control",
+   "measured": true
+  },
+  {
+   "x": 740,
+   "y": 837,
+   "sensor": "emi",
+   "value": 0.5176,
+   "cause": "clutter",
+   "measured": true
+  },
+  {
+   "x": 1050,
+   "y": 751,
+   "sensor": "emi",
+   "value": 0.4627,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 125,
+   "y": 285,
+   "sensor": "emi",
+   "value": 0.3686,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 222,
+   "y": 323,
+   "sensor": "emi",
+   "value": 0.302,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 177,
+   "y": 112,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1031,
+   "y": 71,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "control",
+   "measured": true
+  },
+  {
+   "x": 1297,
+   "y": 126,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1729,
+   "y": 211,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 363,
+   "y": 325,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 864,
+   "y": 672,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 680,
+   "y": 835,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "control",
+   "measured": true
+  },
+  {
+   "x": 1644,
+   "y": 870,
+   "sensor": "mag",
+   "value": 1.0,
+   "cause": "clutter",
+   "measured": true
+  },
+  {
+   "x": 711,
+   "y": 317,
+   "sensor": "mag",
+   "value": 0.9219,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1760,
+   "y": 327,
+   "sensor": "mag",
+   "value": 0.864,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 989,
+   "y": 461,
+   "sensor": "mag",
+   "value": 0.8553,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 909,
+   "y": 758,
+   "sensor": "mag",
+   "value": 0.8253,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 758,
+   "y": 112,
+   "sensor": "mag",
+   "value": 0.7762,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 919,
+   "y": 410,
+   "sensor": "mag",
+   "value": 0.7527,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1148,
+   "y": 884,
+   "sensor": "mag",
+   "value": 0.6892,
+   "cause": "clutter",
+   "measured": true
+  },
+  {
+   "x": 1148,
+   "y": 686,
+   "sensor": "mag",
+   "value": 0.6198,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 630,
+   "y": 679,
+   "sensor": "mag",
+   "value": 0.4546,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1471,
+   "y": 758,
+   "sensor": "mag",
+   "value": 0.4301,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1039,
+   "y": 337,
+   "sensor": "mag",
+   "value": 0.405,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 510,
+   "y": 240,
+   "sensor": "mag",
+   "value": 0.3929,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 781,
+   "y": 465,
+   "sensor": "mag",
+   "value": 0.3822,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 744,
+   "y": 232,
+   "sensor": "mag",
+   "value": 0.3736,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1550,
+   "y": 331,
+   "sensor": "mag",
+   "value": 0.3249,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 921,
+   "y": 198,
+   "sensor": "mag",
+   "value": 0.291,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 506,
+   "y": 336,
+   "sensor": "mag",
+   "value": 0.2869,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 1486,
+   "y": 190,
+   "sensor": "mag",
+   "value": 0.2789,
+   "cause": "background",
+   "measured": true
+  },
+  {
+   "x": 722,
+   "y": 672,
+   "sensor": "mag",
+   "value": 0.2556,
+   "cause": "background",
+   "measured": true
+  }
+ ],
+ "clusters": [
+  {
+   "x": 1318,
+   "y": 396,
+   "sensors": [
+    "rgb",
+    "thermal"
+   ]
+  },
+  {
+   "x": 1393,
+   "y": 804,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 1202,
+   "y": 325,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 72,
+   "y": 624,
+   "sensors": [
+    "rgb",
+    "thermal"
+   ]
+  },
+  {
+   "x": 500,
+   "y": 463,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 86,
+   "y": 749,
+   "sensors": [
+    "rgb",
+    "thermal"
+   ]
+  },
+  {
+   "x": 1272,
+   "y": 463,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 1872,
+   "y": 518,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 137,
+   "y": 417,
+   "sensors": [
+    "rgb",
+    "thermal"
+   ]
+  },
+  {
+   "x": 614,
+   "y": 537,
+   "sensors": [
+    "rgb",
+    "thermal"
+   ]
+  },
+  {
+   "x": 1912,
+   "y": 698,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 1711,
+   "y": 777,
+   "sensors": [
+    "rgb",
+    "thermal"
+   ]
+  },
+  {
+   "x": 1602,
+   "y": 847,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 1299,
+   "y": 862,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 1659,
+   "y": 894,
+   "sensors": [
+    "mag",
+    "rgb"
+   ]
+  },
+  {
+   "x": 1272,
+   "y": 273,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 1111,
+   "y": 780,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 594,
+   "y": 855,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 511,
+   "y": 769,
+   "sensors": [
+    "rgb",
+    "thermal"
+   ]
+  },
+  {
+   "x": 1687,
+   "y": 620,
+   "sensors": [
+    "rgb"
+   ]
+  },
+  {
+   "x": 1907,
+   "y": 232,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1463,
+   "y": 695,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1917,
+   "y": 788,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1073,
+   "y": 817,
+   "sensors": [
+    "emi",
+    "thermal"
+   ]
+  },
+  {
+   "x": 527,
+   "y": 634,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1904,
+   "y": 442,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1770,
+   "y": 653,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1402,
+   "y": 564,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 818,
+   "y": 913,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1744,
+   "y": 551,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 418,
+   "y": 907,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 382,
+   "y": 343,
+   "sensors": [
+    "mag",
+    "thermal"
+   ]
+  },
+  {
+   "x": 1594,
+   "y": 77,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 684,
+   "y": 341,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 88,
+   "y": 887,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 337,
+   "y": 499,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 111,
+   "y": 269,
+   "sensors": [
+    "emi",
+    "thermal"
+   ]
+  },
+  {
+   "x": 640,
+   "y": 405,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1559,
+   "y": 191,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 911,
+   "y": 913,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 71,
+   "y": 276,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 1826,
+   "y": 913,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 984,
+   "y": 345,
+   "sensors": [
+    "thermal"
+   ]
+  },
+  {
+   "x": 156,
+   "y": 131,
+   "sensors": [
+    "emi",
+    "mag"
+   ]
+  },
+  {
+   "x": 1707,
+   "y": 854,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 1245,
+   "y": 844,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 1430,
+   "y": 845,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 1902,
+   "y": 144,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 437,
+   "y": 133,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 513,
+   "y": 147,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 724,
+   "y": 138,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 150,
+   "y": 678,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 868,
+   "y": 842,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 238,
+   "y": 143,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 856,
+   "y": 146,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 999,
+   "y": 143,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 936,
+   "y": 154,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 740,
+   "y": 837,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 1050,
+   "y": 751,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 222,
+   "y": 323,
+   "sensors": [
+    "emi"
+   ]
+  },
+  {
+   "x": 1031,
+   "y": 71,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1297,
+   "y": 126,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1729,
+   "y": 211,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 864,
+   "y": 672,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 680,
+   "y": 835,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 711,
+   "y": 317,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1760,
+   "y": 327,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 989,
+   "y": 461,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 909,
+   "y": 758,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 758,
+   "y": 112,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 919,
+   "y": 410,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1148,
+   "y": 884,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1148,
+   "y": 686,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 630,
+   "y": 679,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1471,
+   "y": 758,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1039,
+   "y": 337,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 510,
+   "y": 240,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 781,
+   "y": 465,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 744,
+   "y": 232,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1550,
+   "y": 331,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 921,
+   "y": 198,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 506,
+   "y": 336,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 1486,
+   "y": 190,
+   "sensors": [
+    "mag"
+   ]
+  },
+  {
+   "x": 722,
+   "y": 672,
+   "sensors": [
+    "mag"
+   ]
+  }
+ ],
+ "stats": {
+  "sensors": {
+   "rgb": {
+    "all": {
+     "detected": 22,
+     "total": 120,
+     "recall": 0.1833
+    },
+    "surface": {
+     "detected": 22,
+     "total": 30,
+     "recall": 0.7333
+    },
+    "buried": {
+     "detected": 0,
+     "total": 90,
+     "recall": 0.0
+    },
+    "minimum_metal": {
+     "detected": 10,
+     "total": 34,
+     "recall": 0.2941
+    },
+    "false_alarms": 20,
+    "false_alarm_rate": 0.02,
+    "alarm_causes": {
+     "clutter": 4,
+     "control": 0,
+     "background": 16
+    },
+    "coverage": 0.9991
+   },
+   "thermal": {
+    "all": {
+     "detected": 19,
+     "total": 120,
+     "recall": 0.1583
+    },
+    "surface": {
+     "detected": 13,
+     "total": 30,
+     "recall": 0.4333
+    },
+    "buried": {
+     "detected": 6,
+     "total": 90,
+     "recall": 0.0667
+    },
+    "minimum_metal": {
+     "detected": 0,
+     "total": 34,
+     "recall": 0.0
+    },
+    "false_alarms": 30,
+    "false_alarm_rate": 0.03,
+    "alarm_causes": {
+     "clutter": 1,
+     "control": 2,
+     "background": 27
+    },
+    "coverage": 0.9991
+   },
+   "emi": {
+    "all": {
+     "detected": 85,
+     "total": 120,
+     "recall": 0.7083
+    },
+    "surface": {
+     "detected": 18,
+     "total": 30,
+     "recall": 0.6
+    },
+    "buried": {
+     "detected": 67,
+     "total": 90,
+     "recall": 0.7444
+    },
+    "minimum_metal": {
+     "detected": 2,
+     "total": 34,
+     "recall": 0.0588
+    },
+    "false_alarms": 19,
+    "false_alarm_rate": 0.1,
+    "alarm_causes": {
+     "clutter": 5,
+     "control": 2,
+     "background": 12
+    },
+    "coverage": 0.3417
+   },
+   "mag": {
+    "all": {
+     "detected": 40,
+     "total": 120,
+     "recall": 0.3333
+    },
+    "surface": {
+     "detected": 6,
+     "total": 30,
+     "recall": 0.2
+    },
+    "buried": {
+     "detected": 34,
+     "total": 90,
+     "recall": 0.3778
+    },
+    "minimum_metal": {
+     "detected": 3,
+     "total": 34,
+     "recall": 0.0882
+    },
+    "false_alarms": 27,
+    "false_alarm_rate": 0.1,
+    "alarm_causes": {
+     "clutter": 2,
+     "control": 2,
+     "background": 23
+    },
+    "coverage": 1.0
+   }
+  },
+  "field": {
+   "area_m2": 383.2,
+   "sample_cells": 996,
+   "cell_radius_m": 0.35
+  },
+  "combined": {
+   "rule": "Detect if any sensor fires; count a false alarm only where two or more sensors fire within 0.5 m.",
+   "all": {
+    "detected": 99,
+    "total": 120,
+    "recall": 0.825
+   },
+   "surface": {
+    "detected": 28,
+    "total": 30
+   },
+   "minimum_metal": {
+    "detected": 14,
+    "total": 34
+   },
+   "false_alarms": 12,
+   "unconfirmed_alarms": 72
+  }
+ },
+ "measured": {
+  "note": "Measured directly from the surveys over the whole field. Independent of the representative optical figures.",
+  "false_alarm_rate": 0.1,
+  "false_alarm_basis": "Fraction of surveyed background area a sensor would flag.",
+  "thresholds": {
+   "rgb": 0.2787,
+   "thermal": 0.2657,
+   "emi": 0.2706,
+   "mag": 0.243
+  },
+  "auc_vs_background": {
+   "rgb": 0.4644,
+   "thermal": 0.4943,
+   "emi": 0.8296,
+   "mag": 0.6081
+  },
+  "optical_contrast_detections": {
+   "rgb": 6,
+   "thermal": 25
+  },
+  "sensitivity": {
+   "basis": "Measured AUC over a sweep of sampling radius (0.25-0.45 m) and background separation (1.0-1.5 m). EMI holds across every configuration; magnetic stays weak; optical stays at or below chance. The reported figures use 0.35 m and 1.25 m.",
+   "emi_auc_range": [
+    0.76,
+    0.88
+   ],
+   "mag_auc_range": [
+    0.55,
+    0.62
+   ],
+   "rgb_auc_range": [
+    0.37,
+    0.52
+   ]
+  },
+  "background_note": "150 emplacements at about 1 m spacing leave little clean ground: the background used for thresholds is roughly 10 m2 of a 383 m2 field.",
+  "visual_review": {
+   "basis": "Analyst read of native-resolution 3.12 mm/px crops at the 30 surface positions, with ground-truth locations shown.",
+   "clearly_identifiable": 9,
+   "probable": 6,
+   "surface_total": 30
+  }
+ }
+}

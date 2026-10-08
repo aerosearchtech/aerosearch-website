@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Detection · Aerosearch Technologies</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="top">
+  <a class="wordmark" href="../viewer/index.html">
+    <img class="brand-light" src="../viewer/assets/aerosearch-light.svg" alt="Aerosearch Technologies" />
+    <img class="brand-dark" src="../viewer/assets/aerosearch-dark.svg" alt="Aerosearch Technologies" />
+  </a>
+  <span class="breadcrumb">DRC / Pawnee, Oklahoma / Site 02 / <b>Detection</b></span>
+  <div class="top-actions">
+    <a href="../viewer/index.html" title="Survey layers and adaptive fusion">Layer explorer ↗</a>
+    <button id="theme" aria-label="Switch to dark theme">◐ <span>Dark</span></button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">
+      <div><h1>Detection</h1><p>Four modalities, one field</p></div>
+      <span class="site-icon">02</span>
+    </div>
+    <div class="panel-heading"><h2>Sensors</h2><span id="shownCount">— shown</span></div>
+    <div class="stack-hint">Measured sensors read from the surveys. Representative
+      sensors illustrate capability and are not measurements.</div>
+    <div id="sensors"></div>
+
+    <div class="side-section">
+      <div class="panel-heading"><h2>Display</h2></div>
+      <label class="switch"><input type="checkbox" id="showMisses" checked /> Show misses</label>
+      <label class="switch"><input type="checkbox" id="showAlarms" checked /> Show false alarms</label>
+    </div>
+
+    <div class="side-section legend">
+      <span><i class="ring"></i> detected, one arc per sensor</span>
+      <span><i class="miss"></i> not detected</span>
+      <span><i class="tri"></i> false alarm on open ground</span>
+      <span><i class="tri solid"></i> false alarm on clutter or a control hole</span>
+      <span><i class="fusedring"></i> confirmed by two or more sensors</span>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="source-line">DRC seeded field · SPH Engineering<br />
+        Surveys collected in 2023–2024</div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="map-top">
+      <div class="mode-switch" role="group" aria-label="View mode">
+        <button id="modeSensors" class="active">Per-sensor</button>
+        <button id="modeCombined">Combined</button>
+        <button id="modeReplay">Survey replay</button>
+      </div>
+      <span id="mapHint">Drag to pan · scroll to zoom · click to inspect</span>
+      <button id="fit">Fit field</button>
+    </div>
+
+    <div class="stage" id="stage">
+      <canvas id="canvas" aria-label="Detection map"></canvas>
+      <div class="map-buttons">
+        <button id="zoomIn" aria-label="Zoom in">+</button>
+        <button id="zoomOut" aria-label="Zoom out">−</button>
+      </div>
+      <div class="replay-badge" id="replayBadge" hidden>
+        <i></i><span id="replayPass">Pass 01 / 04</span>
+        <small>Illustrative acquisition</small>
+      </div>
+    </div>
+
+    <section class="playback" id="replayPanel" hidden>
+      <button id="replayPlay" class="play-button" aria-label="Start survey">▶</button>
+      <div class="playback-title">
+        <b id="replayTitle">Ready to survey</b>
+        <span id="replayTally">0 targets reported</span>
+      </div>
+      <output id="replayElapsed">00:00</output>
+      <input id="replayScrub" type="range" min="0" max="1000" value="0"
+             aria-label="Replay position" />
+      <span class="duration" id="replayDuration">00:25</span>
+      <select id="replaySpeed" aria-label="Playback speed"></select>
+      <button id="replayRestart" title="Restart survey">↺</button>
+      <button id="replayRecord">Record</button>
+      <a class="sample-video" href="site2-detection-replay.mp4" target="_blank">Replay video</a>
+    </section>
+
+    <section class="selection" id="selection">
+      <div class="selection-heading">
+        <span class="tiny-label">INSPECT</span>
+        <b id="selectedTitle">Select a target</b>
+        <span id="selectedMeta">Click the map to compare readings.</span>
+      </div>
+      <div id="readings" class="readings"></div>
+    </section>
+
+    <footer>
+      <span>WGS 84 / UTM 14N</span>
+      <span>Baur et al., DRC Seeded Field dataset
+        (<a href="https://doi.org/10.5281/zenodo.19100554">10.5281/zenodo.19100554</a>)</span>
+      <span>Research visualisation · not a validated detector</span>
+    </footer>
+  </main>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
