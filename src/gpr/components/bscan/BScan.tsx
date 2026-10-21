@@ -7,6 +7,7 @@ import { prepareCanvas } from '@/gpr/lib/canvas';
 import { ZOOM_STEP } from '@/gpr/lib/constants';
 import { sliceRows } from '@/gpr/lib/cscan';
 import { fixed, lineOf, rowToDepth, rowToNs } from '@/gpr/lib/format';
+import type { TiledImage } from '@/gpr/lib/images';
 import { useViewer } from '@/gpr/lib/store';
 import { PALETTES } from '@/gpr/lib/theme';
 import type { FlightMeta, Processed, TooltipData, View } from '@/gpr/lib/types';
@@ -17,7 +18,7 @@ import { bscanMapping, drawBScan } from './drawBScan';
 interface BScanProps {
   meta: FlightMeta;
   processed: Processed;
-  image: HTMLCanvasElement;
+  image: TiledImage;
   velocity: number;
 }
 
@@ -39,6 +40,7 @@ export default function BScan({ meta, processed, image, velocity }: BScanProps) 
   const setView = useViewer((s) => s.setView);
   const setCursor = useViewer((s) => s.setCursor);
   const resetView = useViewer((s) => s.resetView);
+  const selectedTarget = useViewer((s) => s.selectedTarget);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,8 +56,9 @@ export default function BScan({ meta, processed, image, velocity }: BScanProps) 
       palette: PALETTES[theme],
       velocity,
       slice: sliceRows(slice, meta.dtNs, velocity),
+      selectedTarget,
     });
-  }, [size, image, processed, meta, view, cursor, slice, theme, velocity]);
+  }, [size, image, processed, meta, view, cursor, slice, theme, velocity, selectedTarget]);
 
   // Wheel zoom needs a non-passive listener to stop the page scrolling.
   useEffect(() => {

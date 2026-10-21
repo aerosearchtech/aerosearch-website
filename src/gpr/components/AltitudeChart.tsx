@@ -6,6 +6,7 @@ import Tooltip from '@/gpr/components/ui/Tooltip';
 import { drawTicks, niceTicks, plotRect, prepareCanvas, setText } from '@/gpr/lib/canvas';
 import type { PlotRect } from '@/gpr/lib/canvas';
 import { ALT_MARGIN } from '@/gpr/lib/constants';
+import { extent } from '@/gpr/lib/extent';
 import { fixed, radarHeight } from '@/gpr/lib/format';
 import { useViewer } from '@/gpr/lib/store';
 import { PALETTES } from '@/gpr/lib/theme';
@@ -122,7 +123,7 @@ export default function AltitudeChart({ meta }: { meta: FlightMeta }) {
     ],
     [meta],
   );
-  const yMax = useMemo(() => Math.max(...series.flatMap((s) => Array.from(s.values))) * 1.1, [series]);
+  const yMax = useMemo(() => Math.max(...series.map((s) => extent(s.values)[1])) * 1.1, [series]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

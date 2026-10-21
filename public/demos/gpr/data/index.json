@@ -1,12 +1,51 @@
 [
   {
+    "id": "geomil",
+    "group": "SENSYS GeoMIL test range (ground truth)",
+    "label": "GeoMIL test range \u00b7 26 lines",
+    "nTraces": 37477,
+    "targets": 46
+  },
+  {
+    "id": "geomil-blind",
+    "group": "SENSYS GeoMIL test range (ground truth)",
+    "label": "Blind pick test \u00b7 3 lines",
+    "nTraces": 4322,
+    "targets": 46
+  },
+  {
     "id": "2026-08-07-03-10-00",
+    "group": "Field trials",
     "label": "07 Aug 2026 03:10:01",
-    "nTraces": 5345
+    "nTraces": 5345,
+    "targets": 0
   },
   {
     "id": "2026-08-07-03-34-33",
+    "group": "Field trials",
     "label": "07 Aug 2026 03:34:34",
-    "nTraces": 13487
+    "nTraces": 13487,
+    "targets": 0
+  },
+  {
+    "id": "balozi",
+    "group": "Magnetic anomaly check \u00b7 Balozi",
+    "label": "Balozi \u00b7 30 lines",
+    "nTraces": 30226,
+    "targets": 0
+  },
+  {
+    "id": "2019-08-30-12-22-33",
+    "group": "SPH \u00b7 Zond-12e 1000 MHz",
+    "label": "30 Aug 2019 12:31:31",
+    "nTraces": 75245,
+    "targets": 0
+  },
+  {
+    "id": "2020-02-25-12-39-58",
+    "group": "SPH \u00b7 Zond-12e 500 MHz",
+    "label": "25 Feb 2020 12:44:23",
+    "nTraces": 24307,
+    "targets": 0
   }
 ]

@@ -44,7 +44,7 @@
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 264px minmax(0, 1fr) clamp(340px, 27vw, 540px);
+  grid-template-columns: 300px minmax(0, 1fr) clamp(340px, 27vw, 540px);
   gap: 10px;
   padding: 10px 12px 12px;
 }
@@ -55,6 +55,8 @@
 
 .gpr-sidebar {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   min-height: 0;
 }
 
@@ -62,12 +64,24 @@
   flex: 1;
 }
 
+.gpr-sidebar > section.gpr-closed {
+  flex: none;
+}
+
 .gpr-center {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) 140px;
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 10px;
   min-height: 0;
   min-width: 0;
+}
+
+.gpr-altitude {
+  height: 150px;
+}
+
+.gpr-altitude.gpr-closed {
+  height: auto;
 }
 
 .gpr-panel-max {
@@ -94,7 +108,7 @@
   }
 
   .gpr-center {
-    grid-template-rows: 520px 140px;
+    grid-template-rows: 520px auto;
   }
 
   .gpr-right {

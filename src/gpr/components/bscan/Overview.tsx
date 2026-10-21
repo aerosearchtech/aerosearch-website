@@ -4,20 +4,22 @@ import { useEffect, useRef } from 'react';
 import type { PointerEvent as ReactPointerEvent } from 'react';
 import { plotRect, prepareCanvas } from '@/gpr/lib/canvas';
 import { OVERVIEW_HEIGHT, OVERVIEW_MARGIN } from '@/gpr/lib/constants';
+import { blit } from '@/gpr/lib/images';
+import type { TiledImage } from '@/gpr/lib/images';
 import { useViewer } from '@/gpr/lib/store';
 import { PALETTES } from '@/gpr/lib/theme';
 import type { Palette } from '@/gpr/lib/theme';
 import type { Size, View } from '@/gpr/lib/types';
 import { useElementSize } from '@/gpr/lib/useElementSize';
 
-function drawOverview(ctx: CanvasRenderingContext2D, size: Size, image: HTMLCanvasElement, view: View, palette: Palette): void {
+function drawOverview(ctx: CanvasRenderingContext2D, size: Size, image: TiledImage, view: View, palette: Palette): void {
   const rect = plotRect(size, OVERVIEW_MARGIN);
   const n = image.width;
   ctx.fillStyle = palette.surface;
   ctx.fillRect(0, 0, size.width, size.height);
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = 'high';
-  ctx.drawImage(image, 0, view.y0, n, view.y1 - view.y0, rect.left, rect.top, rect.width, rect.height);
+  blit(ctx, image, [0, view.y0, n, view.y1 - view.y0], [rect.left, rect.top, rect.width, rect.height]);
 
   // Dim everything outside the window shown in the B-scan, then outline the window.
   const a = rect.left + (view.x0 / n) * rect.width;
@@ -31,7 +33,7 @@ function drawOverview(ctx: CanvasRenderingContext2D, size: Size, image: HTMLCanv
 }
 
 // Whole-flight strip: click or drag to move the B-scan window along track.
-export default function Overview({ image }: { image: HTMLCanvasElement }) {
+export default function Overview({ image }: { image: TiledImage }) {
   const [boxRef, size] = useElementSize<HTMLDivElement>();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dragging = useRef(false);

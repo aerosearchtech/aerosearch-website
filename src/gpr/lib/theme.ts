@@ -25,6 +25,10 @@ export interface Palette {
   accentSoft: string;
   onImage: string;
   imageHalo: string;
+  mark: string;
+  detected: string;
+  missed: string;
+  target: string;
 }
 
 export const PALETTES: Record<ThemeName, Palette> = {
@@ -48,6 +52,10 @@ export const PALETTES: Record<ThemeName, Palette> = {
     accentSoft: 'rgba(57,135,229,0.16)',
     onImage: '#ffffff',
     imageHalo: 'rgba(0,0,0,0.6)',
+    mark: '#2fb380',
+    detected: '#3fbf7f',
+    missed: '#e66767',
+    target: '#c58af0',
   },
   light: {
     page: '#f9f9f7',
@@ -69,6 +77,10 @@ export const PALETTES: Record<ThemeName, Palette> = {
     accentSoft: 'rgba(42,120,214,0.10)',
     onImage: '#ffffff',
     imageHalo: 'rgba(0,0,0,0.6)',
+    mark: '#1f8a5f',
+    detected: '#1f8a5f',
+    missed: '#c23b3b',
+    target: '#8a4fc7',
   },
 };
 

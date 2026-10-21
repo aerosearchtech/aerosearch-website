@@ -104,7 +104,7 @@ export const demo = {
       slug: "gpr",
       href: "/demo/gpr",
       label: "Airborne GPR",
-      body: "Drone ground-penetrating radar trials: radargram, depth slices and live processing.",
+      body: "Buried UXO and mines on a surveyed test range: what drone GPR finds, what it misses, and why.",
     },
   ],
 } as const;

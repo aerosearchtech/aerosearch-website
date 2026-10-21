@@ -22,6 +22,7 @@ export const PARAM_LIMITS = {
   contrast: { min: 0.5, max: 8, step: 0.1 },
   depthM: { min: 0, max: 1.5, step: 0.02 },
   thicknessM: { min: 0.04, max: 0.5, step: 0.02 },
+  overlayOpacity: { min: 0, max: 1, step: 0.05 },
 } as const;
 
 export const DEFAULT_DISPLAY: DisplaySettings = { colormap: 'diverging', contrast: 2 };
@@ -30,6 +31,7 @@ export const DEFAULT_SLICE: DepthSlice = { depthM: 0.2, thicknessM: 0.1 };
 export const FLATTEN_ABOVE_SAMPLES = 40; // air rows kept above the surface when flattened
 export const CLIP_PERCENTILE = 0.99;
 export const LUT_SIZE = 256;
+export const IMAGE_TILE_PX = 8192; // radargram strip width; browsers cap a canvas side at ~32k px
 
 export const DEFAULT_VIEW_ROWS = 320;
 export const MIN_VIEW_TRACES = 40;
@@ -45,6 +47,9 @@ export const CSCAN = {
 } as const;
 
 export const MAP_HOVER_RADIUS_M = 1.5;
+export const MAP_FIT_PAD_M = 3; // margin around the survey area when the map opens
+export const MAP_MIN_SPAN_M = 4; // closest map zoom
+export const MAP_DRAG_PX = 3; // pointer travel that turns a click into a pan
 export const MAP_SCALE_BAR_M = 5;
 
 // Shared plot margins so the B-scan, A-scan and altitude strip line up.
@@ -57,6 +62,13 @@ export const ALT_MARGIN: Margins = { left: 56, right: BSCAN_MARGIN.right + ASCAN
 export const OVERVIEW_HEIGHT = 50;
 export const OVERVIEW_MARGIN: Margins = { left: BSCAN_MARGIN.left, right: ALT_MARGIN.right, top: 4, bottom: 10 };
 export const MAP_MARGIN: Margins = { left: 14, right: 14, top: 14, bottom: 40 };
+
+export const MARK_LABEL_GAP_PX = 28; // closer B-scan marks share one label
+// Buried-target overlays.
+export const TARGET_VIEW_M = 12; // along-track span shown when jumping to a target
+export const TARGET_PIN_PX = 5;
+export const TARGET_HIT_PX = 10; // map click/hover radius around a pin
+export const MARK_MATCH_M = 1; // an interpreter mark this close to a target counts as on it
 
 export const KEY_PAN_FRACTION = 0.25; // arrow keys pan a quarter of the visible window
 

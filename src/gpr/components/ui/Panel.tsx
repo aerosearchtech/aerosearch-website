@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { Download, Maximize2, Minimize2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, Download, Maximize2, Minimize2 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import IconButton from '@/gpr/components/ui/IconButton';
 import { exportPng } from '@/gpr/lib/exportPng';
@@ -19,14 +19,18 @@ interface PanelProps {
   className?: string;
   exportName?: string; // enables PNG export of the panel's plots
   maximizable?: boolean;
+  collapsible?: boolean; // header chevron folds the panel down to its header
+  defaultOpen?: boolean;
 }
 
 const divider = `1px solid ${cssVar('border')}`;
 
 export default function Panel(props: PanelProps) {
   const { title, icon: Icon, actions, toolbar, footer, children, className, exportName, maximizable = false } = props;
+  const { collapsible = false, defaultOpen = true } = props;
   const bodyRef = useRef<HTMLDivElement>(null);
   const [max, setMax] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const theme = useViewer((s) => s.theme);
 
   useEffect(() => {
@@ -42,7 +46,7 @@ export default function Panel(props: PanelProps) {
     <>
       {max && <div className="gpr-scrim" onClick={() => setMax(false)} />}
       <section
-        className={[className, max && 'gpr-panel-max'].filter(Boolean).join(' ')}
+        className={[className, max && 'gpr-panel-max', !open && 'gpr-closed'].filter(Boolean).join(' ')}
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -55,26 +59,31 @@ export default function Panel(props: PanelProps) {
           boxShadow: `0 1px 3px ${cssVar('shadow')}`,
         }}
       >
-        <header style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 8px 7px 12px', borderBottom: divider, flexWrap: 'wrap' }}>
+        <header style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 8px 7px 12px', borderBottom: open ? divider : 'none', flexWrap: 'wrap' }}>
           {Icon && <Icon size={15} strokeWidth={1.8} color={cssVar('inkMuted')} aria-hidden />}
           <h2 style={{ margin: 0, fontSize: 13, fontWeight: 600, color: cssVar('ink'), marginRight: 'auto' }}>{title}</h2>
-          {actions}
-          {exportName && (
+          {open && actions}
+          {open && exportName && (
             <IconButton
               icon={Download}
               label="Export as PNG"
               onClick={() => bodyRef.current && exportPng(bodyRef.current, exportName, PALETTES[theme].surface)}
             />
           )}
-          {maximizable && (
+          {open && maximizable && (
             <IconButton icon={max ? Minimize2 : Maximize2} label={max ? 'Restore (Esc)' : 'Maximize'} onClick={() => setMax(!max)} />
           )}
+          {collapsible && (
+            <IconButton icon={open ? ChevronUp : ChevronDown} label={open ? `Hide ${title}` : `Show ${title}`} onClick={() => setOpen(!open)} />
+          )}
         </header>
-        {toolbar && <div style={{ padding: '8px 12px', borderBottom: divider }}>{toolbar}</div>}
-        <div ref={bodyRef} style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', position: 'relative' }}>
-          {children}
-        </div>
-        {footer && <footer style={{ padding: '8px 12px', borderTop: divider }}>{footer}</footer>}
+        {open && toolbar && <div style={{ padding: '8px 12px', borderBottom: divider }}>{toolbar}</div>}
+        {open && (
+          <div ref={bodyRef} style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', position: 'relative' }}>
+            {children}
+          </div>
+        )}
+        {open && footer && <footer style={{ padding: '8px 12px', borderTop: divider }}>{footer}</footer>}
       </section>
     </>
   );

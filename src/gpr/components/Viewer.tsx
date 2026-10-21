@@ -1,15 +1,15 @@
 'use client';
 
 import { useDeferredValue, useEffect, useMemo } from 'react';
-import { Layers, Mountain, Satellite, ScanLine } from 'lucide-react';
+import { Layers, Magnet, Mountain, Satellite, ScanLine } from 'lucide-react';
 import AltitudeChart from '@/gpr/components/AltitudeChart';
 import AScan from '@/gpr/components/bscan/AScan';
 import BScan from '@/gpr/components/bscan/BScan';
-import LineChips from '@/gpr/components/bscan/LineChips';
+import LinePicker from '@/gpr/components/bscan/LinePicker';
 import Overview from '@/gpr/components/bscan/Overview';
-import CScanLegend from '@/gpr/components/map/CScanLegend';
 import CScanMap from '@/gpr/components/map/CScanMap';
-import SliceControls from '@/gpr/components/map/SliceControls';
+import MapLegend from '@/gpr/components/map/MapLegend';
+import MapToolbar from '@/gpr/components/map/MapToolbar';
 import Sidebar from '@/gpr/components/Sidebar';
 import StatTiles from '@/gpr/components/StatTiles';
 import TopBar from '@/gpr/components/TopBar';
@@ -36,6 +36,7 @@ export default function Viewer() {
   const sidebarOpen = useViewer((s) => s.sidebarOpen);
   const basemap = useViewer((s) => s.basemap);
   const toggleBasemap = useViewer((s) => s.toggleBasemap);
+  const magLayer = useViewer((s) => s.mapLayer === 'mag');
   const liveParams = useViewer((s) => s.params);
   const liveDisplay = useViewer((s) => s.display);
   const params = useDeferredValue(liveParams);
@@ -63,18 +64,18 @@ export default function Viewer() {
         <>
           <StatTiles meta={flight.meta} />
           <main className={sidebarOpen ? 'gpr-workspace' : 'gpr-workspace gpr-collapsed'}>
-            <Sidebar meta={flight.meta} busy={busy} />
+            <Sidebar key={flight.meta.id} meta={flight.meta} busy={busy} />
             <div className="gpr-center">
               <Panel
                 title="B-scan radargram"
                 icon={ScanLine}
-                actions={<LineChips meta={flight.meta} />}
+                actions={<LinePicker meta={flight.meta} />}
                 exportName={`${flight.meta.id}-bscan`}
                 maximizable
                 footer={
                   <span style={hint}>
                     Scroll to zoom · Shift+scroll zooms time · Drag to pan · Double-click to reset · Keys: {SHORTCUTS_HELP} ·
-                    Dashed line = ground reflection · Band = depth slice
+                    Dashed line = ground reflection · Band = depth slice · ▲ = surveyed buried object
                   </span>
                 }
               >
@@ -84,21 +85,30 @@ export default function Viewer() {
                 </div>
                 <Overview image={image} />
               </Panel>
-              <Panel title="Altitude above ground" icon={Mountain} exportName={`${flight.meta.id}-altitude`} maximizable>
+              <Panel
+                key={flight.meta.id}
+                title="Flight altitude"
+                icon={Mountain}
+                className="gpr-altitude"
+                exportName={`${flight.meta.id}-altitude`}
+                maximizable
+                collapsible
+                defaultOpen={!flight.meta.targets?.length}
+              >
                 <AltitudeChart meta={flight.meta} />
               </Panel>
             </div>
             <Panel
-              title="Depth slice (C-scan)"
-              icon={Layers}
+              title={magLayer ? 'Magnetometer anomaly' : 'Depth slice (C-scan)'}
+              icon={magLayer ? Magnet : Layers}
               className="gpr-right"
               actions={<IconButton icon={Satellite} label={basemap ? 'Hide satellite imagery' : 'Show satellite imagery'} onClick={toggleBasemap} active={basemap} />}
-              toolbar={<SliceControls />}
-              footer={<CScanLegend />}
-              exportName={`${flight.meta.id}-cscan`}
+              toolbar={<MapToolbar meta={flight.meta} />}
+              footer={<MapLegend meta={flight.meta} />}
+              exportName={`${flight.meta.id}-${magLayer ? 'magnetometer' : 'cscan'}`}
               maximizable
             >
-              <CScanMap meta={flight.meta} processed={processed} velocity={velocity} />
+              <CScanMap key={flight.meta.id} meta={flight.meta} processed={processed} velocity={velocity} />
             </Panel>
           </main>
         </>

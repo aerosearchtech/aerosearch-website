@@ -1,12 +1,14 @@
 import { drawTicks, niceTicks, plotRect, setText } from '@/gpr/lib/canvas';
 import type { PlotRect } from '@/gpr/lib/canvas';
-import { BSCAN_MARGIN } from '@/gpr/lib/constants';
+import { BSCAN_MARGIN, MARK_LABEL_GAP_PX } from '@/gpr/lib/constants';
 import type { SliceRows } from '@/gpr/lib/cscan';
+import { blit } from '@/gpr/lib/images';
+import type { TiledImage } from '@/gpr/lib/images';
 import type { Palette } from '@/gpr/lib/theme';
 import type { Cursor, FlightMeta, Processed, Size, View } from '@/gpr/lib/types';
 
 export interface BScanScene {
-  image: HTMLCanvasElement;
+  image: TiledImage;
   processed: Processed;
   meta: FlightMeta;
   view: View;
@@ -14,6 +16,7 @@ export interface BScanScene {
   palette: Palette;
   velocity: number;
   slice: SliceRows;
+  selectedTarget: number | null;
 }
 
 export interface BScanMapping {
@@ -64,6 +67,96 @@ function drawLineStrip(ctx: CanvasRenderingContext2D, m: BScanMapping, s: BScanS
   }
 }
 
+// Operator marks: faint guide through the section, labelled flag at the top.
+function drawMarks(ctx: CanvasRenderingContext2D, m: BScanMapping, s: BScanScene): void {
+  const { rect } = m;
+  let lastLabel = -Infinity;
+  for (const mark of s.meta.marks ?? []) {
+    const x = Math.round(m.xPx(mark.trace + 0.5)) + 0.5;
+    if (x < rect.left || x > rect.left + rect.width) continue;
+    ctx.globalAlpha = 0.45;
+    ctx.strokeStyle = s.palette.mark;
+    ctx.setLineDash([2, 3]);
+    ctx.beginPath();
+    ctx.moveTo(x, rect.top);
+    ctx.lineTo(x, rect.top + rect.height);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = s.palette.mark;
+    ctx.beginPath();
+    ctx.moveTo(x - 5, rect.top);
+    ctx.lineTo(x + 5, rect.top);
+    ctx.lineTo(x, rect.top + 7);
+    ctx.fill();
+    if (x - lastLabel < MARK_LABEL_GAP_PX) continue;
+    lastLabel = x;
+    setText(ctx, s.palette.onImage, 10, 600);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.strokeStyle = s.palette.imageHalo;
+    ctx.lineWidth = 3;
+    ctx.strokeText(String(mark.value), x + 4, rect.top + 6);
+    ctx.lineWidth = 1;
+    ctx.fillText(String(mark.value), x + 4, rect.top + 6);
+  }
+}
+
+// Surveyed objects at the trace where each line passes closest: a flag on the
+// bottom edge, and for the selected one a guide plus a ring at its depth.
+function drawTargets(ctx: CanvasRenderingContext2D, m: BScanMapping, s: BScanScene): void {
+  const { rect } = m;
+  const { meta, processed: p, palette } = s;
+  const bottom = rect.top + rect.height;
+  let lastLabel = -Infinity;
+  const passes = (meta.targets ?? [])
+    .flatMap((t, i) => t.passes.map((pass) => ({ t, i, trace: pass.trace })))
+    .sort((a, b) => a.trace - b.trace);
+  for (const { t, i, trace } of passes) {
+    const x = Math.round(m.xPx(trace + 0.5)) + 0.5;
+    if (x < rect.left || x > rect.left + rect.width) continue;
+    const selected = i === s.selectedTarget;
+    ctx.strokeStyle = palette.target;
+    if (selected) {
+      ctx.setLineDash([4, 3]);
+      ctx.beginPath();
+      ctx.moveTo(x, rect.top);
+      ctx.lineTo(x, bottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      if (t.depthM && p.flattened) {
+        const d = (t.depthM[0] + t.depthM[1]) / 2;
+        const y = m.yPx(p.surfaceRow[trace] + (2 * d) / (s.velocity * meta.dtNs));
+        ctx.lineWidth = 3.5;
+        ctx.strokeStyle = palette.imageHalo;
+        ctx.beginPath();
+        ctx.arc(x, y, 9, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = palette.target;
+        ctx.stroke();
+        ctx.lineWidth = 1;
+      }
+    }
+    ctx.fillStyle = palette.target;
+    ctx.beginPath();
+    ctx.moveTo(x - 6, bottom);
+    ctx.lineTo(x + 6, bottom);
+    ctx.lineTo(x, bottom - 9);
+    ctx.fill();
+    if (t.no === null || (!selected && x - lastLabel < MARK_LABEL_GAP_PX)) continue;
+    lastLabel = x;
+    setText(ctx, palette.onImage, 10, 600);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'bottom';
+    ctx.strokeStyle = palette.imageHalo;
+    ctx.lineWidth = 3;
+    ctx.strokeText(`#${t.no}`, x + 5, bottom - 4);
+    ctx.lineWidth = 1;
+    ctx.fillText(`#${t.no}`, x + 5, bottom - 4);
+  }
+}
+
 function drawAxes(ctx: CanvasRenderingContext2D, m: BScanMapping, s: BScanScene): void {
   const { rect } = m;
   const { meta, processed: p, view, palette, velocity } = s;
@@ -108,7 +201,7 @@ export function drawBScan(ctx: CanvasRenderingContext2D, size: Size, s: BScanSce
   ctx.fillStyle = palette.surface;
   ctx.fillRect(0, 0, size.width, size.height);
   ctx.imageSmoothingEnabled = true;
-  ctx.drawImage(s.image, view.x0, view.y0, view.x1 - view.x0, view.y1 - view.y0, rect.left, rect.top, rect.width, rect.height);
+  blit(ctx, s.image, [view.x0, view.y0, view.x1 - view.x0, view.y1 - view.y0], [rect.left, rect.top, rect.width, rect.height]);
 
   ctx.save();
   ctx.beginPath();
@@ -138,6 +231,8 @@ export function drawBScan(ctx: CanvasRenderingContext2D, size: Size, s: BScanSce
   ctx.stroke();
   ctx.setLineDash([]);
   ctx.globalAlpha = 1;
+  drawMarks(ctx, m, s);
+  drawTargets(ctx, m, s);
 
   if (s.cursor) {
     ctx.strokeStyle = palette.cursor;

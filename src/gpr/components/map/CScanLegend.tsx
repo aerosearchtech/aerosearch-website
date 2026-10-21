@@ -17,7 +17,7 @@ export default function CScanLegend() {
         <span>High</span>
       </div>
       <span style={{ color: cssVar('inkMuted') }}>
-        RMS reflection amplitude in the depth window, survey lines only. Hover to link, click to jump the B-scan.
+        RMS reflection amplitude in the depth window, survey lines only.
       </span>
     </div>
   );

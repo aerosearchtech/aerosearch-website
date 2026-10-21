@@ -1,15 +1,42 @@
 import { plotRect, setText } from '@/gpr/lib/canvas';
 import type { PlotRect } from '@/gpr/lib/canvas';
-import { BASEMAP, MAP_MARGIN, MAP_SCALE_BAR_M } from '@/gpr/lib/constants';
+import { BASEMAP, MAP_MARGIN, MAP_SCALE_BAR_M, TARGET_PIN_PX } from '@/gpr/lib/constants';
 import type { Palette } from '@/gpr/lib/theme';
-import type { CScanGrid, Cursor, FlightMeta, Size, View } from '@/gpr/lib/types';
+import type { Bounds, CScanGrid, Cursor, FlightMeta, MapLayer, Size, Target, View } from '@/gpr/lib/types';
 import type { BasemapTile } from './useBasemap';
+
+type Corner = [number, number];
+
+// Raster placed in the local metric frame by its north-west, north-east and
+// south-west corners (so rotated imagery draws correctly).
+export interface MapOverlay {
+  img: HTMLCanvasElement | HTMLImageElement;
+  nw: Corner;
+  ne: Corner;
+  sw: Corner;
+}
+
+export function gridOverlay(g: CScanGrid, img: HTMLCanvasElement): MapOverlay {
+  const left = g.minX - g.cellM / 2;
+  const top = g.maxY + g.cellM / 2;
+  return {
+    img,
+    nw: [left, top],
+    ne: [left + g.width * g.cellM, top],
+    sw: [left, top - g.height * g.cellM],
+  };
+}
 
 export interface MapScene {
   meta: FlightMeta;
-  grid: CScanGrid | null;
-  gridImage: HTMLCanvasElement | null;
+  bounds: Bounds;
+  overlay: MapOverlay | null;
+  overlayAlpha: number;
   tiles: BasemapTile[];
+  targets: Target[];
+  sensor: MapLayer; // pins are coloured by this sensor's result
+  selectedTarget: number | null;
+  hoverTarget: number | null;
   view: View;
   cursor: Cursor | null;
   palette: Palette;
@@ -29,13 +56,9 @@ interface Ink {
   halo: string | null;
 }
 
-// North-up, equal-aspect fit of the whole flight track.
-export function mapMapping(size: Size, meta: FlightMeta): MapMapping {
+// North-up, equal-aspect fit of `bounds` into the plot area.
+export function mapMapping(size: Size, { minX, maxX, minY, maxY }: Bounds): MapMapping {
   const rect = plotRect(size, MAP_MARGIN);
-  const minX = Math.min(...meta.x);
-  const maxX = Math.max(...meta.x);
-  const minY = Math.min(...meta.y);
-  const maxY = Math.max(...meta.y);
   const scale = Math.min(rect.width / (maxX - minX || 1), rect.height / (maxY - minY || 1));
   const ox = rect.left + (rect.width - (maxX - minX) * scale) / 2;
   const oy = rect.top + (rect.height - (maxY - minY) * scale) / 2;
@@ -83,6 +106,54 @@ function drawTiles(ctx: CanvasRenderingContext2D, m: MapMapping, tiles: BasemapT
     const [x1, y1] = m.toPx(...t.se);
     // Round outwards so neighbouring tiles overlap by a pixel instead of leaving seams.
     ctx.drawImage(t.img, Math.floor(x0), Math.floor(y0), Math.ceil(x1) - Math.floor(x0), Math.ceil(y1) - Math.floor(y0));
+  }
+}
+
+function drawOverlay(ctx: CanvasRenderingContext2D, m: MapMapping, o: MapOverlay, alpha: number): void {
+  const [nx, ny] = m.toPx(...o.nw);
+  const [ex, ey] = m.toPx(...o.ne);
+  const [sx, sy] = m.toPx(...o.sw);
+  const { width: w, height: h } = o.img;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.transform((ex - nx) / w, (ey - ny) / w, (sx - nx) / h, (sy - ny) / h, nx, ny);
+  ctx.drawImage(o.img, 0, 0);
+  ctx.restore();
+}
+
+export const targetColor = (t: Target, sensor: MapLayer, p: Palette): string =>
+  t[sensor] === null ? p.inkMuted : t[sensor] ? p.detected : p.missed;
+
+const targetLabel = (t: Target): string => (t.no === null ? t.name : `#${t.no}`);
+
+// Surveyed objects: dot coloured by the sensor result, ring on the selected one,
+// label only on the selected and hovered pins to keep the map readable.
+function drawTargets(ctx: CanvasRenderingContext2D, m: MapMapping, s: MapScene, ink: Ink): void {
+  const { palette } = s;
+  s.targets.forEach((t, i) => {
+    const [x, y] = m.toPx(t.x, t.y);
+    ctx.beginPath();
+    ctx.arc(x, y, TARGET_PIN_PX, 0, Math.PI * 2);
+    ctx.fillStyle = targetColor(t, s.sensor, palette);
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = ink.halo ?? palette.surface;
+    ctx.stroke();
+    if (i === s.selectedTarget) {
+      ctx.beginPath();
+      ctx.arc(x, y, TARGET_PIN_PX + 4, 0, Math.PI * 2);
+      ctx.strokeStyle = palette.cursor;
+      ctx.stroke();
+    }
+  });
+  setText(ctx, ink.fg, 11, 600);
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  for (const i of new Set([s.selectedTarget, s.hoverTarget])) {
+    const t = i === null ? undefined : s.targets[i];
+    if (!t) continue;
+    const [x, y] = m.toPx(t.x, t.y);
+    haloText(ctx, ink, palette.surface, targetLabel(t), x + TARGET_PIN_PX + 7, y);
   }
 }
 
@@ -152,8 +223,8 @@ function drawChrome(ctx: CanvasRenderingContext2D, m: MapMapping, size: Size, in
 }
 
 export function drawMap(ctx: CanvasRenderingContext2D, size: Size, s: MapScene): void {
-  const m = mapMapping(size, s.meta);
-  const { meta, palette, grid } = s;
+  const m = mapMapping(size, s.bounds);
+  const { meta, palette } = s;
   const onImage = s.tiles.length > 0;
   const ink: Ink = onImage
     ? { fg: palette.onImage, muted: palette.onImage, halo: palette.imageHalo }
@@ -164,12 +235,7 @@ export function drawMap(ctx: CanvasRenderingContext2D, size: Size, s: MapScene):
   ctx.imageSmoothingEnabled = true;
   drawTiles(ctx, m, s.tiles);
 
-  if (grid && s.gridImage) {
-    const [px, py] = m.toPx(grid.minX - grid.cellM / 2, grid.maxY + grid.cellM / 2);
-    ctx.globalAlpha = onImage ? BASEMAP.gridAlpha : 1;
-    ctx.drawImage(s.gridImage, px, py, grid.width * grid.cellM * m.scale, grid.height * grid.cellM * m.scale);
-    ctx.globalAlpha = 1;
-  }
+  if (s.overlay) drawOverlay(ctx, m, s.overlay, onImage ? s.overlayAlpha : 1);
 
   ctx.lineJoin = 'round';
   ctx.setLineDash([3, 3]);
@@ -183,6 +249,7 @@ export function drawMap(ctx: CanvasRenderingContext2D, size: Size, s: MapScene):
   if (from > 0 || to < meta.nTraces - 1) strokeTrace(ctx, m, s, [from, to], onImage ? palette.accent : palette.ink, 2.5, ink.halo);
 
   drawLineLabels(ctx, m, s, ink);
+  drawTargets(ctx, m, s, ink);
 
   if (s.cursor) {
     const [cx, cy] = m.toPx(meta.x[s.cursor.trace], meta.y[s.cursor.trace]);

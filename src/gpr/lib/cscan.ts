@@ -1,10 +1,31 @@
 // Plan-view depth slice: RMS amplitude in a depth window below the surface,
 // Gaussian-splatted from survey-line traces onto a regular metric grid.
 import { CSCAN } from './constants';
-import type { CScanGrid, DepthSlice, FlightMeta, Processed } from './types';
+import { extent } from './extent';
+import type { CScanGrid, DepthSlice, FlightMeta, MagneticGrid, Processed } from './types';
 
 export const lineTraceIndices = (meta: FlightMeta): number[] =>
   meta.lines.flatMap((l) => Array.from({ length: l.end - l.start + 1 }, (_, k) => l.start + k));
+
+// Grid value at a local-frame point; NaN outside the grid or its coverage.
+export function gridAt(g: CScanGrid, x: number, y: number): number {
+  const gx = Math.round((x - g.minX) / g.cellM);
+  const gy = Math.round((g.maxY - y) / g.cellM);
+  if (gx < 0 || gy < 0 || gx >= g.width || gy >= g.height) return NaN;
+  return g.values[gy * g.width + gx];
+}
+
+// Exported magnetometer grid (nulls for no coverage) in C-scan grid form.
+export const magneticGrid = (m: MagneticGrid): CScanGrid => ({
+  width: m.width,
+  height: m.height,
+  minX: m.minX,
+  maxY: m.maxY,
+  cellM: m.cellM,
+  values: Float32Array.from(m.values, (v) => v ?? NaN),
+  vmin: m.vmin,
+  vmax: m.vmax,
+});
 
 export interface SliceRows {
   offsetRows: number;
@@ -39,10 +60,12 @@ export function computeCScan(
   const pad = 3 * sigmaM;
   const xs = traces.map((i) => meta.x[i]);
   const ys = traces.map((i) => meta.y[i]);
-  const minX = Math.min(...xs) - pad;
-  const maxY = Math.max(...ys) + pad;
-  const width = Math.ceil((Math.max(...xs) + pad - minX) / cellM) + 1;
-  const height = Math.ceil((maxY - (Math.min(...ys) - pad)) / cellM) + 1;
+  const [x0, x1] = extent(xs);
+  const [y0, y1] = extent(ys);
+  const minX = x0 - pad;
+  const maxY = y1 + pad;
+  const width = Math.ceil((x1 + pad - minX) / cellM) + 1;
+  const height = Math.ceil((maxY - (y0 - pad)) / cellM) + 1;
 
   const sum = new Float32Array(width * height);
   const wsum = new Float32Array(width * height);
