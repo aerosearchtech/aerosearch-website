@@ -69,6 +69,8 @@ const config: Config = {
         // `both` keeps it invisible through the delay, so a scene that arrives
         // quickly never flashes a loader on its way in.
         "hold-in": "hold-in 0.35s ease-out 0.25s both",
+        // Slide change in the deck viewer: the same fade, without the wait.
+        "slide-in": "hold-in 0.3s ease-out both",
       },
     },
   },

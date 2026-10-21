@@ -1,0 +1,760 @@
+{
+    "width":  1920,
+    "height":  1080,
+    "slides":  [
+                   {
+                       "image":  "slides/01.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/02.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/03.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/04.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/05.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/06.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/07.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/08.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/09.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media1.mp4",
+                                          "x":  0.52878,
+                                          "y":  0.2731,
+                                          "w":  0.19913,
+                                          "h":  0.62963,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media2.mp4",
+                                          "x":  0.05002,
+                                          "y":  0.26014,
+                                          "w":  0.19913,
+                                          "h":  0.64697,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media3.mp4",
+                                          "x":  0.75668,
+                                          "y":  0.2731,
+                                          "w":  0.19748,
+                                          "h":  0.62963,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media4.mp4",
+                                          "x":  0.27792,
+                                          "y":  0.2731,
+                                          "w":  0.22208,
+                                          "h":  0.22252,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media5.mp4",
+                                          "x":  0.27792,
+                                          "y":  0.55778,
+                                          "w":  0.22208,
+                                          "h":  0.36418,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/10.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media6.mp4",
+                                          "x":  0.37541,
+                                          "y":  0.32671,
+                                          "w":  0.27597,
+                                          "h":  0.57511,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media7.mp4",
+                                          "x":  0.69069,
+                                          "y":  0.32338,
+                                          "w":  0.26347,
+                                          "h":  0.57511,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media8.mp4",
+                                          "x":  0.05118,
+                                          "y":  0.32338,
+                                          "w":  0.28492,
+                                          "h":  0.58178,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/11.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media9.mp4",
+                                          "x":  0.51763,
+                                          "y":  0.33672,
+                                          "w":  0.27634,
+                                          "h":  0.59452,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media10.mp4",
+                                          "x":  0.10491,
+                                          "y":  0.33665,
+                                          "w":  0.27634,
+                                          "h":  0.59458,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/12.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/13.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/14.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/15.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media11.mp4",
+                                          "x":  0.2161,
+                                          "y":  0.31244,
+                                          "w":  0.54932,
+                                          "h":  0.57376,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/16.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media12.mp4",
+                                          "x":  0.10251,
+                                          "y":  0.33672,
+                                          "w":  0.28113,
+                                          "h":  0.57911,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media13.mp4",
+                                          "x":  0.53197,
+                                          "y":  0.33134,
+                                          "w":  0.28113,
+                                          "h":  0.57911,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/17.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media14.mp4",
+                                          "x":  0.52865,
+                                          "y":  0.33672,
+                                          "w":  0.27572,
+                                          "h":  0.58431,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media15.mp4",
+                                          "x":  0.10522,
+                                          "y":  0.33672,
+                                          "w":  0.27572,
+                                          "h":  0.58431,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/18.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/19.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media16.mp4",
+                                          "x":  0.67197,
+                                          "y":  0.3219,
+                                          "w":  0.26246,
+                                          "h":  0.58366,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media17.mp4",
+                                          "x":  0.05118,
+                                          "y":  0.3219,
+                                          "w":  0.26246,
+                                          "h":  0.58366,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media18.mp4",
+                                          "x":  0.36941,
+                                          "y":  0.3219,
+                                          "w":  0.25028,
+                                          "h":  0.58366,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/20.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media19.mp4",
+                                          "x":  0.05118,
+                                          "y":  0.30846,
+                                          "w":  0.26031,
+                                          "h":  0.58449,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media20.mp4",
+                                          "x":  0.35363,
+                                          "y":  0.30846,
+                                          "w":  0.27879,
+                                          "h":  0.58449,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media21.mp4",
+                                          "x":  0.67823,
+                                          "y":  0.30846,
+                                          "w":  0.27544,
+                                          "h":  0.58449,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/21.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media22.mp4",
+                                          "x":  0.17432,
+                                          "y":  0.32222,
+                                          "w":  0.56071,
+                                          "h":  0.56071,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/22.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media23.mp4",
+                                          "x":  0.18872,
+                                          "y":  0.26832,
+                                          "w":  0.62256,
+                                          "h":  0.69178,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/23.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media24.mp4",
+                                          "x":  0.17432,
+                                          "y":  0.26014,
+                                          "w":  0.65533,
+                                          "h":  0.6897,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0.05165
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/24.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media25.mp4",
+                                          "x":  0.0523,
+                                          "y":  0.18686,
+                                          "w":  0.39685,
+                                          "h":  0.32472,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      },
+                                      {
+                                          "src":  "video/media26.mp4",
+                                          "x":  0.52284,
+                                          "y":  0.18686,
+                                          "w":  0.39685,
+                                          "h":  0.32925,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      },
+                                      {
+                                          "src":  "video/media27.mp4",
+                                          "x":  0.0523,
+                                          "y":  0.55976,
+                                          "w":  0.39978,
+                                          "h":  0.32472,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      },
+                                      {
+                                          "src":  "video/media28.mp4",
+                                          "x":  0.52284,
+                                          "y":  0.55976,
+                                          "w":  0.39685,
+                                          "h":  0.32654,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/25.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media29.mp4",
+                                          "x":  0.11936,
+                                          "y":  0.22038,
+                                          "w":  0.76128,
+                                          "h":  0.68997,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/26.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/27.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/28.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/29.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/30.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media30.mp4",
+                                          "x":  0,
+                                          "y":  -0.01026,
+                                          "w":  1.00153,
+                                          "h":  1.00153,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  true,
+                                          "loop":  true
+                                      }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/31.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/32.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/33.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/34.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/35.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/36.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/37.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/38.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/39.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/40.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/41.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/42.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/43.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/44.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/45.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/46.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/47.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/48.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/49.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/50.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/51.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/52.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/53.webp",
+                       "videos":  [
+
+                                  ]
+                   }
+               ]
+}

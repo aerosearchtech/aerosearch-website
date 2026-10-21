@@ -65,6 +65,12 @@ export const demo = {
       body: "A recorded drone survey: telemetry, RGB and thermal feeds, live mosaic and mine detections.",
     },
     {
+      slug: "presentation",
+      href: "/demo/presentation",
+      label: "Aerosearch Presentation",
+      body: "The company deck, with its field and hardware videos.",
+    },
+    {
       slug: "aigarm",
       href: "/demo/aigarm",
       label: "AI Gun Recce Module",

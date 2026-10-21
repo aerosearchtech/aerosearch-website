@@ -42,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Source decks for scripts/build-deck.ps1; only its exported files are served.
+/slide-deck/
