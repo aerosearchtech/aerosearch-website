@@ -100,6 +100,12 @@ export const demo = {
       label: "MSAS",
       body: "A maritime watchkeeper console.",
     },
+    {
+      slug: "gpr",
+      href: "/demo/gpr",
+      label: "Airborne GPR",
+      body: "Drone ground-penetrating radar trials: radargram, depth slices and live processing.",
+    },
   ],
 } as const;
 

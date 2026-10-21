@@ -1,5 +1,6 @@
 import Wordmark from "@/components/ui/Wordmark";
 import { demo } from "@/theme/content";
+import DemoCard from "./DemoCard";
 
 export default function DemoIndex() {
   return (
@@ -10,12 +11,10 @@ export default function DemoIndex() {
 
       <div className="shell py-16 md:py-20">
         <h1 className="display text-3xl text-bone">{demo.title}</h1>
-        <ul className="mt-8 space-y-3">
-          {demo.items.map((item) => (
+        <ul className="mt-10 divide-y divide-line border-y border-line">
+          {demo.items.map((item, i) => (
             <li key={item.slug}>
-              <a href={item.href} className="text-bone-muted hover:text-bone">
-                {item.label}
-              </a>
+              <DemoCard index={i + 1} href={item.href} label={item.label} />
             </li>
           ))}
         </ul>

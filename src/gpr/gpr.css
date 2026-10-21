@@ -1,0 +1,103 @@
+/* GPR viewer styles, all scoped under .gpr-root. Colours and fonts come from
+   src/gpr/lib/theme.ts (THEME_CSS, injected by app/demo/gpr/layout.tsx). */
+
+.gpr-root {
+  height: 100%;
+  overflow: auto;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: 'tnum' 1, 'cv11' 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gpr-root button {
+  font-family: inherit;
+}
+
+.gpr-root button:focus-visible,
+.gpr-root input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.gpr-root input[type='range'] {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.gpr-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gpr-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  padding: 10px 12px 0;
+}
+
+.gpr-workspace {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr) clamp(340px, 27vw, 540px);
+  gap: 10px;
+  padding: 10px 12px 12px;
+}
+
+.gpr-workspace.gpr-collapsed {
+  grid-template-columns: 44px minmax(0, 1fr) clamp(340px, 27vw, 540px);
+}
+
+.gpr-sidebar {
+  display: flex;
+  min-height: 0;
+}
+
+.gpr-sidebar > section {
+  flex: 1;
+}
+
+.gpr-center {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 140px;
+  gap: 10px;
+  min-height: 0;
+  min-width: 0;
+}
+
+.gpr-panel-max {
+  position: fixed;
+  inset: 16px;
+  z-index: 30;
+}
+
+.gpr-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 29;
+  background: var(--scrim);
+}
+
+@media (max-width: 1100px) {
+  .gpr-app {
+    height: auto;
+  }
+
+  .gpr-workspace,
+  .gpr-workspace.gpr-collapsed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gpr-center {
+    grid-template-rows: 520px 140px;
+  }
+
+  .gpr-right {
+    height: 640px;
+  }
+}
