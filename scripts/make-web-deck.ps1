@@ -3,11 +3,12 @@
 Makes the website's copy of the deck, for build-deck.ps1 to export.
 
 .DESCRIPTION
-Order: the deck's visible slides, a thank-you slide, the full commercial
-proposal (54-55), an appendix divider, the other hidden slides apart from the
-fundraise (31-36), and the Phase-1 proposal (56-57) last. The two new slides
-reuse slide 2's header, title and footer. The source deck is opened
-read-only and never changed; the copy can still be edited in PowerPoint.
+Order: the main deck (slides 1-35), a thank-you slide, an appendix divider,
+then every later slide as the appendix. The two new slides reuse slide 2's
+header, title and footer, in a section of their own. The appendix slides are
+hidden, so a slideshow skips them and the web viewer offers each of their
+sections as a show/hide toggle. The source deck is opened read-only and never
+changed; the copy can still be edited in PowerPoint.
 
 .EXAMPLE
 ./scripts/make-web-deck.ps1 slide-deck/presentation_22nd_oct.pptx slide-deck/presentation_web.pptx
@@ -23,9 +24,8 @@ $TEMPLATE_SLIDE = 2
 $TEMPLATE_KEEP = 'Text 0', 'Image 0', 'Text 1', 'Text 2', 'Text 10'
 $THANKS = @{ Eyebrow = 'CLOSING'; Title = 'Thank you.' }
 $APPENDIX = @{ Eyebrow = 'APPENDIX'; Title = 'Supporting detail.' }
-$AFTER_THANKS = 54, 55
-$APPENDIX_FIRST = 39, 40, 41, 42, 43, 44, 49
-$APPENDIX_LAST = 56, 57
+$MAIN_LAST = 35
+$CLOSING_SECTION = 'Closing'
 
 function New-TitleSlide($deck, [hashtable] $text) {
     $slide = $deck.Slides($TEMPLATE_SLIDE).Duplicate().Item(1)
@@ -43,23 +43,14 @@ $app = New-Object -ComObject PowerPoint.Application
 $deck = $app.Presentations.Open($Source, -1, 0, 0)
 try {
     $deck.SaveAs($Out)
-    # Slide numbers as in the source deck; ids survive the moves below.
-    $ids = @{}
-    $visible = foreach ($s in $deck.Slides) {
-        $ids[$s.SlideIndex] = $s.SlideID
-        if (-not $s.SlideShowTransition.Hidden) { $s.SlideID }
-    }
-    $shown = $AFTER_THANKS + $APPENDIX_FIRST + $APPENDIX_LAST | ForEach-Object { $ids[$_] }
-    $order = @($visible) + (New-TitleSlide $deck $THANKS) + $shown[0..1] +
-        (New-TitleSlide $deck $APPENDIX) + $shown[2..($shown.Count - 1)]
-
-    for ($i = 0; $i -lt $order.Count; $i++) {
-        $slide = $deck.Slides.FindBySlideID($order[$i])
-        $slide.SlideShowTransition.Hidden = 0
-        $slide.MoveTo($i + 1)
+    # Slide numbers as in the source deck, before the new slides shift them.
+    foreach ($s in $deck.Slides) { $s.SlideShowTransition.Hidden = [int]($s.SlideIndex -gt $MAIN_LAST) }
+    $closing = $deck.SectionProperties.AddSection($deck.Slides($MAIN_LAST).sectionIndex + 1, $CLOSING_SECTION)
+    foreach ($text in $APPENDIX, $THANKS) {
+        $deck.Slides.FindBySlideID((New-TitleSlide $deck $text)).MoveToSectionStart($closing)
     }
     $deck.Save()
-    Write-Host "$($order.Count) slides shown, $($deck.Slides.Count - $order.Count) left hidden -> $Out"
+    Write-Host "$($MAIN_LAST + 2) slides shown, $($deck.Slides.Count - $MAIN_LAST - 2) appendix slides hidden -> $Out"
 }
 finally {
     $deck.Close()

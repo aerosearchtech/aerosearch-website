@@ -7,7 +7,8 @@ slide videos remuxed for streaming, and deck.json saying where each video sits.
 PowerPoint renders the slides, so they look exactly as they do in the deck.
 Videos are copied unchanged (no re-encode) with their index moved to the front
 so the browser can start playing before the whole file arrives. Hidden slides
-are skipped, as in a slideshow. Needs PowerPoint and ffmpeg on PATH.
+are exported too, tagged with their section, for the viewer to show or hide a
+section at a time. Needs PowerPoint and ffmpeg on PATH.
 
 .EXAMPLE
 ./scripts/build-deck.ps1 slide-deck/presentation_22nd_oct.pptx public/demo/presentation
@@ -102,7 +103,6 @@ try {
     $copied = @{}
     $n = 0
     $slides = foreach ($slide in $deck.Slides) {
-        if ($slide.SlideShowTransition.Hidden) { continue }
         $n++
         $name = '{0:D2}' -f $n
         $png = Join-Path $tmp "$name.png"
@@ -132,7 +132,9 @@ try {
             }
         }
         Write-Host "slide $name (deck slide $($slide.SlideIndex)): $(@($videos).Count) videos"
-        [ordered]@{ image = "slides/$name.webp"; videos = @($videos) }
+        $entry = [ordered]@{ image = "slides/$name.webp"; videos = @($videos) }
+        if ($slide.SlideShowTransition.Hidden) { $entry.section = $deck.SectionProperties.Name($slide.sectionIndex) }
+        $entry
     }
 
     $json = [ordered]@{ width = $Width; height = $height; slides = @($slides) } | ConvertTo-Json -Depth 6

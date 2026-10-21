@@ -14,6 +14,8 @@ export interface DeckVideo {
 export interface DeckSlide {
   image: string;
   videos: DeckVideo[];
+  /** Set on hidden (appendix) slides: the PowerPoint section the viewer shows or hides them by. */
+  section?: string;
 }
 
 export interface Deck {

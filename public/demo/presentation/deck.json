@@ -53,6 +53,24 @@
                    {
                        "image":  "slides/09.webp",
                        "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/10.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/11.webp",
+                       "videos":  [
+
+                                  ]
+                   },
+                   {
+                       "image":  "slides/12.webp",
+                       "videos":  [
                                       {
                                           "src":  "video/media1.mp4",
                                           "x":  0.52878,
@@ -131,7 +149,7 @@
                                   ]
                    },
                    {
-                       "image":  "slides/10.webp",
+                       "image":  "slides/13.webp",
                        "videos":  [
                                       {
                                           "src":  "video/media6.mp4",
@@ -181,7 +199,7 @@
                                   ]
                    },
                    {
-                       "image":  "slides/11.webp",
+                       "image":  "slides/14.webp",
                        "videos":  [
                                       {
                                           "src":  "video/media9.mp4",
@@ -213,24 +231,6 @@
                                           "muted":  true,
                                           "loop":  true
                                       }
-                                  ]
-                   },
-                   {
-                       "image":  "slides/12.webp",
-                       "videos":  [
-
-                                  ]
-                   },
-                   {
-                       "image":  "slides/13.webp",
-                       "videos":  [
-
-                                  ]
-                   },
-                   {
-                       "image":  "slides/14.webp",
-                       "videos":  [
-
                                   ]
                    },
                    {
@@ -557,21 +557,7 @@
                    {
                        "image":  "slides/25.webp",
                        "videos":  [
-                                      {
-                                          "src":  "video/media29.mp4",
-                                          "x":  0.11936,
-                                          "y":  0.22038,
-                                          "w":  0.76128,
-                                          "h":  0.68997,
-                                          "crop":  [
-                                                       0,
-                                                       0,
-                                                       0,
-                                                       0
-                                                   ],
-                                          "muted":  false,
-                                          "loop":  false
-                                      }
+
                                   ]
                    },
                    {
@@ -595,14 +581,8 @@
                    {
                        "image":  "slides/29.webp",
                        "videos":  [
-
-                                  ]
-                   },
-                   {
-                       "image":  "slides/30.webp",
-                       "videos":  [
                                       {
-                                          "src":  "video/media30.mp4",
+                                          "src":  "video/media29.mp4",
                                           "x":  0,
                                           "y":  -0.01026,
                                           "w":  1.00153,
@@ -616,6 +596,12 @@
                                           "muted":  true,
                                           "loop":  true
                                       }
+                                  ]
+                   },
+                   {
+                       "image":  "slides/30.webp",
+                       "videos":  [
+
                                   ]
                    },
                    {
@@ -664,97 +650,169 @@
                        "image":  "slides/38.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Project Commercials"
                    },
                    {
                        "image":  "slides/39.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Project Commercials"
                    },
                    {
                        "image":  "slides/40.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Project Commercials"
                    },
                    {
                        "image":  "slides/41.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Project Commercials"
                    },
                    {
                        "image":  "slides/42.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/43.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/44.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/45.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/46.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/47.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/48.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/49.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/50.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "Detailed Tech"
                    },
                    {
                        "image":  "slides/51.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "FUNDING"
                    },
                    {
                        "image":  "slides/52.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "FUNDING"
                    },
                    {
                        "image":  "slides/53.webp",
                        "videos":  [
 
-                                  ]
+                                  ],
+                       "section":  "FUNDING"
+                   },
+                   {
+                       "image":  "slides/54.webp",
+                       "videos":  [
+
+                                  ],
+                       "section":  "FUNDING"
+                   },
+                   {
+                       "image":  "slides/55.webp",
+                       "videos":  [
+
+                                  ],
+                       "section":  "FUNDING"
+                   },
+                   {
+                       "image":  "slides/56.webp",
+                       "videos":  [
+
+                                  ],
+                       "section":  "FUNDING"
+                   },
+                   {
+                       "image":  "slides/57.webp",
+                       "videos":  [
+
+                                  ],
+                       "section":  "Detection Metrics"
+                   },
+                   {
+                       "image":  "slides/58.webp",
+                       "videos":  [
+
+                                  ],
+                       "section":  "Detection Metrics"
+                   },
+                   {
+                       "image":  "slides/59.webp",
+                       "videos":  [
+                                      {
+                                          "src":  "video/media30.mp4",
+                                          "x":  0.11936,
+                                          "y":  0.22038,
+                                          "w":  0.76128,
+                                          "h":  0.68997,
+                                          "crop":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                          "muted":  false,
+                                          "loop":  false
+                                      }
+                                  ],
+                       "section":  "Detection Metrics"
                    }
                ]
 }
