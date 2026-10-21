@@ -77,6 +77,12 @@ export const demo = {
       body: "Explore a public research field with layered survey data and adaptive visualization.",
     },
     {
+      slug: "multi-sensor-fusion",
+      href: "/demos/sensor-fusion/detection/index.html",
+      label: "Multi-Sensor Fusion",
+      body: "Four modalities, one field.",
+    },
+    {
       slug: "msas",
       href: "/demo/msas",
       label: "MSAS",
