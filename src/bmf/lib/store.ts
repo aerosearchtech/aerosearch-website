@@ -11,6 +11,7 @@ import {
   DEFAULT_START,
   DEFAULT_WEIGHTS,
   EOD_TEAMS,
+  FEED_CHANNELS,
   LANE_FRAME_FRACTION,
   MAX_AIRFRAMES,
   PHASE_LAYER,
@@ -27,6 +28,7 @@ import { generateSurvey } from './survey';
 import type { PayloadCounts } from './surveyRun';
 import { DEFAULT_THEME, PALETTES, THEME_STORAGE_KEY, type Palette, type ThemeName } from './theme';
 import type {
+  FeedMode,
   LogEntry,
   MapLayer,
   Minefield,
@@ -51,6 +53,8 @@ interface GcsState {
   selectedRouteId: string | null;
   hoverMineId: string | null;
   selectedMineId: string | null;
+  /** Live demo: detection open in the channel strip. */
+  liveMineId: string | null;
   preflightOpen: boolean;
   /** Seconds into the survey playback; null when no run is loaded. */
   runS: number | null;
@@ -79,6 +83,9 @@ interface GcsState {
   taskTeams: Record<string, string>;
   /** Bumped whenever the map's cached base layer must be rebuilt. */
   mapEpoch: number;
+  /** Live demo: channel whose camera feed replaces the map; null shows the map. */
+  feedChannel: SensorTag | null;
+  feedMode: FeedMode;
 
   palette: () => Palette;
   toggleTheme: () => void;
@@ -97,6 +104,10 @@ interface GcsState {
   selectRoute: (id: string) => void;
   hoverMine: (id: string | null) => void;
   selectMine: (id: string | null) => void;
+  selectLiveMine: (id: string | null) => void;
+  showFeed: (channel: SensorTag) => void;
+  setFeedMode: (mode: FeedMode) => void;
+  closeFeed: () => void;
   setPreflight: (open: boolean) => void;
   startRun: () => void;
   setRunPlaying: (playing: boolean) => void;
@@ -149,6 +160,7 @@ export const useGcs = create<GcsState>((set, get) => ({
   selectedRouteId: null,
   hoverMineId: null,
   selectedMineId: null,
+  liveMineId: null,
   preflightOpen: false,
   runS: null,
   runPlaying: false,
@@ -170,6 +182,8 @@ export const useGcs = create<GcsState>((set, get) => ({
   taskStates: {},
   taskTeams: {},
   mapEpoch: 0,
+  feedChannel: null,
+  feedMode: 'rgb',
 
   palette: () => PALETTES[get().theme],
 
@@ -262,6 +276,10 @@ export const useGcs = create<GcsState>((set, get) => ({
   selectRoute: (selectedRouteId) => set({ selectedRouteId }),
   hoverMine: (hoverMineId) => set({ hoverMineId }),
   selectMine: (selectedMineId) => set({ selectedMineId }),
+  selectLiveMine: (liveMineId) => set({ liveMineId }),
+  showFeed: (feedChannel) => set({ feedChannel, feedMode: FEED_CHANNELS[feedChannel] ?? 'rgb' }),
+  setFeedMode: (feedMode) => set({ feedMode }),
+  closeFeed: () => set({ feedChannel: null }),
 
   setPreflight: (preflightOpen) => set({ preflightOpen }),
 

@@ -59,6 +59,12 @@ export const demo = {
       body: "A lane through a mapped minefield.",
     },
     {
+      slug: "live-fusion",
+      href: "/demo/live-fusion",
+      label: "Breach Minefield Live",
+      body: "A recorded drone survey: telemetry, RGB and thermal feeds, live mosaic and mine detections.",
+    },
+    {
       slug: "aigarm",
       href: "/demo/aigarm",
       label: "AI Gun Recce Module",

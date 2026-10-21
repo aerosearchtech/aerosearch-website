@@ -5,6 +5,8 @@ export type SensorTag = 'RGB' | 'LIDAR' | 'POL' | 'LWIR' | 'MAG' | 'EMI' | 'GPR'
 export type RouteProfileId = 'safest' | 'balanced' | 'direct';
 export type Severity = 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
 export type MapLayer = 'terrain' | 'hazard' | 'coverage' | 'devices';
+/** The C12's recorded feeds in the live demo. */
+export type FeedMode = 'rgb' | 'thermal' | 'overlay';
 export type FixStatus = 'CONFIRMED' | 'PROBABLE';
 
 /** Operation phases, in the doctrinal order: detect -> breach -> proof. */

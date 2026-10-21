@@ -87,3 +87,16 @@
     opacity: 1;
   }
 }
+
+/* Live demo map imagery credit: collapsed to an ⓘ, a click toggles the full text. */
+.bmf-root .leaflet-control-attribution {
+  cursor: pointer;
+}
+.bmf-root .leaflet-control-attribution.collapsed {
+  font-size: 0;
+  padding: 0 6px;
+}
+.bmf-root .leaflet-control-attribution.collapsed::before {
+  content: 'ⓘ';
+  font-size: 12px;
+}

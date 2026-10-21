@@ -1,4 +1,4 @@
-import type { EodTeam, MapLayer, MineType, Phase, Point, RouteProfileId, SensorTag, Severity, TaskState, Weights } from './types';
+import type { EodTeam, FeedMode, MapLayer, MineType, Phase, Point, RouteProfileId, SensorTag, Severity, TaskState, Weights } from './types';
 
 /** Area of interest and search grid. */
 export const AOI_WIDTH_M = 520;
@@ -349,6 +349,10 @@ export const PROOF_MIN_STANDOFF_M = CLEAR_MARGIN_M;
 export const OPERATION_NAME = 'OP IRON-GATE';
 export const AO_NAME = 'AO RANN-3';
 export const CLASSIFICATION = 'CONFIDENTIAL';
+
+export const FEED_MODES: FeedMode[] = ['rgb', 'thermal', 'overlay'];
+/** Channels flown by the C12 airframe, and the feed each one opens on. */
+export const FEED_CHANNELS: Partial<Record<SensorTag, FeedMode>> = { RGB: 'rgb', LWIR: 'thermal' };
 
 /**
  * How strongly each payload responds to each device class, 0..1.

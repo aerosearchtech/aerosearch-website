@@ -24,7 +24,7 @@ import type {
 /** The inventory is a scrolling list, not a database — cap what we mount. */
 const INVENTORY_LIMIT = 300;
 
-const CONF_BINS = [
+export const CONF_BINS = [
   { key: '80', label: '80–100', lo: 0.8, hi: 1.01 },
   { key: '70', label: '70–79', lo: 0.7, hi: 0.8 },
   { key: '60', label: '60–69', lo: 0.6, hi: 0.7 },
