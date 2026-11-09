@@ -2,11 +2,13 @@
 
 Drives a running grain analyzer (proposals/fci/grain/demo, real model) and
 saves its genuine outputs under public/demos/grain/: meta, one sample per lot
-profile x kernel count, one tray run, every kernel crop they reference, and
-the device-signed record for each officer decision on each sample.
+profile x kernel count, one tray run with its photo, and the device-signed
+record for each officer decision on each sample. Kernel crops are embedded in
+each sample as data URIs: thousands of small files time out GitHub Pages deploys.
 
 Usage: python scripts/record_grain.py TRAY_IMAGE [API_BASE]
 """
+import base64
 import json
 import re
 import sys
@@ -21,10 +23,7 @@ PROFILES = ("good", "borderline", "poor")
 KERNEL_COUNTS = (200, 400, 600)
 DECISIONS = ("ACCEPT", "VALUE_CUT", "REJECT")
 COMMODITY = "rice"
-URL_RULES = (
-    (re.compile(r"^/api/kernel/\w+/(\d+)/(\d)\.jpg$"), r"k/\1_\2.jpg"),
-    (re.compile(r"^/files/[^/]+/([^/]+)$"), r"tray/\1"),
-)
+TRAY_IMAGE = re.compile(r"^/files/[^/]+/(tray\.jpg)$")
 
 
 def call(api: str, path: str, body: bytes | None = None, ctype: str = "application/json") -> bytes:
@@ -47,26 +46,31 @@ def post_image(api: str, image: Path) -> dict:
     return json.loads(call(api, "/api/analyze/image", body, f"multipart/form-data; boundary={boundary}"))
 
 
-def localise(api: str, url: str | None) -> str | None:
-    """Download an asset the result points at and return its static URL."""
+def save_tray_image(api: str, url: str | None) -> str | None:
+    """Download the tray photo and return its static URL."""
     if url is None:
         return None
-    for pattern, target in URL_RULES:
-        if pattern.match(url):
-            rel = pattern.sub(target, url)
-            dest = OUT / rel
-            if not dest.exists():
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                dest.write_bytes(call(api, url))
-            return f"{WEB_ROOT}/{rel}"
-    raise ValueError(f"unrecognised asset URL: {url}")
+    match = TRAY_IMAGE.match(url)
+    if not match:
+        raise ValueError(f"unrecognised tray image URL: {url}")
+    dest = OUT / "tray" / match.group(1)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(call(api, url))
+    return f"{WEB_ROOT}/tray/{match.group(1)}"
+
+
+def inline(api: str, url: str | None) -> str | None:
+    """Fetch a kernel crop and return it as a JPEG data URI."""
+    if url is None:
+        return None
+    return "data:image/jpeg;base64," + base64.b64encode(call(api, url)).decode()
 
 
 def save_sample(api: str, name: str, result: dict) -> None:
-    result["image_url"] = localise(api, result["image_url"])
+    result["image_url"] = save_tray_image(api, result["image_url"])
     for k in result["kernels"]:
-        k["up_url"] = localise(api, k["up_url"])
-        k["down_url"] = localise(api, k["down_url"])
+        k["up_url"] = inline(api, k["up_url"])
+        k["down_url"] = inline(api, k["down_url"])
     result["decisions"] = {
         d: post_json(api, "/api/decision", {"record": result["record"], "decision": d}) for d in DECISIONS
     }
