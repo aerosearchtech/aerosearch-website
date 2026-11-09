@@ -1,0 +1,155 @@
+{
+ "commodities": [
+  {
+   "id": "rice",
+   "label": "Rice (raw)",
+   "available": true,
+   "classes": [
+    {
+     "code": "NOR",
+     "label": "Sound",
+     "refraction": "sound"
+    },
+    {
+     "code": "F&S",
+     "label": "Fusarium / shrivelled",
+     "refraction": "damaged"
+    },
+    {
+     "code": "SD",
+     "label": "Sprouted",
+     "refraction": "damaged"
+    },
+    {
+     "code": "MY",
+     "label": "Moldy",
+     "refraction": "damaged"
+    },
+    {
+     "code": "AP",
+     "label": "Insect / pest damaged",
+     "refraction": "damaged"
+    },
+    {
+     "code": "BN",
+     "label": "Broken",
+     "refraction": "brokens"
+    },
+    {
+     "code": "UN",
+     "label": "Unripe / immature",
+     "refraction": "immature"
+    },
+    {
+     "code": "IM",
+     "label": "Impurity / foreign matter",
+     "refraction": "foreign_matter"
+    }
+   ],
+   "refractions": [
+    {
+     "id": "brokens",
+     "label": "Brokens",
+     "limit_pct": 25.0
+    },
+    {
+     "id": "foreign_matter",
+     "label": "Foreign matter",
+     "limit_pct": 0.5
+    },
+    {
+     "id": "damaged",
+     "label": "Damaged & slightly damaged",
+     "limit_pct": 3.0
+    },
+    {
+     "id": "immature",
+     "label": "Immature / chalky",
+     "limit_pct": 5.0
+    }
+   ],
+   "model": {
+    "arch": "efficientnet_b0, 2-view feature fusion",
+    "views": 2,
+    "test_accuracy": 0.9870967741935484,
+    "test_macro_f1": 0.9776892632435069,
+    "n_test": 3100,
+    "dataset": "GrainSet (Fan et al., 2023)"
+   }
+  },
+  {
+   "id": "wheat",
+   "label": "Wheat",
+   "available": false,
+   "classes": [
+    {
+     "code": "NOR",
+     "label": "Sound",
+     "refraction": "sound"
+    },
+    {
+     "code": "F&S",
+     "label": "Fusarium / shrivelled",
+     "refraction": "shrivelled_broken"
+    },
+    {
+     "code": "SD",
+     "label": "Sprouted",
+     "refraction": "damaged"
+    },
+    {
+     "code": "MY",
+     "label": "Moldy",
+     "refraction": "damaged"
+    },
+    {
+     "code": "AP",
+     "label": "Insect / pest damaged",
+     "refraction": "weevilled"
+    },
+    {
+     "code": "BN",
+     "label": "Broken",
+     "refraction": "shrivelled_broken"
+    },
+    {
+     "code": "BP",
+     "label": "Black point",
+     "refraction": "damaged"
+    },
+    {
+     "code": "IM",
+     "label": "Impurity / foreign matter",
+     "refraction": "foreign_matter"
+    }
+   ],
+   "refractions": [
+    {
+     "id": "foreign_matter",
+     "label": "Foreign matter",
+     "limit_pct": 0.75
+    },
+    {
+     "id": "damaged",
+     "label": "Damaged",
+     "limit_pct": 2.0
+    },
+    {
+     "id": "shrivelled_broken",
+     "label": "Shrivelled & broken",
+     "limit_pct": 6.0
+    },
+    {
+     "id": "weevilled",
+     "label": "Weevilled",
+     "limit_pct": 1.0
+    }
+   ],
+   "model": null
+  }
+ ],
+ "disclaimer": "Demo model trained on the public GrainSet dataset (Fan et al., 2023, CC BY-NC-SA 4.0), not on FCI samples. Refraction mapping and limits are indicative and must be confirmed against the FCI Uniform Specifications for the season.",
+ "device_id": "AERO-GA-DEMO-01",
+ "inference": "CUDA",
+ "recorded_at": "2026-11-09T21:38:18+00:00"
+}

@@ -106,6 +106,18 @@ export const demo = {
       label: "Airborne GPR",
       body: "Buried UXO and mines on a surveyed test range: what drone GPR finds, what it misses, and why.",
     },
+    {
+      slug: "moisture",
+      href: "/demo/moisture",
+      label: "Moisture Node",
+      body: "Grain moisture read off the meter's port, signed on the node, and decided by the officer.",
+    },
+    {
+      slug: "grain",
+      href: "/demo/grain",
+      label: "Grain Analyzer",
+      body: "Recorded runs of the AI grain analyzer: every kernel graded against FCI limits, signed, and decided by the officer.",
+    },
   ],
 } as const;
 

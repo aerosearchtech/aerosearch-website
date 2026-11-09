@@ -4,22 +4,25 @@ type DemoCardProps = {
   readonly label: string;
 };
 
-/** One demo row on the index: number, name, arrow. */
+/** One demo tile on the index: number and name. */
 export default function DemoCard({ index, href, label }: DemoCardProps) {
   return (
-    <a href={href} className="group flex items-center gap-6 py-5">
-      <span className="font-mono text-[11px] uppercase tracking-label text-bone-faint">
-        {String(index).padStart(2, "0")}
-      </span>
-      <span className="display flex-1 text-xl text-bone-muted transition-colors group-hover:text-bone">
-        {label}
-      </span>
-      <span
-        className="text-bone-faint transition-transform group-hover:translate-x-1 group-hover:text-signal"
-        aria-hidden
-      >
-        →
-      </span>
+    <a
+      href={href}
+      className="group flex h-full flex-col gap-4 rounded-lg border border-l-2 border-line border-l-survey/40 bg-soil p-6 transition-colors hover:border-survey/40 hover:border-l-survey hover:bg-ridge"
+    >
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[11px] uppercase tracking-label text-survey">
+          {String(index).padStart(2, "0")}
+        </span>
+        <span
+          className="text-bone-faint transition-transform group-hover:translate-x-1 group-hover:text-survey"
+          aria-hidden
+        >
+          →
+        </span>
+      </div>
+      <h2 className="display text-2xl text-bone">{label}</h2>
     </a>
   );
 }

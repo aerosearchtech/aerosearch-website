@@ -3,7 +3,7 @@ import DemoIndex from "./DemoIndex";
 
 export default function DemoPage() {
   return (
-    <main className="fixed inset-0 bg-night">
+    <main className="fixed inset-0 overflow-y-auto bg-night">
       <DemoGate>
         <DemoIndex />
       </DemoGate>

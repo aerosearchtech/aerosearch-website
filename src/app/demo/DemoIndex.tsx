@@ -11,7 +11,7 @@ export default function DemoIndex() {
 
       <div className="shell py-16 md:py-20">
         <h1 className="display text-3xl text-bone">{demo.title}</h1>
-        <ul className="mt-10 divide-y divide-line border-y border-line">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {demo.items.map((item, i) => (
             <li key={item.slug}>
               <DemoCard index={i + 1} href={item.href} label={item.label} />

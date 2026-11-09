@@ -1,0 +1,396 @@
+/* Moisture Node demo. Colours come from src/moisture/lib/theme.ts (THEME_CSS);
+   fonts are the site's Archivo (--font-sans) and IBM Plex Mono (--font-mono). */
+
+.moist-root {
+  height: 100%;
+  min-width: 1180px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s;
+}
+
+.moist-root *,
+.moist-root *::before,
+.moist-root *::after {
+  box-sizing: border-box;
+}
+
+:where(.moist-root) button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.moist-root button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.moist-root button:focus-visible {
+  outline: 1px solid var(--tx);
+  outline-offset: 2px;
+}
+
+/* Type */
+.m-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.m-num {
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--txHi);
+}
+
+.m-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.m-section {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tx);
+}
+
+.m-meta {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+
+.m-body {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--tx2);
+}
+
+/* Header */
+.m-head {
+  height: 60px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  white-space: nowrap;
+}
+
+.m-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.m-wordmark {
+  display: block;
+  width: 214px;
+  height: 9px;
+  background: var(--tx);
+  -webkit-mask: url('/logos/aerosearch/aerosearch-inline-text.svg') left center / contain no-repeat;
+  mask: url('/logos/aerosearch/aerosearch-inline-text.svg') left center / contain no-repeat;
+}
+
+.m-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--line);
+}
+
+.m-tabs {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+}
+
+.m-tab {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--mute);
+}
+
+.m-tab:hover {
+  color: var(--tx);
+}
+
+.m-tab[aria-pressed='true'] {
+  background: var(--acc);
+  color: var(--onAcc);
+}
+
+.m-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.m-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.m-diamond {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  transform: rotate(45deg);
+  vertical-align: middle;
+}
+
+/* Layout */
+.m-view {
+  flex: 1;
+  display: grid;
+  min-height: 0;
+}
+
+.m-pane {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 30px 32px 28px;
+  border-right: 1px solid var(--line);
+}
+
+.m-pane:last-child {
+  border-right: 0;
+  background: var(--panel);
+}
+
+.m-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.m-push {
+  margin-top: auto;
+}
+
+/* Key/value list */
+.m-kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--lineSoft);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+}
+
+.m-kv > :first-child {
+  color: var(--mute);
+}
+
+/* Stat strip */
+.m-stats {
+  display: grid;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.m-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px;
+  border-left: 1px solid var(--line);
+}
+
+.m-stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+/* Buttons and tags */
+.m-btn {
+  padding: 14px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  border: 1px solid var(--lineStrong);
+  color: var(--tx2);
+}
+
+.m-btn:hover:not(:disabled) {
+  border-color: var(--tx);
+  color: var(--tx);
+}
+
+.m-btn-primary {
+  padding: 14px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  background: var(--acc);
+  color: var(--onAcc);
+}
+
+.m-btn-primary:hover:not(:disabled) {
+  background: var(--txHi);
+}
+
+.m-tag {
+  padding: 7px 11px;
+  border: 1px solid currentColor;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.m-well {
+  padding: 16px 18px;
+  background: var(--well);
+  border: 1px solid var(--lineSoft);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--tx2);
+  word-break: break-all;
+}
+
+/* Bracketed frame: corner ticks on a box */
+.m-frame {
+  position: relative;
+  padding: 18px;
+  border: 1px solid var(--line);
+}
+
+.m-frame::before,
+.m-frame::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+}
+
+.m-frame::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--tx);
+  border-left: 1px solid var(--tx);
+}
+
+.m-frame::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid var(--tx);
+  border-bottom: 1px solid var(--tx);
+}
+
+/* Band scale */
+.m-scale {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2px;
+}
+
+.m-pointer {
+  position: absolute;
+  top: -14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  transition: left 0.4s ease;
+}
+
+.m-pointer::before {
+  content: '';
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid var(--txHi);
+}
+
+.m-pointer::after {
+  content: '';
+  width: 1px;
+  height: 22px;
+  background: var(--txHi);
+}
+
+/* Officer decision */
+.m-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--lineStrong);
+  text-align: left;
+}
+
+.m-option:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.m-option[aria-pressed='true'] {
+  border-color: var(--tx);
+}
+
+.m-key {
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+}
+
+/* HQ */
+.m-event {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+}
+
+.m-map {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--lineSoft);
+}
+
+.m-map .leaflet-container {
+  position: absolute;
+  inset: 0;
+  background: var(--well);
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.m-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
