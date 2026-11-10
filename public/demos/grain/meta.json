@@ -148,7 +148,7 @@
    "model": null
   }
  ],
- "disclaimer": "Demo model trained on the public GrainSet dataset (Fan et al., 2023, CC BY-NC-SA 4.0), not on FCI samples. Refraction mapping and limits are indicative and must be confirmed against the FCI Uniform Specifications for the season.",
+ "disclaimer": "Demo model trained on the public GrainSet dataset.",
  "device_id": "AERO-GA-DEMO-01",
  "inference": "CUDA",
  "recorded_at": "2026-11-09T21:38:18+00:00"

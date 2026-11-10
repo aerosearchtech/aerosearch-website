@@ -1,4 +1,16 @@
-import type { KernelResult } from '../types/analysis';
+import type { KernelResult, RefractionResult } from '../types/analysis';
+
+const plural = (n: number): string => `${n} line${n > 1 ? 's' : ''}`;
+
+/** Whether every line is within limit, and a one-line explanation of the verdict. */
+export function verdictDetail(rows: RefractionResult[]): { within: boolean; detail: string } {
+  const over = rows.filter((r) => r.status === 'over');
+  const near = rows.filter((r) => r.status === 'near');
+  const names = (list: RefractionResult[]): string => list.map((r) => r.label).join(', ');
+  if (over.length) return { within: false, detail: `${plural(over.length)} over limit: ${names(over)}.` };
+  if (near.length) return { within: true, detail: `${plural(near.length)} near limit: ${names(near)}.` };
+  return { within: true, detail: `All ${rows.length} lines within limit.` };
+}
 
 export function classCounts(kernels: KernelResult[]): Record<string, number> {
   return kernels.reduce<Record<string, number>>((acc, k) => {

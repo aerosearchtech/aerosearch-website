@@ -4,18 +4,22 @@ import { KernelInspector } from './components/common/KernelInspector';
 import { AppHeader } from './components/shell/AppHeader';
 import { SideNav } from './components/shell/SideNav';
 import { StatusFooter } from './components/shell/StatusFooter';
-import { DEFAULT_COMMODITY, DEFAULT_KERNELS, META_RETRY_MS, REPORT_DELAY_MS } from './config/constants';
+import { DEFAULT_COMMODITY, DEFAULT_KERNELS, EMPTY_LOT, META_RETRY_MS, REPORT_DELAY_MS } from './config/constants';
 import { useAnalysis } from './hooks/useAnalysis';
 import { useTheme } from './hooks/useTheme';
 import { AnalyseScreen } from './screens/AnalyseScreen';
+import { IntakeScreen } from './screens/IntakeScreen';
+import { OutboxScreen } from './screens/OutboxScreen';
 import { ReportScreen } from './screens/ReportScreen';
-import type { AnalysisMode, Commodity, Decision, KernelResult, LotProfile, Meta, RecordedSample, Screen, SignedRecord } from './types/analysis';
+import type { AnalysisMode, Commodity, Decision, KernelResult, LotDetails, LotProfile, Meta, OutboxEntry, RecordedSample, Screen, SignedRecord } from './types/analysis';
 
 /** The grain analyzer console, replaying runs recorded from the real model. */
 export default function GrainApp() {
   const [theme, setTheme] = useTheme();
   const [meta, setMeta] = useState<Meta | null>(null);
-  const [screen, setScreen] = useState<Screen>('analyse');
+  const [screen, setScreen] = useState<Screen>('intake');
+  const [lot, setLot] = useState<LotDetails>(EMPTY_LOT);
+  const [outbox, setOutbox] = useState<OutboxEntry[]>([]);
   const [mode, setMode] = useState<AnalysisMode>('reference');
   const [commodity, setCommodity] = useState<Commodity>(DEFAULT_COMMODITY);
   const [profile, setProfile] = useState<LotProfile>('good');
@@ -23,7 +27,6 @@ export default function GrainApp() {
   const [filter, setFilter] = useState<string | null>(null);
   const [selected, setSelected] = useState<KernelResult | null>(null);
   const [signed, setSigned] = useState<SignedRecord | null>(null);
-  const [signedCount, setSignedCount] = useState<number>(0);
   const analysis = useAnalysis();
   const { run, result, revealed, status } = analysis;
 
@@ -61,9 +64,10 @@ export default function GrainApp() {
 
   const sign = useCallback(async (decision: Decision): Promise<void> => {
     if (!result) return;
-    setSigned(recordedDecision(result, decision));
-    setSignedCount((n) => n + 1);
-  }, [result]);
+    const record = recordedDecision(result, decision);
+    setSigned(record);
+    setOutbox((list) => [...list, { sampleId: result.sample_id, verdict: result.verdict, lot, result: result.record, decision: record }]);
+  }, [result, lot]);
 
   const pickClass = useCallback((code: string): void => {
     setFilter(code);
@@ -78,11 +82,17 @@ export default function GrainApp() {
   return (
     <div className="grain-root" data-theme={theme}>
       <div className="app">
-        <AppHeader meta={meta} signedCount={signedCount} theme={theme} onTheme={setTheme} />
+        <AppHeader meta={meta} signedCount={outbox.length} theme={theme} onTheme={setTheme} />
         <div className="app-body">
-          <SideNav screen={screen} reportBadge={status === 'done' && signed === null} onScreen={setScreen} />
+          <SideNav
+            screen={screen}
+            badges={{ report: status === 'done' && signed === null ? 1 : 0, outbox: outbox.length }}
+            onScreen={setScreen}
+          />
           <main className="app-main">
-            {screen === 'analyse' ? (
+            {screen === 'intake' && <IntakeScreen lot={lot} onChange={setLot} onContinue={goAnalyse} />}
+            {screen === 'outbox' && <OutboxScreen entries={outbox} />}
+            {screen === 'analyse' && (
               <AnalyseScreen
                 sample={{
                   commodities: meta?.commodities ?? [],
@@ -93,10 +103,13 @@ export default function GrainApp() {
                 }}
                 capture={{ status, mode, result, visible, progress, error: analysis.error, filter, onSelect: setSelected }}
               />
-            ) : (
+            )}
+            {screen === 'report' && (
               <ReportScreen
                 result={result}
                 meta={resultMeta}
+                lot={lot}
+                disclaimer={meta?.disclaimer ?? ''}
                 inProgress={status === 'running' || status === 'streaming'}
                 signed={signed}
                 deviceId={meta?.device_id ?? ''}

@@ -9,6 +9,8 @@ import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "@fontsource/ibm-plex-mono/600.css";
 import "@/grain/grain.css";
+import "@/grain/grain-workflow.css";
+import "@/grain/grain-print.css";
 
 const item = demo.items.find((entry) => entry.slug === "grain")!;
 

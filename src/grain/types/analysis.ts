@@ -4,7 +4,19 @@ export type RefractionStatus = 'ok' | 'near' | 'over';
 export type Verdict = 'ACCEPT' | 'REJECT';
 export type AnalysisMode = 'reference' | 'image';
 export type Decision = 'ACCEPT' | 'VALUE_CUT' | 'REJECT';
-export type Screen = 'analyse' | 'report';
+export type Screen = 'intake' | 'analyse' | 'report' | 'outbox';
+export type PrintKind = 'report' | 'slip';
+export type LbGrade = 'A' | 'COMMON';
+
+/** Lot details typed by the operator at intake. */
+export interface LotDetails {
+  truck: string;
+  stack: string;
+  variety: string;
+  moisture: string;
+  centre: string;
+  officer: string;
+}
 
 export interface GrainClass {
   code: string;
@@ -55,6 +67,8 @@ export interface KernelResult {
   area_mm2: number;
   truth: string | null;
   bbox: [number, number, number, number] | null;
+  /** Length/breadth from the crop images; null if the kernel was cut by the crop edge. */
+  lb: number | null;
 }
 
 export interface RefractionResult {
@@ -92,6 +106,15 @@ export interface AnalysisResult {
 /** A recorded run plus the device-signed record for each officer decision on it. */
 export interface RecordedSample extends AnalysisResult {
   decisions: Record<Decision, SignedRecord>;
+}
+
+/** A signed decision waiting to be pushed to Anna Darpan. */
+export interface OutboxEntry {
+  sampleId: string;
+  verdict: Verdict;
+  lot: LotDetails;
+  result: SignedRecord;
+  decision: SignedRecord;
 }
 
 export interface ReferenceRequest {

@@ -50,6 +50,7 @@ export function KernelInspector({ kernel, classes, onClose }: Props) {
             </>
           )}
           <dt>Mass</dt><dd className="mono">{kernel.mass_mg.toFixed(1)} mg{kernel.down_url ? '' : ' (est.)'}</dd>
+          <dt>L/B</dt><dd className="mono">{kernel.lb?.toFixed(2) ?? 'Not measured (cut by crop edge)'}</dd>
         </dl>
         <div className="prob-list">
           {ranked.map((c) => {

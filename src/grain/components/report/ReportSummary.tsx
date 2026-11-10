@@ -1,25 +1,20 @@
-import { MODE_LABELS } from '../../config/constants';
+import { GRADE_A_LB, MODE_LABELS } from '../../config/constants';
 import type { AnalysisResult, CommodityMeta } from '../../types/analysis';
 import { pct, seconds } from '../../utils/format';
+import type { LbSummary } from '../../utils/grade';
+import { verdictDetail } from '../../utils/refractions';
 import { StatCell } from '../common/StatCell';
 
 interface Props {
   result: AnalysisResult;
   meta: CommodityMeta;
+  lb: LbSummary;
 }
 
-const listNames = (names: string[]): string => names.join(', ');
-
 /** Sample facts on the left, the device's verdict against the schedule on the right. */
-export function ReportSummary({ result, meta }: Props) {
-  const over = result.refractions.filter((r) => r.status === 'over');
-  const near = result.refractions.filter((r) => r.status === 'near');
-  const within = over.length === 0;
+export function ReportSummary({ result, meta, lb }: Props) {
+  const { within, detail } = verdictDetail(result.refractions);
   const isTray = result.mode === 'image';
-
-  let detail = `All ${result.refractions.length} lines within limit.`;
-  if (!within) detail = `${over.length} line${over.length > 1 ? 's' : ''} over limit: ${listNames(over.map((r) => r.label))}.`;
-  else if (near.length) detail = `${near.length} line${near.length > 1 ? 's' : ''} near limit: ${listNames(near.map((r) => r.label))}.`;
 
   return (
     <div className="summary">
@@ -32,6 +27,7 @@ export function ReportSummary({ result, meta }: Props) {
         {result.agreement !== null
           ? <StatCell label="MATCH TO INSPECTOR" value={pct(result.agreement * 100, 1)} />
           : <StatCell label="CLUMPS SKIPPED" value={String(result.skipped_clumps)} />}
+        <StatCell label={`L/B MEDIAN · A ≥ ${GRADE_A_LB}`} value={lb.median?.toFixed(2) ?? '—'} unit={lb.grade ?? undefined} />
       </div>
       <div className={`verdict ${within ? 'is-ok' : 'is-bad'}`}>
         <span className="label">VERDICT AGAINST SCHEDULE</span>

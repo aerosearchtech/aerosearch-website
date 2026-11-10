@@ -31,6 +31,7 @@ const dark = {
   feedGlow: 'rgba(225, 230, 222, 0.18)',
   tagInk: '#0b0d0b',
   overlay: 'rgba(5, 6, 5, 0.8)',
+  paper: '#ffffff',
 };
 
 export type Palette = Record<keyof typeof dark, string>;
