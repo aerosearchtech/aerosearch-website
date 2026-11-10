@@ -34,7 +34,7 @@ export function SamplePanel(props: Props) {
   const locked = busy || !selected?.available;
 
   const actions = (): ReactElement => {
-    if (status === 'running') return <button type="button" className="btn-start" disabled>LOADING…</button>;
+    if (status === 'running') return <button type="button" className="btn-start" disabled>PROCESSING…</button>;
     if (status === 'streaming') {
       return (
         <button type="button" className="btn-start is-outline" onClick={props.onSkip}>
@@ -43,7 +43,7 @@ export function SamplePanel(props: Props) {
       );
     }
     const onStart = mode === 'reference' ? props.onRunReference : props.onRunTray;
-    return <button type="button" className="btn-start" onClick={onStart} disabled={locked}>PLAY RECORDING <span>▸</span></button>;
+    return <button type="button" className="btn-start" onClick={onStart} disabled={locked}>START ANALYSIS <span>▸</span></button>;
   };
 
   return (
