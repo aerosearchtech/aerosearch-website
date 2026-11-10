@@ -59,7 +59,6 @@ export function CapturePanel({ status, mode, result, visible, progress, error, f
           {status === 'idle' && (
             <div className="empty">
               <span className="label">AWAITING SAMPLE</span>
-              <div className="empty-title">Choose a lot or a tray photo, then start the analysis.</div>
             </div>
           )}
           {showResult && (result.mode === 'image' && result.image_url && result.image_size ? (

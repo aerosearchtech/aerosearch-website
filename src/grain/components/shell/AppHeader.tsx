@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Logo from '@/components/ui/Logo';
-import { APP_TITLE, ORG_NAME, TIME_ZONE_LABEL } from '../../config/constants';
+import { PRODUCT_NAME, TIME_ZONE_LABEL } from '../../config/constants';
 import type { ThemeMode } from '../../theme/colors';
 import type { Meta } from '../../types/analysis';
 import { clock, dateLabel } from '../../utils/format';
@@ -30,12 +30,11 @@ export function AppHeader({ meta, signedCount, theme, onTheme }: Props) {
         <Logo />
       </div>
       <div className="brand">
-        <div className="brand-title">{ORG_NAME} <span>{APP_TITLE}</span></div>
-        <div className="brand-sub">UNIT {meta?.device_id ?? '—'} · RECORDED {meta ? dateLabel(new Date(meta.recorded_at)) : '—'}</div>
+        <div className="brand-title">{PRODUCT_NAME}</div>
+        <div className="brand-sub">UNIT {meta?.device_id ?? '—'}</div>
       </div>
       <div className="chips">
         <span className={`chip ${meta ? 'is-warn' : 'is-bad'}`}><i />{meta ? 'RECORDED REPLAY' : 'RECORDING NOT LOADED'}</span>
-        {meta && <span className="chip">RECORDED ON <b>{meta.inference}</b></span>}
         {model && <span className="chip">MODEL <b>{model.arch.split(',')[0].toUpperCase()}</b></span>}
         <span className="chip">SIGNED <b>{signedCount}</b></span>
       </div>

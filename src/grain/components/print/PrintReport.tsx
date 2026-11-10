@@ -1,5 +1,5 @@
 import Logo from '@/components/ui/Logo';
-import { APP_TITLE, GRADE_A_LB, MODE_LABELS, ORG_NAME, STATUS_LABELS } from '../../config/constants';
+import { GRADE_A_LB, MODE_LABELS, PRODUCT_NAME, STATUS_LABELS } from '../../config/constants';
 import { pct } from '../../utils/format';
 import { classCounts, verdictDetail } from '../../utils/refractions';
 import { decisionText, lotRows, stamp, type PrintData } from './printData';
@@ -16,7 +16,7 @@ export function PrintReport({ result, meta, lot, lb, signed, deviceId, disclaime
       <header className="pr-head">
         <Logo className="pr-logo" />
         <div>
-          <div className="pr-brand">{ORG_NAME} {APP_TITLE}</div>
+          <div className="pr-brand">{PRODUCT_NAME}</div>
           <h1>Grain Quality Report</h1>
         </div>
         <dl className="pr-meta">

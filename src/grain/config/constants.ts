@@ -3,8 +3,7 @@ import type { AnalysisMode, Commodity, Decision, LotDetails, LotProfile, PrintKi
 /** Recorded runs of the real analyzer, written by scripts/record_grain.py. */
 export const REPLAY_ROOT = '/demos/grain';
 
-export const ORG_NAME = 'AEROSEARCH';
-export const APP_TITLE = 'AUTO GRAIN ANALYZER';
+export const PRODUCT_NAME = 'AERO GRAINALYZER';
 export const TIME_ZONE = 'Asia/Kolkata';
 export const TIME_ZONE_LABEL = 'IST';
 export const THEME_STORAGE_KEY = 'grain-replay-theme';
@@ -45,16 +44,15 @@ export const INTAKE_FIELDS: { id: keyof LotDetails; label: string; hint: string;
 
 export const EMPTY_LOT: LotDetails = { truck: '', stack: '', variety: '', moisture: '', centre: '', officer: '' };
 export const INTAKE_MAX_CHARS = 40;
-export const INTAKE_NOTE =
-  'Lot details are printed on the report and slip and queued with the record. In this replay they are not part of the device-signed result, which was signed when the sample was recorded.';
 
 /** Rice of length/breadth at or above this is Grade A; below it is Common. */
 export const GRADE_A_LB = 2.5;
 /** Kernels feeding this refraction are excluded from the L/B median. */
 export const BROKEN_REFRACTION = 'brokens';
 
-export const OUTBOX_NOTE =
-  'Awaiting Anna Darpan test credentials from FCI. Signed records are held on the device and pushed once the link is set up.';
+export const OUTBOX_NOTE = 'Awaiting FCI test credentials.';
+/** Official FCI logo from fci.gov.in, one per theme. Anna Darpan publishes no logo of its own. */
+export const FCI_LOGO = { light: `${REPLAY_ROOT}/fci-logo.svg`, dark: `${REPLAY_ROOT}/fci-logo-white.svg`, alt: 'Food Corporation of India', width: 308, height: 72 };
 export const PRINT_FILE_PREFIX = 'Aerosearch-grain';
 /** @page rules per print document: A4 report, 80 mm thermal slip. */
 export const PRINT_PAGE_CSS: Record<PrintKind, string> = {
@@ -62,10 +60,6 @@ export const PRINT_PAGE_CSS: Record<PrintKind, string> = {
   slip: 'size: 80mm 220mm; margin: 3mm;',
 };
 export const SLIP_SIGNATURE_CHARS = 16;
-
-/** The recorded tray is assembled from dataset crops, so it must not pass for a camera photo. */
-export const TRAY_NOTE =
-  'Recorded tray: GrainSet kernel images laid out on a black background, not a camera photo. The real analyzer found, cropped and graded each kernel. Camera capture and photo upload need the live analyzer.';
 
 export const MODE_LABELS: Record<AnalysisMode, string> = { reference: 'Reference lot', image: 'Tray photo' };
 
@@ -75,7 +69,7 @@ export const PIPELINE_STAGES: Record<AnalysisMode, string> = {
 };
 
 export const CAPTURE_LABELS: Record<AnalysisMode, string> = {
-  reference: 'REFERENCE LOT · 2 VIEWS PER KERNEL · HELD-OUT TEST SET',
+  reference: 'REFERENCE LOT · 2 VIEWS',
   image: 'TRAY PHOTO · 1 VIEW PER KERNEL',
 };
 

@@ -1,7 +1,9 @@
 /* INTAKE and ANNA DARPAN screens, lot strip and report downloads. Scoped to .grain-root. */
 
 /* ---------- intake ---------- */
-.grain-root .intake-screen { max-width: 760px; padding: 12px; }
+.grain-root .intake-screen { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 12px; align-items: start; padding: 12px; }
+.grain-root .intake-main, .grain-root .intake-side { min-width: 0; }
+@media (max-width: 900px) { .grain-root .intake-screen { grid-template-columns: 1fr; } }
 .grain-root .intake-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px 18px; }
 .grain-root .intake-field { display: flex; flex-direction: column; gap: 8px; }
 .grain-root .intake-field input {
@@ -10,9 +12,20 @@
 }
 .grain-root .intake-field input::placeholder { color: var(--text-3); font-family: 'Barlow Semi Condensed', sans-serif; }
 .grain-root .intake-field input:focus { outline: none; border-color: var(--accent); }
-.grain-root .intake-body .note-text { grid-column: 1 / -1; font-size: 13px; color: var(--text-3); }
 .grain-root .intake-actions { display: flex; align-items: center; gap: 12px; padding: 12px 14px 14px; border-top: 1px solid var(--line); }
 .grain-root .intake-actions .btn-start { flex: 1; }
+
+/* ---------- slip preview ---------- */
+.grain-root .slip-preview { padding: 16px; background: var(--panel-2); }
+.grain-root .slip-paper {
+  display: flex; flex-direction: column; gap: 7px; padding: 14px; background: var(--paper); color: var(--tag-ink);
+  font: 500 12.5px/1.35 'IBM Plex Mono', monospace; border: 1px solid var(--line-2);
+}
+.grain-root .slip-center { text-align: center; }
+.grain-root .slip-row { display: flex; justify-content: space-between; gap: 12px; }
+.grain-root .slip-row span:last-child { text-align: right; overflow-wrap: anywhere; }
+.grain-root .slip-cut { border-top: 1px dashed currentColor; opacity: 0.5; margin: 4px 0; }
+.grain-root .slip-muted { opacity: 0.6; }
 
 /* ---------- lot strip (report) ---------- */
 .grain-root .lot-strip { display: flex; flex-wrap: wrap; margin: 0; border-bottom: 1px solid var(--line); background: var(--panel-2); }
@@ -42,4 +55,10 @@
 .grain-root .outbox-head { min-height: 34px; font: 600 10.5px/1 'IBM Plex Mono', monospace; letter-spacing: 0.12em; color: var(--text-3); }
 .grain-root .outbox-status { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: 0.08em; color: var(--warn); }
 .grain-root .outbox-empty { padding: 18px 14px; border-bottom: 1px solid var(--line); }
-.grain-root .outbox-screen .panel-body.note-text { font-size: 13px; color: var(--text-3); }
+.grain-root .sync-header { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; padding: 16px 14px; border-bottom: 1px solid var(--line); }
+.grain-root .sync-logo { height: 44px; width: auto; }
+.grain-root[data-theme='dark'] .sync-logo.is-light, .grain-root[data-theme='light'] .sync-logo.is-dark { display: none; }
+.grain-root .sync-title { flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px; }
+.grain-root .sync-title strong { font: 600 16px/1 'IBM Plex Mono', monospace; letter-spacing: 0.1em; }
+.grain-root .sync-title .note-text { font-size: 13px; color: var(--text-3); }
+.grain-root .sync-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); border-bottom: 1px solid var(--line); }

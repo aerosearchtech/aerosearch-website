@@ -90,8 +90,8 @@ export default function GrainApp() {
             onScreen={setScreen}
           />
           <main className="app-main">
-            {screen === 'intake' && <IntakeScreen lot={lot} onChange={setLot} onContinue={goAnalyse} />}
-            {screen === 'outbox' && <OutboxScreen entries={outbox} />}
+            {screen === 'intake' && <IntakeScreen lot={lot} deviceId={meta?.device_id ?? '—'} onChange={setLot} onContinue={goAnalyse} />}
+            {screen === 'outbox' && <OutboxScreen entries={outbox} deviceId={meta?.device_id ?? '—'} />}
             {screen === 'analyse' && (
               <AnalyseScreen
                 sample={{

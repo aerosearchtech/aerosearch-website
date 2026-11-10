@@ -1,20 +1,25 @@
 import { Panel } from '../components/common/Panel';
+import { SyncHeader } from '../components/outbox/SyncHeader';
+import { SyncTiles } from '../components/outbox/SyncTiles';
 import { decisionText } from '../components/print/printData';
-import { OUTBOX_NOTE, PRINT_FILE_PREFIX } from '../config/constants';
+import { PRINT_FILE_PREFIX } from '../config/constants';
 import type { OutboxEntry } from '../types/analysis';
 import { downloadJson } from '../utils/download';
 
 interface Props {
   entries: OutboxEntry[];
+  deviceId: string;
 }
 
 const lotLabel = (e: OutboxEntry): string => [e.lot.truck, e.lot.stack].filter((s) => s.trim()).join(' · ') || '—';
 
 /** Signed records queued for Anna Darpan. The link is not set up, so nothing is sent. */
-export function OutboxScreen({ entries }: Props) {
+export function OutboxScreen({ entries, deviceId }: Props) {
   return (
     <div className="outbox-screen">
-      <Panel num="07" title="ANNA DARPAN OUTBOX" aside={<span className="outbox-state"><i />NOT CONNECTED</span>}>
+      <Panel num="04" title="ANNA DARPAN OUTBOX">
+        <SyncHeader deviceId={deviceId} />
+        <SyncTiles entries={entries} />
         <div className="outbox-table-wrap">
           <div className="outbox-table">
             <div className="outbox-row outbox-head">
@@ -39,7 +44,6 @@ export function OutboxScreen({ entries }: Props) {
             ))}
           </div>
         </div>
-        <p className="panel-body note-text">{OUTBOX_NOTE}</p>
       </Panel>
     </div>
   );

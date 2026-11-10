@@ -15,7 +15,6 @@ export function TelemetryRow({ result, visible }: Props) {
   const defects = visible.filter((k) => k.pred !== 'NOR').length;
   const isTray = result?.mode === 'image';
   const matched = visible.filter((k) => k.truth === k.pred).length;
-  const passS = result ? result.duration_ms / 1000 : 0;
 
   return (
     <div className="telemetry">
@@ -27,8 +26,6 @@ export function TelemetryRow({ result, visible }: Props) {
       ) : (
         <StatCell label="MATCH TO INSPECTOR" value={n ? ((matched / n) * 100).toFixed(1) : DASH} unit={n ? '%' : undefined} />
       )}
-      <StatCell label="PASS TIME" value={result ? passS.toFixed(2) : DASH} unit={result ? 's' : undefined} />
-      <StatCell label="THROUGHPUT" value={result && passS ? Math.round(result.kernels.length / passS).toLocaleString('en-IN') : DASH} unit={result ? 'k/s' : undefined} />
     </div>
   );
 }

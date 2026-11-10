@@ -1,6 +1,6 @@
 import { GRADE_A_LB, MODE_LABELS } from '../../config/constants';
 import type { AnalysisResult, CommodityMeta } from '../../types/analysis';
-import { pct, seconds } from '../../utils/format';
+import { pct } from '../../utils/format';
 import type { LbSummary } from '../../utils/grade';
 import { verdictDetail } from '../../utils/refractions';
 import { StatCell } from '../common/StatCell';
@@ -23,7 +23,6 @@ export function ReportSummary({ result, meta, lb }: Props) {
         <StatCell label="INPUT" value={MODE_LABELS[result.mode]} />
         <StatCell label={isTray ? 'EST. MASS' : 'MASS'} value={result.total_mass_g.toFixed(2)} unit="g" />
         <StatCell label="KERNELS" value={result.kernels.length.toLocaleString('en-IN')} />
-        <StatCell label="PASS TIME" value={seconds(result.duration_ms)} />
         {result.agreement !== null
           ? <StatCell label="MATCH TO INSPECTOR" value={pct(result.agreement * 100, 1)} />
           : <StatCell label="CLUMPS SKIPPED" value={String(result.skipped_clumps)} />}

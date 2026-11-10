@@ -54,7 +54,7 @@ export function DecisionPanel({ createdAt, signed, onSign, onNext }: Props) {
         </button>
         {error && <div className="alert">{error}</div>}
         {decided && <button type="button" className="btn-start" onClick={onNext}>NEXT SAMPLE <span>▸</span></button>}
-        <p className="note-text">The device reports. The authorised officer decides. Signing binds the decision to the device-signed result.</p>
+        <p className="note-text">The device reports. The officer decides.</p>
       </div>
     </Panel>
   );

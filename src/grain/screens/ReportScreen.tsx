@@ -58,11 +58,6 @@ export function ReportScreen({ result, meta, lot, disclaimer, inProgress, signed
         <LotStrip lot={lot} />
         <ReportSummary result={result} meta={meta} lb={lb} />
         <RefractionTable rows={result.refractions} basis={basis} />
-        <p className="panel-body note-text">
-          Results are percent of sample weight against the FCI maximum. {result.mode === 'image'
-            ? 'Tray photos estimate each kernel’s weight from its area.'
-            : 'Reference lots use each kernel’s measured weight; both faces of every kernel are classified together.'} The mapping of model classes to refraction lines is indicative.
-        </p>
         <ClassBreakdown classes={meta.classes} refractions={meta.refractions} counts={classCounts(result.kernels)} total={result.kernels.length} onPick={onPickClass} />
       </Panel>
       <aside className="report-side">

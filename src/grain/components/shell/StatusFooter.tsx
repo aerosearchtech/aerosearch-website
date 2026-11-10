@@ -21,7 +21,6 @@ export function StatusFooter({ model }: Props) {
         )}
         <span>LIMITS <b>INDICATIVE</b></span>
       </div>
-      <div>RECORDED ON THE ANALYZER · REPLAYED IN THIS BROWSER · DEMO SIGNING KEY</div>
     </footer>
   );
 }

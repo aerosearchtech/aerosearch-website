@@ -1,4 +1,4 @@
-import { ORG_NAME, SLIP_SIGNATURE_CHARS, STATUS_LABELS } from '../../config/constants';
+import { PRODUCT_NAME, SLIP_SIGNATURE_CHARS, STATUS_LABELS } from '../../config/constants';
 import { pct } from '../../utils/format';
 import { verdictDetail } from '../../utils/refractions';
 import { decisionText, lotRows, stamp, type PrintData } from './printData';
@@ -10,7 +10,7 @@ export function PrintSlip({ result, meta, lot, lb, signed, deviceId }: PrintData
 
   return (
     <article className="ps">
-      <div className="ps-center"><strong>{ORG_NAME}</strong><br />GRAIN QUALITY SLIP</div>
+      <div className="ps-center"><strong>{PRODUCT_NAME}</strong><br />GRAIN QUALITY SLIP</div>
       <hr />
       <div className="ps-row"><span>Sample</span><span>{result.sample_id}</span></div>
       <div className="ps-row"><span>Date</span><span>{stamp(result.created_at)}</span></div>

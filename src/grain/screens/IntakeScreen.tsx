@@ -1,18 +1,20 @@
 import { Panel } from '../components/common/Panel';
-import { EMPTY_LOT, INTAKE_FIELDS, INTAKE_MAX_CHARS, INTAKE_NOTE } from '../config/constants';
+import { SlipPreview } from '../components/intake/SlipPreview';
+import { EMPTY_LOT, INTAKE_FIELDS, INTAKE_MAX_CHARS } from '../config/constants';
 import type { LotDetails } from '../types/analysis';
 
 interface Props {
   lot: LotDetails;
+  deviceId: string;
   onChange: (lot: LotDetails) => void;
   onContinue: () => void;
 }
 
 /** Lot and consignment details, entered before the sample is analysed. */
-export function IntakeScreen({ lot, onChange, onContinue }: Props) {
+export function IntakeScreen({ lot, deviceId, onChange, onContinue }: Props) {
   return (
     <div className="intake-screen">
-      <Panel num="00" title="LOT INTAKE" aside="ENTERED BY OPERATOR">
+      <Panel num="00" title="LOT INTAKE" aside="ENTERED BY OPERATOR" className="intake-main">
         <div className="panel-body intake-body">
           {INTAKE_FIELDS.map((f) => (
             <label key={f.id} className="intake-field">
@@ -28,12 +30,14 @@ export function IntakeScreen({ lot, onChange, onContinue }: Props) {
               />
             </label>
           ))}
-          <p className="note-text">{INTAKE_NOTE}</p>
         </div>
         <div className="intake-actions">
           <button type="button" className="btn-mini" onClick={() => onChange(EMPTY_LOT)}>CLEAR</button>
           <button type="button" className="btn-start" onClick={onContinue}>CONTINUE TO ANALYSE <span>▸</span></button>
         </div>
+      </Panel>
+      <Panel num="00" title="SLIP PREVIEW" className="intake-side">
+        <SlipPreview lot={lot} deviceId={deviceId} />
       </Panel>
     </div>
   );

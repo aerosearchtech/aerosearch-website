@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { KERNEL_OPTIONS, MODE_LABELS, PROFILE_OPTIONS, TRAY_NOTE } from '../../config/constants';
+import { KERNEL_OPTIONS, MODE_LABELS, PROFILE_OPTIONS } from '../../config/constants';
 import type { AnalysisStatus } from '../../hooks/useAnalysis';
 import type { AnalysisMode, Commodity, CommodityMeta, LotProfile } from '../../types/analysis';
 import { pct } from '../../utils/format';
@@ -47,7 +47,7 @@ export function SamplePanel(props: Props) {
   };
 
   return (
-    <Panel num="01" title="SAMPLE" aside="RECORDED" className="sample-panel">
+    <Panel num="01" title="SAMPLE" className="sample-panel">
       <div className="panel-body sample-body">
         <span className="label">COMMODITY</span>
         <div className="commodity-grid">
@@ -68,7 +68,7 @@ export function SamplePanel(props: Props) {
         <span className="label">INPUT</span>
         <Segmented options={MODES.map((m) => ({ id: m, label: MODE_LABELS[m] }))} value={mode} onChange={props.onMode} disabled={busy} />
 
-        {mode === 'reference' ? (
+        {mode === 'reference' && (
           <>
             <span className="label">LOT QUALITY</span>
             <div className="profile-list">
@@ -82,8 +82,6 @@ export function SamplePanel(props: Props) {
             <span className="label">KERNELS PER SAMPLE</span>
             <Segmented options={KERNEL_OPTIONS.map((n) => ({ id: n, label: String(n) }))} value={kernels} onChange={props.onKernels} disabled={busy} />
           </>
-        ) : (
-          <p className="note-text">{TRAY_NOTE}</p>
         )}
 
         {model && (
